@@ -28,3 +28,5 @@ pytest>=7.4.0
 flask>=3.0.0
 gunicorn>=21.2.0
 werkzeug>=3.0.0
+
+flask-cors>=3.0.10
