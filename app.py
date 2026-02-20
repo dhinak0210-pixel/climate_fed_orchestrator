@@ -31,17 +31,14 @@ EXPERIMENT_DATA = None
 METRICS_DATA = None
 
 def load_experiment_data():
-    """Load experiment results from JSON."""
+    """Load experiment results from JSON and normalize for templates."""
     global EXPERIMENT_DATA, METRICS_DATA
     try:
-        metrics_path = Path('results/metrics.json') # Check logical path relative to app root
-        # If running on Render, maybe path is different? Usually app root.
-        # Check if file exists
+        metrics_path = Path('results/metrics.json')
         if not metrics_path.exists():
-             # Fallback to search in known locations if structure varies
              potential_paths = [
                  Path('results/metrics.json'),
-                 Path('../results/metrics.json'),
+                 Path('climate_fed_orchestrator/results/metrics.json'),
                  Path('metrics.json')
              ]
              for p in potential_paths:
@@ -51,8 +48,33 @@ def load_experiment_data():
         
         if metrics_path.exists():
             with open(metrics_path) as f:
-                METRICS_DATA = json.load(f)
-            logger.info(f"Loaded metrics: {metrics_path}")
+                raw_data = json.load(f)
+            
+            # Normalize structure for the Jinja2 templates (index.html)
+            if 'convergence' not in raw_data:
+                normalized = {
+                    "metadata": {
+                        "experiment_id": raw_data.get("experiment_id", "prod_001"),
+                        "timestamp": datetime.now().isoformat(),
+                        "status": "production"
+                    },
+                    "convergence": {
+                        "final_accuracy": raw_data.get("final_accuracy", 0.0) / 100.0 if raw_data.get("final_accuracy", 0) > 1 else raw_data.get("final_accuracy", 0.0),
+                    },
+                    "carbon": {
+                        "reduction_percentage": raw_data.get("carbon_reduction_percent", 0.0),
+                        "total_carbon_kg": raw_data.get("total_carbon_kg", 0.0)
+                    },
+                    "privacy": {
+                        "epsilon_consumed": raw_data.get("privacy_epsilon", 0.0),
+                        "target_epsilon": 2.0
+                    }
+                }
+                METRICS_DATA = normalized
+            else:
+                METRICS_DATA = raw_data
+                
+            logger.info(f"Loaded normalized metrics: {metrics_path}")
         else:
             logger.warning("metrics.json not found, using demo data")
             METRICS_DATA = generate_demo_data()
