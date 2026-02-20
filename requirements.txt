@@ -1,22 +1,24 @@
-# Core
-streamlit==1.28.0
-plotly==5.18.0
-pandas==2.0.3
-numpy==1.24.3
+--extra-index-url https://download.pytorch.org/whl/cpu
 
-# ML
-torch==2.1.0
-torchvision==0.16.0
-opacus==1.4.0
+# Core
+streamlit>=1.28.0
+plotly>=5.18.0
+pandas>=2.0.0
+numpy>=1.24.0
+
+# ML (CPU-only versions for faster/reliable deploy)
+torch>=2.1.0; platform_system != "Windows"
+torchvision>=0.16.0; platform_system != "Windows"
+opacus>=1.4.0
 
 # HTTP
-requests==2.31.0
-aiohttp==3.9.1
+requests>=2.31.0
+aiohttp>=3.9.1
 
 # Config
-PyYAML==6.0.1
-python-dotenv==1.0.0
+PyYAML>=6.0.0
+python-dotenv>=1.0.0
 
 # Utils
-Pillow==10.1.0
-psutil==5.9.5
+Pillow>=10.1.0
+psutil>=5.0.0
