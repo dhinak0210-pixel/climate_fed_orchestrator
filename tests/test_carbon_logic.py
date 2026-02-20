@@ -13,10 +13,10 @@ Coverage:
 import unittest
 import torch
 import numpy as np
-from climate_fed_orchestrator.core.carbon_engine import RenewableOracle, NodeGeography
-from climate_fed_orchestrator.core.energy_accountant import CarbonLedger
-from climate_fed_orchestrator.core.federated_node import CarbonAwareNode
-from climate_fed_orchestrator.models.mnist_cnn import EcoCNN
+from core.carbon_engine import RenewableOracle, NodeGeography
+from core.energy_accountant import CarbonLedger
+from core.federated_node import CarbonAwareNode
+from models.mnist_cnn import EcoCNN
 from torch.utils.data import DataLoader, TensorDataset
 
 

@@ -19,7 +19,7 @@ import torch
 import numpy as np
 from typing import Dict
 
-from climate_fed_orchestrator.core.dp_sgd import (
+from core.dp_sgd import (
     _compute_eps_rdp,
     calibrate_noise_multiplier,
     clip_per_sample_gradients,
@@ -27,7 +27,7 @@ from climate_fed_orchestrator.core.dp_sgd import (
     PrivacyLedger,
     PrivacyBudgetEntry,
 )
-from climate_fed_orchestrator.core.privacy_engine import (
+from core.privacy_engine import (
     PrivacyEngine,
     PrivacyConfig,
     PrivacyCoordinator,
