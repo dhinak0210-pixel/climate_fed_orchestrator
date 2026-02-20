@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: climate-fed-orchestrator
+    runtime: python
+    plan: free
+    repo: https://github.com/dhinak0210/climate_fed_orchestrator.git
+    branch: main
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn wsgi:app --bind 0.0.0.0:$PORT --workers 2 --threads 2 --timeout 120"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.0
+      - key: FLASK_ENV
+        value: production
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ELECTRICITY_MAPS_API_KEY
+        sync: false  # Set in dashboard
+      - key: WATTTIME_USERNAME
+        sync: false
+      - key: WATTTIME_PASSWORD
+        sync: false
+      - key: TARGET_EPSILON
+        value: 2.0
+      - key: TARGET_DELTA
+        value: 1e-5
+      - key: CARBON_THRESHOLD
+        value: 0.6
+      - key: ROUNDS
+        value: 10
+    healthCheckPath: /health
+    autoDeploy: true
