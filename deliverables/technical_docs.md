@@ -26,7 +26,7 @@ python main.py --use-apis true
 
 ### 2. API Reference
 
-#### Core Components (`climate_fed_orchestrator.core`)
+#### Core Components (`core`)
 
 ##### `RenewableOracle`
 Queries carbon APIs to assign renewable scores.
@@ -59,7 +59,7 @@ Manages differential privacy budget.
 | `get_noise_multiplier` | `(epsilon: float, delta: float, ...)` | `float` | O(1) |
 | `check_budget` | `(steps: int)` | `bool` | O(1) |
 
-##### `CarbonLedger` (`climate_fed_orchestrator.utils`)
+##### `CarbonLedger` (`utils`)
 Tracks emissions for ESG reporting.
 
 | Method | Signature | Returns | Complexity |

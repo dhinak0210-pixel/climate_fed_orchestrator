@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 WORKDIR /app
 
 # Copy requirements first for better caching
-COPY climate_fed_orchestrator/requirements.txt .
+COPY requirements.txt .
 
 # Install PyTorch CPU-only first (200MB vs 915MB full bundle)
 RUN pip install --no-cache-dir --default-timeout=1000 --retries 5 \
@@ -28,10 +28,10 @@ RUN pip install --no-cache-dir --default-timeout=1000 --retries 5 \
     numpy>=1.24.0 matplotlib>=3.7.0 seaborn>=0.12.0 PyYAML>=6.0 tqdm>=4.64.0 aiohttp python-dotenv
 
 # Copy source code
-COPY climate_fed_orchestrator/ ./climate_fed_orchestrator/
+COPY . .
 
 # ── Environment Configuration ────────────────────────────────────
-ENV PYTHONPATH="/app:${PYTHONPATH}"
+ENV PYTHONPATH="/app"
 ENV PYTHONUNBUFFERED=1
 
 # Create results directory
@@ -39,5 +39,5 @@ RUN mkdir -p /app/results
 
 # ── Default Execution ────────────────────────────────────────────
 # Default command runs a full comparison experiment
-ENTRYPOINT ["python3", "-m", "climate_fed_orchestrator.main"]
+ENTRYPOINT ["python3", "main.py"]
 CMD ["--mode", "full", "--rounds", "10", "--viz", "--out", "/app/results"]
