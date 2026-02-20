@@ -29,7 +29,7 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
 
-from climate_fed_orchestrator.core.federated_node import NodeResult
+from core.federated_node import NodeResult
 
 log = logging.getLogger("climate_fed.server")
 

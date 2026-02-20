@@ -40,7 +40,7 @@ from typing import Dict, List, Optional, Tuple
 import torch
 from torch import Tensor
 
-from climate_fed_orchestrator.core.dp_sgd import (
+from core.dp_sgd import (
     _compute_eps_rdp,
     calibrate_noise_multiplier,
     clip_per_sample_gradients,

@@ -8,8 +8,8 @@ import json
 _HERE = Path(__file__).parent
 sys.path.insert(0, str(_HERE.parent))
 
-from climate_fed_orchestrator.core.carbon_engine import NodeGeography, RenewableOracle
-from climate_fed_orchestrator.core.privacy_engine import PrivacyEngine, PrivacyConfig
+from core.carbon_engine import NodeGeography, RenewableOracle
+from core.privacy_engine import PrivacyEngine, PrivacyConfig
 
 
 def test_edge_cases():
@@ -48,7 +48,7 @@ def test_edge_cases():
     print(f"Privacy budget exhausted: {engine.budget_exhausted} (spent {eps:.4f})")
 
     # Case 4: Non-IID Skewed Partitioning
-    from climate_fed_orchestrator.data.mnist_partitioner import MNISTPartitioner
+    from data.mnist_partitioner import MNISTPartitioner
     from torchvision import datasets, transforms
 
     tf = transforms.Compose([transforms.ToTensor()])

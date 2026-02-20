@@ -24,7 +24,7 @@ import matplotlib.animation as animation
 import numpy as np
 import torch
 
-from climate_fed_orchestrator.visualization.carbon_dashboard import (
+from visualization.carbon_dashboard import (
     ExperimentRecord,
     ARM_COLORS,
     CARBON_BLACK,

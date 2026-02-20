@@ -40,19 +40,19 @@ from torchvision import datasets, transforms
 _HERE = Path(__file__).parent
 sys.path.insert(0, str(_HERE.parent))
 
-from climate_fed_orchestrator.core.carbon_engine import NodeGeography, RenewableOracle
-from climate_fed_orchestrator.core.energy_accountant import CarbonLedger, ImpactReport
-from climate_fed_orchestrator.core.federated_node import CarbonAwareNode
-from climate_fed_orchestrator.core.aggregation_server import CarbonAwareAggregator
-from climate_fed_orchestrator.data.mnist_partitioner import MNISTPartitioner
-from climate_fed_orchestrator.models.mnist_cnn import EcoCNN
-from climate_fed_orchestrator.simulation.renewable_grid import build_node_geographies
-from climate_fed_orchestrator.visualization.carbon_dashboard import (
+from core.carbon_engine import NodeGeography, RenewableOracle
+from core.energy_accountant import CarbonLedger, ImpactReport
+from core.federated_node import CarbonAwareNode
+from core.aggregation_server import CarbonAwareAggregator
+from data.mnist_partitioner import MNISTPartitioner
+from models.mnist_cnn import EcoCNN
+from simulation.renewable_grid import build_node_geographies
+from visualization.carbon_dashboard import (
     ExperimentRecord,
     render_carbon_observatory,
 )
-from climate_fed_orchestrator.visualization.animated_training import TrainingCinema
-from climate_fed_orchestrator.visualization.report_generator import (
+from visualization.animated_training import TrainingCinema
+from visualization.report_generator import (
     generate_markdown_report,
     print_console_summary,
 )

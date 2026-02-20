@@ -9,9 +9,9 @@ Three-arm DP experiment protocol:
   Arm 3 — DP + Oracle Carbon-Aware:           DP-SGD + live carbon scheduling.
 
 CLI:
-  python3 -m climate_fed_orchestrator.dp_main --mode full --rounds 10 --epsilon 1.0
-  python3 -m climate_fed_orchestrator.dp_main --mode dp_oracle --rounds 20 --live-carbon
-  python3 -m climate_fed_orchestrator.dp_main --mode dp_only --rounds 15 --delta 1e-5
+  python3 -m dp_main --mode full --rounds 10 --epsilon 1.0
+  python3 -m dp_main --mode dp_oracle --rounds 20 --live-carbon
+  python3 -m dp_main --mode dp_only --rounds 15 --delta 1e-5
 """
 
 from __future__ import annotations
@@ -35,27 +35,27 @@ from torchvision import datasets, transforms
 _HERE = Path(__file__).parent
 sys.path.insert(0, str(_HERE.parent))
 
-from climate_fed_orchestrator.core.carbon_engine import NodeGeography, RenewableOracle
-from climate_fed_orchestrator.core.dp_sgd import (
+from core.carbon_engine import NodeGeography, RenewableOracle
+from core.dp_sgd import (
     PrivacyLedger,
     calibrate_noise_multiplier,
 )
-from climate_fed_orchestrator.core.dp_federated_node import (
+from core.dp_federated_node import (
     PrivateCarbonNode,
     PrivateNodeRoundResult,
 )
-from climate_fed_orchestrator.core.live_carbon_api import CarbonAPIManager
-from climate_fed_orchestrator.core.aggregation_server import CarbonAwareAggregator
-from climate_fed_orchestrator.data.mnist_partitioner import MNISTPartitioner
-from climate_fed_orchestrator.models.mnist_cnn import EcoCNN
-from climate_fed_orchestrator.simulation.renewable_grid import build_node_geographies
-from climate_fed_orchestrator.visualization.carbon_dashboard import ExperimentRecord
-from climate_fed_orchestrator.visualization.compliance_dashboard import (
+from core.live_carbon_api import CarbonAPIManager
+from core.aggregation_server import CarbonAwareAggregator
+from data.mnist_partitioner import MNISTPartitioner
+from models.mnist_cnn import EcoCNN
+from simulation.renewable_grid import build_node_geographies
+from visualization.carbon_dashboard import ExperimentRecord
+from visualization.compliance_dashboard import (
     ComplianceDashboard,
     RoundCarbonMetric,
     RoundPrivacyMetric,
 )
-from climate_fed_orchestrator.visualization.report_generator import (
+from visualization.report_generator import (
     generate_markdown_report,
     print_console_summary,
 )
@@ -265,8 +265,8 @@ def run_dp_arm(
             ncfg = next(c for c in node_configs if c["id"] == nid)
 
             # Get live carbon data (or fall back to simulated snapshot)
-            from climate_fed_orchestrator.core.live_carbon_api import LiveCarbonData
-            from climate_fed_orchestrator.core.live_carbon_api import SimulationFallback
+            from core.live_carbon_api import LiveCarbonData
+            from core.live_carbon_api import SimulationFallback
 
             if use_live_carbon:
                 live_cd = nodes[nid].get_carbon_data()

@@ -7,11 +7,11 @@ Run this script to:
   3. See real-time carbon intensity for all 3 node locations
 
 Usage:
-  python3 -m climate_fed_orchestrator.api_setup_test
+  python3 -m api_setup_test
 
   With real keys:
-  ELECTRICITY_MAPS_API_KEY=your_key python3 -m climate_fed_orchestrator.api_setup_test
-  WATTTIME_USERNAME=user WATTTIME_PASSWORD=pass python3 -m climate_fed_orchestrator.api_setup_test
+  ELECTRICITY_MAPS_API_KEY=your_key python3 -m api_setup_test
+  WATTTIME_USERNAME=user WATTTIME_PASSWORD=pass python3 -m api_setup_test
 """
 
 from __future__ import annotations
@@ -126,7 +126,7 @@ async def test_electricity_maps(session: aiohttp.ClientSession) -> bool:
   3. Choose:  Free tier (commercial map-based access)
      OR use:  {B}https://co2signal.com{W} for a free hobbyist token
   4. Set env: {Y}export ELECTRICITY_MAPS_API_KEY=your_key_here{W}
-  5. Rerun:   python3 -m climate_fed_orchestrator.api_setup_test
+  5. Rerun:   python3 -m api_setup_test
         """
         )
         return False
@@ -192,7 +192,7 @@ async def test_watttime(session: aiohttp.ClientSession) -> bool:
   {W}
   2. Set envs: {Y}export WATTTIME_USERNAME=your_username{W}
                {Y}export WATTTIME_PASSWORD=your_password{W}
-  3. Rerun:    python3 -m climate_fed_orchestrator.api_setup_test
+  3. Rerun:    python3 -m api_setup_test
         """
         )
         return False
@@ -245,7 +245,7 @@ async def test_watttime(session: aiohttp.ClientSession) -> bool:
 
 def test_simulation() -> bool:
     print(f"\n{BLD}── Test 4: Simulation Fallback (always available, no key){W}")
-    from climate_fed_orchestrator.core.live_carbon_api import SimulationFallback
+    from core.live_carbon_api import SimulationFallback
 
     try:
         for loc in NODE_LOCATIONS:
@@ -299,11 +299,11 @@ def print_setup_guide(uk_ok: bool, em_ok: bool, wt_ok: bool):
     print(f"  {Y}set -a && source .env.dp && set +a{W}")
 
     print(f"\n{BLD}  Step 4: Run the DP Orchestrator with live carbon data{W}")
-    print(f"  {Y}python3 -m climate_fed_orchestrator.dp_main \\{W}")
+    print(f"  {Y}python3 -m dp_main \\{W}")
     print(f"  {Y}    --mode dp_oracle --rounds 20 --epsilon 1.0 --live-carbon{W}")
 
     print(f"\n{BLD}  Step 5: Run without any API key (simulation mode){W}")
-    print(f"  {Y}python3 -m climate_fed_orchestrator.dp_main \\{W}")
+    print(f"  {Y}python3 -m dp_main \\{W}")
     print(f"  {Y}    --mode full --rounds 20 --epsilon 1.0{W}")
 
     print(f"\n  {'─'*64}")

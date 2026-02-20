@@ -19,7 +19,7 @@ from __future__ import annotations
 
 from typing import List
 
-from climate_fed_orchestrator.core.carbon_engine import NodeGeography
+from core.carbon_engine import NodeGeography
 
 
 def build_node_geographies(node_configs: List[dict]) -> List[NodeGeography]:

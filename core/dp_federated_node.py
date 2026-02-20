@@ -40,14 +40,14 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-from climate_fed_orchestrator.core.dp_sgd import (
+from core.dp_sgd import (
     DPSGDOptimizer,
     DPTrainingResult,
     PrivacyLedger,
     calibrate_noise_multiplier,
     run_dp_training_round,
 )
-from climate_fed_orchestrator.core.live_carbon_api import (
+from core.live_carbon_api import (
     CarbonAPIManager,
     LiveCarbonData,
 )
@@ -203,7 +203,7 @@ class PrivateCarbonNode:
                 )
 
         # Pure simulation
-        from climate_fed_orchestrator.core.live_carbon_api import SimulationFallback
+        from core.live_carbon_api import SimulationFallback
 
         sim = SimulationFallback(lat=self.lat)
         return sim.get(self.zone)
