@@ -3,7 +3,7 @@ services:
     name: climate-fed-orchestrator
     runtime: python
     plan: free
-    repo: https://github.com/dhinak0210/climate_fed_orchestrator.git
+    repo: https://github.com/dhinak0210-pixel/climate_fed_orchestrator.git
     branch: main
     buildCommand: "pip install -r requirements.txt"
     startCommand: "gunicorn wsgi:app --bind 0.0.0.0:$PORT --workers 2 --threads 2 --timeout 120"
