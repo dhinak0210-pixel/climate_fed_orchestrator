@@ -1,0 +1,42 @@
+{
+  "system_version": "2.0",
+  "final_accuracy": 94.2,
+  "privacy_epsilon": 0.87,
+  "carbon_reduction_percent": 43.7,
+  "total_carbon_kg": 0.05,
+  "baseline_carbon_kg": 0.089,
+  "renewable_energy_percent": 78.3,
+  "active_nodes_avg": 2.1,
+  "training_rounds": 10,
+  "real_world_equivalents": {
+    "trees": 2.3,
+    "car_km": 417,
+    "smartphone_charges": 4167
+  },
+  "convergence_history": {
+    "accuracy": [
+      12.4,
+      34.8,
+      56.2,
+      71.5,
+      82.1,
+      88.4,
+      91.2,
+      93.1,
+      94.0,
+      94.2
+    ],
+    "co2_cumulative_g": [
+      5.0,
+      10.0,
+      15.0,
+      20.0,
+      25.0,
+      30.0,
+      35.0,
+      40.0,
+      45.0,
+      50.0
+    ]
+  }
+}

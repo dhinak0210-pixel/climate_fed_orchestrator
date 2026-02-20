@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results Experience | Climate-Fed</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Inter:wght@400;600&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/metrics_data.js"></script>
+    <style>
+        .scroll-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 4rem 0;
+        }
+
+        .chart-container {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 2rem;
+            padding: 2rem;
+            border: 1px solid rgba(0, 212, 170, 0.1);
+        }
+    </style>
+</head>
+
+<body class="bg-[#0A0A0A] text-white font-inter">
+
+    <!-- Nav -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-white/5 px-8 py-4 flex justify-between items-center">
+        <a href="index.html" class="text-gradient font-space text-xl tracking-tighter">CLIMATE_FED</a>
+        <div class="flex gap-8 text-xs font-mono uppercase tracking-widest text-gray-400">
+            <a href="#convergence" class="hover:text-[#00D4AA]">Convergence</a>
+            <a href="#carbon" class="hover:text-[#00D4AA]">Carbon Savings</a>
+            <a href="#privacy" class="hover:text-[#00D4AA]">Privacy Mesh</a>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-6">
+
+        <!-- Section 1: Introduction -->
+        <section class="scroll-section flex-col justify-center text-center animate-fade-in">
+            <h1 class="text-7xl font-space font-bold mb-8">EXPERIMENTAL<br><span class="text-gradient">OUTCOMES</span>
+            </h1>
+            <p class="max-w-2xl mx-auto text-gray-400 text-lg leading-relaxed">
+                We executed a cross-country federated learning simulation across 4 primary nodes.
+                Below are the results from our 15-run statistical validation suite.
+            </p>
+        </section>
+
+        <!-- Section 2: Convergence Graph -->
+        <section id="convergence" class="scroll-section grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-4xl font-space font-bold mb-6 italic text-[#00D4AA]">01. ACCURACY PARITY</h2>
+                <p class="text-gray-400 leading-relaxed mb-6">
+                    Our **Carbon-Aware** algorithm maintains high accuracy parity with Standard FL, proving that
+                    environmental gating does not compromise model performance.
+                </p>
+                <img src="../results_experiment/convergence_comparison.png"
+                    class="rounded-xl border border-white/5 shadow-2xl mb-6" alt="Convergence Graph">
+            </div>
+            <div class="chart-container">
+                <canvas id="convergenceChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Section 3: Carbon Footprint -->
+        <section id="carbon" class="scroll-section grid md:grid-cols-2 gap-12 items-center">
+            <div class="order-2 md:order-1 chart-container">
+                <canvas id="carbonChart"></canvas>
+            </div>
+            <div class="order-1 md:order-2">
+                <h2 class="text-4xl font-space font-bold mb-6 italic text-[#FFD700]">02. CARBON REDUCTION</h2>
+                <p class="text-gray-400 leading-relaxed mb-6">
+                    By aligning computation with renewable surges, we reduced the project's CO₂ footprint by **66.5%**.
+                </p>
+                <img src="../results_experiment/carbon_savings.png"
+                    class="rounded-xl border border-white/5 shadow-2xl mb-6" alt="Carbon Savings">
+            </div>
+        </section>
+
+        <!-- Section 4: Privacy & Participation -->
+        <section id="privacy" class="scroll-section space-y-20 flex-col">
+            <div class="grid md:grid-cols-2 gap-12 items-center w-full">
+                <div>
+                    <h2 class="text-4xl font-space font-bold mb-6 italic text-blue-400">03. PRIVACY GUARANTEE</h2>
+                    <p class="text-gray-400 leading-relaxed">
+                        The **Full System** incorporates DP-SGD, ensuring bit-level privacy for all participating nodes.
+                        The epsilon budget is strictly managed to remain below the 2.0 threshold.
+                    </p>
+                </div>
+                <img src="../results_experiment/privacy_budget.png" class="rounded-xl border border-white/5 shadow-2xl"
+                    alt="Privacy Budget">
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center w-full">
+                <img src="../results_experiment/node_participation_heatmap.png"
+                    class="rounded-xl border border-white/5 shadow-2xl" alt="Participation Heatmap">
+                <div>
+                    <h2 class="text-4xl font-space font-bold mb-6 italic text-[#00D4AA]">04. ADAPTIVE SCHEDULING</h2>
+                    <p class="text-gray-400 leading-relaxed">
+                        Visualization of node participation across the 10 rounds. Nodes in Oslo and Melbourne adapt to
+                        local grid signals, maximizing green energy usage.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: The Tradeoff -->
+        <section class="scroll-section flex-col items-center">
+            <h2 class="text-4xl font-space font-bold mb-12 italic text-purple-400">05. THE TRIPLE BOTTOM LINE</h2>
+            <div class="grid md:grid-cols-2 gap-12 w-full">
+                <img src="../results_experiment/renewable_timeline.png"
+                    class="rounded-xl border border-white/5 shadow-2xl" alt="Renewable Timeline">
+                <img src="../results_experiment/tradeoff_3d.png" class="rounded-xl border border-white/5 shadow-2xl"
+                    alt="3D Tradeoff">
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const ctx = document.getElementById('convergenceChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                    datasets: [
+                        {
+                            label: 'Standard FL',
+                            data: EXPERIMENT_DATA["Standard FL"]["Accuracies"],
+                            borderColor: '#E74C3C',
+                            borderWidth: 3,
+                            tension: 0.4
+                        },
+                        {
+                            label: 'Carbon-Aware',
+                            data: EXPERIMENT_DATA["Carbon-Aware"]["Accuracies"],
+                            borderColor: '#F39C12',
+                            borderWidth: 3,
+                            tension: 0.4
+                        },
+                        {
+                            label: 'Full System (DP)',
+                            data: EXPERIMENT_DATA["Full System (C+P)"]["Accuracies"],
+                            borderColor: '#27AE60',
+                            borderWidth: 3,
+                            tension: 0.4,
+                            borderDash: [5, 5]
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { labels: { color: 'white' } } },
+                    scales: {
+                        x: { ticks: { color: '#666' } },
+                        y: { ticks: { color: '#666' } }
+                    }
+                }
+            });
+
+            const ctx2 = document.getElementById('carbonChart').getContext('2d');
+            new Chart(ctx2, {
+                type: 'bar',
+                data: {
+                    labels: ['Standard', 'Carbon-Aware', 'Full System'],
+                    datasets: [{
+                        label: 'CO2 (kg)',
+                        data: [
+                            EXPERIMENT_DATA["Standard FL"]["Cumulative CO2"].slice(-1)[0],
+                            EXPERIMENT_DATA["Carbon-Aware"]["Cumulative CO2"].slice(-1)[0],
+                            EXPERIMENT_DATA["Full System (C+P)"]["Cumulative CO2"].slice(-1)[0]
+                        ],
+                        backgroundColor: ['#E74C3C', '#F39C12', '#27AE60']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { ticks: { color: '#666' }, title: { display: true, text: 'kg CO2e', color: '#666' } }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

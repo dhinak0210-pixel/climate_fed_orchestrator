@@ -1,0 +1,131 @@
+# ╔══════════════════════════════════════════════════════════════════╗
+# ║   CLIMATE-FED ORCHESTRATOR — Simulation Configuration           ║
+# ║   Every parameter tunable without touching source code.         ║
+# ╚══════════════════════════════════════════════════════════════════╝
+# fmt: off
+
+experiment:
+  name: "Carbon-Aware Federated Learning — v2.0"
+  seed: 42
+  num_rounds: 10
+  description: "Three-arm ablation: Standard FL vs Naive CA vs Oracle CA"
+
+# ── Node Geography ─────────────────────────────────────────────────
+nodes:
+  - id: 0
+    name: "Oslo"
+    country: "Norway"
+    timezone_offset_hours: 1          # UTC+1
+    latitude: 59.9
+    longitude: 10.7
+    solar_capacity: 0.12              # fraction (0–1)
+    wind_capacity: 0.68               # fraction (0–1)
+    grid_carbon_intensity: 120        # gCO2/kWh (Nordic hydro-dominant grid)
+    num_samples: 3000                 # data quantity skew
+    data_classes: [0,1,2,3,4,5,6,7,8,9]   # full distribution
+
+  - id: 1
+    name: "Melbourne"
+    country: "Australia"
+    timezone_offset_hours: 11         # UTC+11
+    latitude: -37.8
+    longitude: 144.9
+    solar_capacity: 0.45              # high solar irradiance
+    wind_capacity: 0.23
+    grid_carbon_intensity: 850        # gCO2/kWh (coal-heavy Victorian grid)
+    num_samples: 2000
+    data_classes: [0,1,2,3,4]        # class imbalance: only digits 0–4
+
+  - id: 2
+    name: "San José"
+    country: "Costa Rica"
+    timezone_offset_hours: -6         # UTC-6
+    latitude: 9.9
+    longitude: -84.1
+    solar_capacity: 0.34
+    wind_capacity: 0.12
+    grid_carbon_intensity: 40         # gCO2/kWh (99% renewable: hydro+geo+solar)
+    num_samples: 1000
+    data_classes: [5,6,7,8,9]        # class imbalance: digits 5–9
+
+  - id: 3
+    name: "London"
+    country: "United Kingdom"
+    zone: "GB"
+    timezone_offset_hours: 0
+    latitude: 51.5
+    longitude: -0.1
+    solar_capacity: 0.15
+    wind_capacity: 0.35
+    grid_carbon_intensity: 220
+    num_samples: 1500
+    data_classes: [0,2,4,6,8]        # Even digits only
+
+# ── Carbon Scheduling ──────────────────────────────────────────────
+# ── Carbon Scheduling ──────────────────────────────────────────────
+carbon:
+  renewable_threshold: 0.25          # Lowered to ensure participation
+  oracle_lookahead_rounds: 3         # Oracle arm: plan this many rounds ahead
+  epoch_energy_kwh: 1.05             # kWh per training epoch
+  standby_energy_kwh: 0.05           # kWh for idle nodes
+  pue: 1.4                           # Power Usage Effectiveness (data-centre overhead)
+  weibull_shape_wind: 2.0            # Weibull k parameter for wind simulation
+  wind_scale: 0.80                   # Weibull λ parameter (higher = more wind energy)
+  solar_noise_std: 0.08              # Cloud cover stochasticity
+  wind_noise_std: 0.10
+
+# ── Training Hyperparameters ───────────────────────────────────────
+training:
+  local_epochs: 1
+  batch_size: 64
+  base_lr: 0.01
+  momentum: 0.9
+  weight_decay: 1.0e-4
+  grad_clip_norm: 1.0
+  adaptive_lr: true                  # Oracle arm: scale LR by renewable_score
+  num_workers: 0
+
+# ── Model ──────────────────────────────────────────────────────────
+model:
+  input_channels: 1
+  num_classes: 10
+  conv1_filters: 16
+  conv2_filters: 32
+  fc_hidden: 64
+  dropout: 0.25
+
+# ── Aggregation ──────────────────────────────────────────────────────
+aggregation:
+  strategy: "renewable_weighted"     # "fedavg" | "renewable_weighted" | "trimmed_mean"
+  trimmed_fraction: 0.10             # Remove top/bottom 10% for byzantine robustness
+  server_momentum: 0.0               # Disabled (was 0.9) to fix convergence
+  use_server_momentum: false
+
+# ── Data Partitioning ────────────────────────────────────────────────
+data:
+  root: "./data"
+  dirichlet_alpha: 0.5               # Non-IID heterogeneity (lower = more skewed)
+  quantity_skew: true                # Use per-node num_samples from node config
+
+# ── Differential Privacy ────────────────────────────────────────────
+privacy:
+  enabled: false                     # Toggle cleanly via CLI
+  epsilon: 2.0
+  delta: 1.0e-5
+  clip_norm: 1.0
+
+# ── Visualization ────────────────────────────────────────────────────
+visualization:
+  enabled: true
+  dpi: 150
+  palette: "carbon_neutral_brutalism"
+  save_formats: ["png"]
+
+# ── Paths ─────────────────────────────────────────────────────────────
+paths:
+  results_dir: "./results"
+  metrics_dir: "./results/metrics"
+  plots_dir:   "./results/plots"
+  reports_dir: "./results/reports"
+  logs_dir:    "./results/logs"
+  data_dir:    "./data"

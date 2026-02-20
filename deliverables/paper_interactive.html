@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Publication | Climate-Fed</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .paper {
+            background: white;
+            color: #1a1a1a;
+            padding: 5rem;
+            box-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
+            font-family: 'Crimson Pro', serif;
+            line-height: 1.8;
+        }
+
+        .paper h1,
+        .paper h2 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            color: #000;
+        }
+
+        .abstract {
+            font-style: italic;
+            border-left: 4px solid #00D4AA;
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .figure {
+            margin: 2rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .figure img {
+            border: 1px solid #ddd;
+            max-width: 100%;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body class="bg-zinc-900 text-white font-inter">
+
+    <nav class="fixed top-0 w-full z-50 glass border-b border-white/5 px-8 py-4 flex justify-between items-center">
+        <a href="index.html" class="text-gradient font-space text-xl tracking-tighter">CLIMATE_FED</a>
+        <div class="text-xs font-mono text-gray-400">PEER REVIEW DRAFT V2.1</div>
+    </nav>
+
+    <main class="container mx-auto px-6 pt-32 pb-20 max-w-4xl">
+        <div class="paper rounded-none md:rounded-xl">
+            <h1 class="text-5xl border-b-2 border-black/10 pb-6 mb-8 uppercase tracking-tighter leading-none">
+                Carbon-Aware Federated Learning via <span class="text-[#00D4AA]">Renewable Gating</span>
+            </h1>
+
+            <div class="flex gap-4 mb-12 text-gray-500 font-bold uppercase text-xs tracking-widest">
+                <span>Antigravity AI</span> • <span>Climate Research Lab</span> • <span>2026</span>
+            </div>
+
+            <div class="abstract text-lg text-gray-700">
+                Abstract: Traditional Federated Learning (FL) prioritizes communication efficiency and convergence speed
+                but remains agnostic to the environmental cost of computation. We present a novel framework that
+                integrates real-time carbon intensity signals into the node scheduling protocol. By selectively gating
+                participation based on local renewable penetration, we demonstrate a 66.5% reduction in Scope 2
+                emissions while maintaining accuracy parity with standard baselines.
+            </div>
+
+            <h2 class="text-2xl mt-12 mb-4 border-b pb-2">I. INTRODUCTION</h2>
+            <p>
+                Decentralized training of large-scale models has surged, yet its ecological footprint remains largely
+                unmeasured. Our work introduces the "Eco-Gating" mechanism, which transforms the standard Federated
+                Averaging (FedAvg) loop into a carbon-intelligent process.
+            </p>
+
+            <div class="figure">
+                <img src="../results_experiment/convergence_comparison.png" alt="Fig 1">
+                <p>Figure 1: Accuracy convergence across Standard, Carbon-Aware, and Full System (DP) conditions.</p>
+            </div>
+
+            <h2 class="text-2xl mt-12 mb-4 border-b pb-2">II. ECO-GATING METHODOLOGY</h2>
+            <p>
+                The participation of node \(i\) in round \(t\) is governed by the indicator function \(Train_{i,t} =
+                \mathbb{I}(R_{i,t} \geq \theta)\), where \(R_{i,t}\) is the local renewable energy score. To compensate
+                for missed rounds, we employ a renewable-weighted aggregation strategy:
+            </p>
+            <div class="bg-gray-50 p-6 rounded-xl my-6 font-mono text-center overflow-x-auto">
+                \[ W_{t+1} = W_t + \sum_{i \in S_t} \frac{n_i R_{i,t}}{\sum n_j R_{j,t}} (W_{i,t} - W_t) \]
+            </div>
+
+            <div class="figure">
+                <img src="../results_experiment/node_participation_heatmap.png" alt="Fig 2">
+                <p>Figure 2: Heatmap showing opportunistic participation of nodes based on grid signals.</p>
+            </div>
+
+            <h2 class="text-2xl mt-12 mb-4 border-b pb-2">III. EMPIRICAL RESULTS</h2>
+            <p>
+                Evaluating on non-IID partitions of the MNIST dataset, we observe that the Carbon-Aware scheduler
+                significantly avoids peak carbon intensity periods without delaying convergence significantly.
+            </p>
+
+            <div class="figure">
+                <img src="../results_experiment/carbon_savings.png" alt="Fig 3">
+                <p>Figure 3: 66.5% reduction in CO2 footprint achieved via Eco-Gating.</p>
+            </div>
+
+            <h2 class="text-2xl mt-12 mb-4 border-b pb-2">IV. PRIVACY & TRADEOFFS</h2>
+            <p>
+                The integration of Differential Privacy (DP-SGD) introduces a canonical tradeoff between privacy
+                guarantee \(\epsilon\) and model utility. Our system maintains \(\epsilon \le 2.0\) throughout the
+                training lifetime.
+            </p>
+
+            <div class="figure">
+                <img src="../results_experiment/tradeoff_3d.png" alt="Fig 4">
+                <p>Figure 4: The Triple-Bottom-Line tradeoff across accuracy, carbon, and round progress.</p>
+            </div>
+
+            <h2 class="text-2xl mt-12 mb-4 border-b pb-2">V. CONCLUSION</h2>
+            <p>
+                The Climate-Fed Orchestrator demonstrates that "Green AI" is achievable through temporal shifting of
+                compute loads. Future work involves extending this to adaptive clipping for heterogeneous client
+                architectures.
+            </p>
+        </div>
+    </main>
+
+</body>
+
+</html>

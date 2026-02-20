@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Architecture | Climate-Fed</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Inter:wght@400;600&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>mermaid.initialize({ startOnLoad: true, theme: 'dark' });</script>
+</head>
+
+<body class="bg-[#0A0A0A] text-white font-inter">
+
+    <nav class="fixed top-0 w-full z-50 glass border-b border-white/5 px-8 py-4 flex justify-between items-center">
+        <a href="index.html" class="text-gradient font-space text-xl tracking-tighter">CLIMATE_FED</a>
+        <div class="text-xs font-mono text-gray-500">SYSTEM ARCHITECTURE V2.0</div>
+    </nav>
+
+    <main class="container mx-auto px-6 pt-32 pb-20">
+        <header class="text-center mb-16">
+            <h1 class="text-5xl font-space font-bold mb-4">THE NEURAL <span class="text-[#00D4AA]">TOPOLOGY</span></h1>
+            <p class="text-gray-500 max-w-2xl mx-auto">Visualizing the flow of gradients and carbon signals through our
+                decentralized mesh.</p>
+        </header>
+
+        <div class="grid lg:grid-cols-4 gap-8">
+
+            <div class="lg:col-span-1 space-y-6">
+                <div class="glass p-6 rounded-2xl border-white/5">
+                    <h3 class="font-bold text-[#00D4AA] mb-4 uppercase text-xs tracking-widest">Core Components</h3>
+                    <ul class="space-y-4 text-sm">
+                        <li class="p-3 bg-white/5 rounded-lg border border-white/5">
+                            <span class="font-bold block text-white">RenewableOracle</span>
+                            <span class="text-gray-500 text-xs">Simulates & predicts CO2 intensity</span>
+                        </li>
+                        <li class="p-3 bg-white/5 rounded-lg border border-white/5">
+                            <span class="font-bold block text-white">CarbonAwareNode</span>
+                            <span class="text-gray-500 text-xs">Autonomous training agent</span>
+                        </li>
+                        <li class="p-3 bg-white/5 rounded-lg border border-white/5">
+                            <span class="font-bold block text-white">PrivacyEngine</span>
+                            <span class="text-gray-500 text-xs">ε-DP noise & budget tracker</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="glass p-6 rounded-2xl bg-white/5 border-white/10">
+                    <h3 class="font-bold text-[#FFD700] mb-2 uppercase text-xs tracking-widest">Compliance Level</h3>
+                    <p class="text-xs text-gray-400">Project satisfies high-risk AI data governance requirements per EU
+                        AI Act Annex IV.</p>
+                </div>
+            </div>
+
+            <div class="lg:col-span-3">
+                <div class="glass p-12 rounded-3xl border-white/5 flex flex-col items-center">
+                    <div class="mermaid w-full">
+                        graph TD
+                        subgraph "Decentralized Nodes"
+                        N0[Oslo Node]
+                        N1[Melbourne Node]
+                        N2[San Jose Node]
+                        N3[London Node]
+                        end
+
+                        subgraph "Carbon Intelligence"
+                        RM[RenewableOracle]
+                        API[Live Carbon API]
+                        RM --> API
+                        end
+
+                        subgraph "Privacy Mesh"
+                        DP[PrivacyEngine]
+                        Clip[L2 Clip Norm]
+                        Noise[Gaussian Noise]
+                        DP --> Clip
+                        DP --> Noise
+                        end
+
+                        subgraph "Aggregation Server"
+                        AGG[Renewable-Weighted Aggregator]
+                        GlobalM[Global Model]
+                        end
+
+                        API -- "Carbon Signal" --> N0
+                        API -- "Carbon Signal" --> N1
+                        API -- "Carbon Signal" --> N2
+                        API -- "Carbon Signal" --> N3
+
+                        N0 -- "Privatized Gradients" --> AGG
+                        N1 -- "Privatized Gradients" --> AGG
+                        N2 -- "Privatized Gradients" --> AGG
+                        N3 -- "Privatized Gradients" --> AGG
+
+                        AGG --> GlobalM
+                        GlobalM -- "Model Sync" --> N0
+                        GlobalM -- "Model Sync" --> N1
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+
+</html>

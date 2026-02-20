@@ -1,0 +1,9 @@
+{
+  "zero_capacity_train": false,
+  "high_threshold_train": false,
+  "privacy_budget_exhausted": false,
+  "epsilon_spent": 0.09999989302701456,
+  "skewed_partition_classes": [
+    0
+  ]
+}

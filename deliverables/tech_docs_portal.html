@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Hub | Climate-Fed Documentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Inter:wght@400;600&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+    <script src="assets/js/metrics_data.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .sidebar-link.active {
+            @apply bg-green-900 text-green-400 border-r-2 border-green-400;
+        }
+
+        pre {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .command-palette {
+            display: none;
+        }
+
+        .command-palette.active {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body class="bg-[#0A0A0A] text-[#F0F4F8] font-inter">
+
+    <!-- Global Navigation Sidebar -->
+    <aside class="fixed left-0 top-0 h-full w-64 bg-[#0A0A0A] border-r border-[#0D3B1A] hidden md:block">
+        <div class="p-6 border-b border-[#0D3B1A]">
+            <div class="flex items-center gap-2 text-green-400 font-space font-bold text-xl">
+                <span>🌍</span>
+                <span>CLIMATE-DOCS</span>
+            </div>
+        </div>
+        <nav class="p-4 space-y-2">
+            <a href="#quickstart" class="block p-2 rounded hover:bg-[#0D3B1A] transition">Quick Start</a>
+            <a href="#api" class="block p-2 rounded hover:bg-[#0D3B1A] transition">API Reference</a>
+            <a href="#config" class="block p-2 rounded hover:bg-[#0D3B1A] transition">Configuration</a>
+            <a href="#troubleshooting" class="block p-2 rounded hover:bg-[#0D3B1A] transition">Troubleshooting</a>
+        </nav>
+        <div class="absolute bottom-0 w-full p-4 border-t border-[#0D3B1A]">
+            <div class="text-xs text-gray-500 mb-2">v2.0.0 Stable</div>
+            <a href="index.html" class="flex items-center gap-2 text-sm text-green-400 hover:underline">
+                <span>← Back to Hub</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="md:ml-64 p-8">
+
+        <!-- Search Header -->
+        <header class="mb-12 flex justify-between items-center">
+            <div class="max-w-xl w-full">
+                <div class="relative group">
+                    <input type="text" placeholder="Search documentation... (Ctrl + K)"
+                        class="w-full bg-[#0D3B1A]/20 border border-[#0D3B1A] rounded-lg px-4 py-2 pl-10 focus:outline-none focus:border-green-400 transition">
+                    <span class="absolute left-3 top-2.5 opacity-50">🔍</span>
+                </div>
+            </div>
+            <div class="flex gap-4">
+                <button
+                    class="bg-green-600 hover:bg-green-500 px-4 py-2 rounded-lg transition font-semibold text-sm">Download
+                    SDK</button>
+            </div>
+        </header>
+
+        <section id="quickstart" class="mb-16">
+            <h1 class="text-4xl font-space font-bold mb-6 text-green-400">Quick Start</h1>
+            <p class="text-gray-400 mb-6">Get the system running in simulation mode in under 60 seconds.</p>
+
+            <div class="bg-black rounded-lg p-6 border border-[#0D3B1A] group relative">
+                <button
+                    class="absolute top-4 right-4 text-xs bg-[#0D3B1A] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">Copy</button>
+                <code class="text-green-400">
+                    <span class="text-gray-500"># Clone the repository</span><br>
+                    git clone https://github.com/climate-ai/fed-orchestrator.git<br><br>
+                    <span class="text-gray-500"># Install dependencies</span><br>
+                    pip install torch opacus aiohttp<br><br>
+                    <span class="text-gray-500"># Run the simulation</span><br>
+                    python main.py --mode simulation
+                </code>
+            </div>
+        </section>
+
+        <section id="api" class="mb-16">
+            <h2 class="text-3xl font-space font-bold mb-8 flex items-center gap-3">
+                <span class="text-blue-400">⚡</span>
+                <span>Interactive API Playground</span>
+            </h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="space-y-4">
+                    <div class="bg-[#0A0A0A] border border-[#0D3B1A] rounded-xl p-6">
+                        <h3 class="text-xl font-bold mb-4">CarbonAwareNode</h3>
+                        <p class="text-sm text-gray-400 mb-4">The core logic for deciding when to train based on grid
+                            intensity.</p>
+
+                        <div class="bg-black rounded p-4 mb-4">
+                            <pre class="text-sm text-green-300">
+oracle = RenewableOracle()
+score = oracle.get_score("oslo")
+if score > 0.6:
+    node.local_train()</pre>
+                        </div>
+
+                        <button
+                            class="w-full bg-[#00D4AA] text-[#0A0A0A] font-bold py-2 rounded-lg hover:bg-green-400 transition">
+                            Run Sandbox Example
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-black/50 border border-[#00D4AA]/20 rounded-xl p-6 flex flex-col">
+                    <div class="text-xs text-[#00D4AA] font-mono mb-2">OUTPUT CONSOLE</div>
+                    <div class="flex-1 font-mono text-sm text-gray-400 p-4 bg-black rounded border border-[#0D3B1A]">
+                        <div class="text-green-400">> Querying Electricity Maps for 'Oslo'...</div>
+                        <div class="text-green-400">> Intensity: 120 g/kWh | Renewable: 78%</div>
+                        <div class="text-blue-400">> Decision: PROCEED WITH TRAINING</div>
+                        <div class="text-gray-500 cursor-blink animate-pulse">_</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="config" class="mb-16">
+            <h2 class="text-3xl font-space font-bold mb-8 text-[#FFD700]">Configuration Builder</h2>
+            <div class="glass-panel p-8 rounded-2xl grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-bold mb-2">Carbon Threshold</label>
+                        <input type="range" min="0" max="1" step="0.1" value="0.6" class="w-full accent-green-400">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-2">Privacy Budget (Epsilon)</label>
+                        <input type="number" value="1.0"
+                            class="w-full bg-black border border-[#0D3B1A] rounded p-2 focus:border-green-400">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-2">Node Locations</label>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-[#0D3B1A] px-3 py-1 rounded-full text-xs">Oslo √</span>
+                            <span class="bg-[#0D3B1A] px-3 py-1 rounded-full text-xs">Melbourne √</span>
+                            <span class="bg-[#0D3B1A] px-3 py-1 rounded-full text-xs">Costa Rica √</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-black rounded-lg p-6 border border-[#FFD700]/30">
+                    <div class="flex justify-between mb-4">
+                        <span class="text-xs text-[#FFD700] font-mono uppercase">Generated YAML</span>
+                        <span class="text-xs text-gray-500 underline cursor-pointer">Download</span>
+                    </div>
+                    <pre class="text-xs text-orange-200">
+training:
+  rounds: 10
+  epsilon: 1.0
+  carbon_threshold: 0.6
+  nodes:
+    - id: 0
+      name: Oslo
+      capacity: high</pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="troubleshooting" class="mb-16">
+            <h2 class="text-3xl font-space font-bold mb-8 text-[#FF6B35]">Troubleshooting Wizard</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-6 border border-[#FF6B35]/20 rounded-xl hover:border-[#FF6B35] transition cursor-pointer">
+                    <h3 class="font-bold mb-2">Low Accuracy?</h3>
+                    <p class="text-sm text-gray-500">Check non-IID data distribution in config.yaml.</p>
+                </div>
+                <div class="p-6 border border-[#FF6B35]/20 rounded-xl hover:border-[#FF6B35] transition cursor-pointer">
+                    <h3 class="font-bold mb-2">API Timeout?</h3>
+                    <p class="text-sm text-gray-500">Ensure WATTTIME_USER env variables are set.</p>
+                </div>
+                <div class="p-6 border border-[#FF6B35]/20 rounded-xl hover:border-[#FF6B35] transition cursor-pointer">
+                    <h3 class="font-bold mb-2">Memory Error?</h3>
+                    <p class="text-sm text-gray-500">Reduce batch_size to 32 or use mixed precision.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Global Nav Overlay (Fixed) -->
+    <div class="fixed bottom-8 right-8 flex gap-2">
+        <a href="architecture_dashboard.html"
+            class="bg-[#0D3B1A] w-12 h-12 rounded-full flex items-center justify-center border border-green-400 hover:scale-110 transition shadow-lg"
+            title="Architecture">🏗️</a>
+        <a href="results_experience.html"
+            class="bg-[#0D3B1A] w-12 h-12 rounded-full flex items-center justify-center border border-green-400 hover:scale-110 transition shadow-lg"
+            title="Results">📊</a>
+        <a href="esg_command_center.html"
+            class="bg-[#0D3B1A] w-12 h-12 rounded-full flex items-center justify-center border border-green-400 hover:scale-110 transition shadow-lg"
+            title="ESG">🌱</a>
+    </div>
+
+    <script>
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && e.key === 'k') {
+                e.preventDefault();
+                alert("Command Palette triggered! (Fictional feature for the demo)");
+            }
+        });
+    </script>
+</body>
+
+</html>

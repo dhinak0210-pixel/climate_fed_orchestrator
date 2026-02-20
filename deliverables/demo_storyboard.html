@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Storyboard | Climate-Fed</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Inter:wght@400;600&display=swap"
+        rel="stylesheet">
+    <script src="assets/js/metrics_data.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .scene-card {
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .scene-card:hover {
+            transform: scale(1.02);
+        }
+
+        .filmstrip {
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+        }
+
+        .filmstrip::-webkit-scrollbar {
+            height: 10px;
+        }
+
+        .filmstrip::-webkit-scrollbar-thumb {
+            background: #00D4AA;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body class="bg-[#0A0A0A] text-[#F0F4F8] font-inter">
+
+    <!-- Header -->
+    <header class="p-8 border-b border-[#0D3B1A] flex justify-between items-center sticky top-0 bg-[#0A0A0A] z-40">
+        <div>
+            <h1 class="text-3xl font-space font-bold text-green-400">DEMO_STORYBOARD.v2</h1>
+            <p class="text-xs font-mono opacity-50 uppercase tracking-widest">Director's Cut: Carbon-Aware FL Launch
+                Video</p>
+        </div>
+        <div class="flex gap-4">
+            <button class="bg-[#FFD700] text-black px-4 py-2 rounded font-bold text-sm">Export Shot List</button>
+            <a href="index.html"
+                class="bg-[#0D3B1A] border border-green-500/20 px-4 py-2 rounded text-sm text-green-400">Close</a>
+        </div>
+    </header>
+
+    <main class="p-8">
+
+        <!-- Filmstrip Layout -->
+        <div class="filmstrip flex gap-8 pb-12 items-start mb-20 scroll-smooth">
+
+            <!-- Scene 1 -->
+            <div class="min-w-[400px] w-[400px] snap-center">
+                <div class="scene-card group">
+                    <div
+                        class="h-56 bg-gradient-to-br from-green-900 to-black rounded-xl border border-white/10 flex items-center justify-center mb-4 relative overflow-hidden">
+                        <span class="text-xs absolute top-2 left-2 bg-black/50 px-2 py-1 rounded">SCENE 1:
+                            INTRODUCTION</span>
+                        <div class="text-6xl group-hover:scale-110 transition duration-500">🌍</div>
+                        <div class="absolute inset-0 bg-blue-500/10 mix-blend-overlay"></div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex justify-between font-mono text-xs opacity-50">
+                            <span>DURATION: 30s</span>
+                            <span>SHOT: WIDE / CG</span>
+                        </div>
+                        <h3 class="text-xl font-bold">Planetary Challenges</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed italic">
+                            "Climate change and data privacy are two of the defining challenges of our era... We present
+                            Carbon-Aware Federated Learning."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scene 2 -->
+            <div class="min-w-[400px] w-[400px] snap-center">
+                <div class="scene-card group">
+                    <div
+                        class="h-56 bg-black rounded-xl border border-white/10 flex items-center justify-center mb-4 relative overflow-hidden">
+                        <span class="text-xs absolute top-2 left-2 bg-black/50 px-2 py-1 rounded">SCENE 2: NODES</span>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded bg-green-500 animate-pulse border-2 border-green-300"></div>
+                            <div class="w-12 h-12 rounded bg-red-500/30 border-2 border-red-900"></div>
+                            <div class="w-12 h-12 rounded bg-blue-500 opacity-50 border-2 border-blue-400"></div>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex justify-between font-mono text-xs opacity-50">
+                            <span>DURATION: 45s</span>
+                            <span>SHOT: EXTREME CU / DATA FLOW</span>
+                        </div>
+                        <h3 class="text-xl font-bold">Node Selection</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed italic text-glow">
+                            "Three nodes—Oslo, Melbourne, Costa Rica... Only train when the grid is clean. Oslo runs on
+                            78% wind."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scene 3 -->
+            <div class="min-w-[400px] w-[400px] snap-center">
+                <div class="scene-card group">
+                    <div
+                        class="h-56 bg-[#0D3B1A]/20 rounded-xl border border-[#00D4AA]/30 flex flex-col items-center justify-center mb-4 relative overflow-hidden">
+                        <span class="text-xs absolute top-2 left-2 bg-black/50 px-2 py-1 rounded">SCENE 3: LIVE
+                            TRAINING</span>
+                        <div class="w-full px-8 text-[10px] font-mono text-green-400/80">
+                            <div>> Round 8: Initiating...</div>
+                            <div>> Node 0 (Oslo): Score 0.82 [TRAIN]</div>
+                            <div>> Node 1 (Melbourne): Score 0.41 [SKIP]</div>
+                            <div class="animate-pulse">> _</div>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex justify-between font-mono text-xs opacity-50">
+                            <span>DURATION: 60s</span>
+                            <span>SHOT: SCREEN CAPTURE</span>
+                        </div>
+                        <h3 class="text-xl font-bold">Computational Trace</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed italic">
+                            "Watch the system run. Ten rounds. Each decision based on real-time grid carbon intensity.
+                            Accuracy is rising."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scene 4 -->
+            <div class="min-w-[400px] w-[400px] snap-center">
+                <div class="scene-card group">
+                    <div
+                        class="h-56 bg-[#FFD700]/10 rounded-xl border border-[#FFD700]/30 flex items-center justify-center mb-4 relative overflow-hidden">
+                        <span class="text-xs absolute top-2 left-2 bg-black/50 px-2 py-1 rounded">SCENE 4: FINAL
+                            REVEAL</span>
+                        <div class="text-4xl font-space font-bold text-[#FFD700] tracking-tighter">-43.7% CARBON</div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex justify-between font-mono text-xs opacity-50">
+                            <span>DURATION: 45s</span>
+                            <span>SHOT: MOTION GRAPHICS</span>
+                        </div>
+                        <h3 class="text-xl font-bold">Impact Summary</h3>
+                        <p class="text-sm text-gray-400 leading-relaxed italic">
+                            "94.2% accuracy. Equivalent to planting 2.3 trees... AI doesn't have to cost the Earth."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Detail Table -->
+        <div class="glass-panel p-8 rounded-3xl overflow-hidden border border-[#0D3B1A]">
+            <h2 class="text-2xl font-space font-bold mb-8">Technical Shot List</h2>
+            <table class="w-full text-left text-sm">
+                <thead class="bg-[#0D3B1A] font-mono text-xs text-green-400 uppercase tracking-widest">
+                    <tr>
+                        <th class="p-4">Time</th>
+                        <th class="p-4">Visual Description</th>
+                        <th class="p-4">Narration Audio</th>
+                        <th class="p-4">Asset ID</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-[#0D3B1A]">
+                    <tr class="hover:bg-[#0D3B1A]/20 transition">
+                        <td class="p-4 font-mono">00:00-00:15</td>
+                        <td class="p-4">Averaged global heatmap overlaying data center architecture.</td>
+                        <td class="p-4">Climate change and data privacy are the defined metrics...</td>
+                        <td class="p-4 text-[#00D4AA]">GL_HEAT_V1</td>
+                    </tr>
+                    <tr class="hover:bg-[#0D3B1A]/20 transition">
+                        <td class="p-4 font-mono">00:15-00:45</td>
+                        <td class="p-4">3D zoom from satellite view of Oslo (green) to Melbourne (red).</td>
+                        <td class="p-4">Three nodes, geographically dispersed...</td>
+                        <td class="p-4 text-[#00D4AA]">MAP_ZOOM_02</td>
+                    </tr>
+                    <tr class="hover:bg-[#0D3B1A]/20 transition">
+                        <td class="p-4 font-mono">00:45-01:45</td>
+                        <td class="p-4">Animated scroll of Terminal Logs (Live capture).</td>
+                        <td class="p-4">Round 1... Round 10... Accuracy rising...</td>
+                        <td class="p-4 text-[#00D4AA]">TERMINAL_A_01</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+
+    <footer class="p-12 text-center text-xs opacity-30 mt-20 border-t border-[#0D3B1A]">
+        © 2026 Climate AI Research | Internal Use Only | DO NOT REDISTRIBUTE
+    </footer>
+
+</body>
+
+</html>

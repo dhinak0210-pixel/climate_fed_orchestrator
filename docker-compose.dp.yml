@@ -1,0 +1,126 @@
+version: '3.8'
+
+# ╔══════════════════════════════════════════════════════════════════╗
+# ║  DP-Climate-Fed Orchestrator — Production Docker Compose         ║
+# ║  Privacy-Preserving × Carbon-Aware Federated Learning Platform  ║
+# ╚══════════════════════════════════════════════════════════════════╝
+
+services:
+
+  # ── FL Parameter Server / Orchestrator ───────────────────────────
+  climate-fed-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: climate-fed:v2-dp
+    container_name: climate-fed-orchestrator
+    environment:
+      # ── Carbon API credentials (set via .env file or CI secrets) ──
+      - ELECTRICITY_MAPS_API_KEY=${ELECTRICITY_MAPS_API_KEY:-}
+      - WATTTIME_USERNAME=${WATTTIME_USERNAME:-}
+      - WATTTIME_PASSWORD=${WATTTIME_PASSWORD:-}
+      # ── Differential Privacy settings ─────────────────────────────
+      - DP_EPSILON=${DP_EPSILON:-1.0}
+      - DP_DELTA=${DP_DELTA:-1e-5}
+      - DP_L2_CLIP=${DP_L2_CLIP:-1.0}
+      # ── Experiment configuration ──────────────────────────────────
+      - FL_MODE=${FL_MODE:-dp_oracle}
+      - FL_ROUNDS=${FL_ROUNDS:-50}
+      - FL_SEED=${FL_SEED:-42}
+      - LIVE_CARBON=${LIVE_CARBON:-true}
+    volumes:
+      - ./results_dp:/app/results_dp
+      - ./privacy_budgets:/app/privacy_budgets
+      - ./carbon_logs:/app/carbon_logs
+      - ./data:/app/data
+    ports:
+      - "8080:8080"   # Web dashboard (if enabled)
+    networks:
+      - fed-net
+    command: >
+      python3 -m climate_fed_orchestrator.dp_main
+        --mode ${FL_MODE:-dp_oracle}
+        --rounds ${FL_ROUNDS:-50}
+        --epsilon ${DP_EPSILON:-1.0}
+        --delta ${DP_DELTA:-1e-5}
+        --clip ${DP_L2_CLIP:-1.0}
+        --live-carbon
+        --out /app/results_dp
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import torch; print('OK')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ── Training Node 0: Oslo, Norway (High Wind, Low Carbon Grid) ───
+  node-oslo:
+    image: climate-fed:v2-dp
+    container_name: fed-node-oslo
+    environment:
+      - NODE_ID=0
+      - NODE_NAME=Oslo
+      - LAT=59.9
+      - LON=10.7
+      - ZONE=NO
+      - ELECTRICITY_MAPS_API_KEY=${ELECTRICITY_MAPS_API_KEY:-}
+      - WATTTIME_USERNAME=${WATTTIME_USERNAME:-}
+      - WATTTIME_PASSWORD=${WATTTIME_PASSWORD:-}
+    volumes:
+      - ./data:/app/data
+      - ./carbon_logs/node0:/app/carbon_logs
+      - ./privacy_budgets/node0:/app/privacy_budgets
+    networks:
+      - fed-net
+    depends_on:
+      - climate-fed-server
+
+  # ── Training Node 1: Melbourne, Australia (Mixed Grid) ───────────
+  node-melbourne:
+    image: climate-fed:v2-dp
+    container_name: fed-node-melbourne
+    environment:
+      - NODE_ID=1
+      - NODE_NAME=Melbourne
+      - LAT=-37.8
+      - LON=144.9
+      - ZONE=AU-VIC
+      - ELECTRICITY_MAPS_API_KEY=${ELECTRICITY_MAPS_API_KEY:-}
+      - WATTTIME_USERNAME=${WATTTIME_USERNAME:-}
+      - WATTTIME_PASSWORD=${WATTTIME_PASSWORD:-}
+    volumes:
+      - ./data:/app/data
+      - ./carbon_logs/node1:/app/carbon_logs
+      - ./privacy_budgets/node1:/app/privacy_budgets
+    networks:
+      - fed-net
+    depends_on:
+      - climate-fed-server
+
+  # ── Training Node 2: San José, Costa Rica (Very Clean Grid) ──────
+  node-sanjose:
+    image: climate-fed:v2-dp
+    container_name: fed-node-sanjose
+    environment:
+      - NODE_ID=2
+      - NODE_NAME=San_José
+      - LAT=9.7
+      - LON=-84.0
+      - ZONE=CR
+      - ELECTRICITY_MAPS_API_KEY=${ELECTRICITY_MAPS_API_KEY:-}
+      - WATTTIME_USERNAME=${WATTTIME_USERNAME:-}
+      - WATTTIME_PASSWORD=${WATTTIME_PASSWORD:-}
+    volumes:
+      - ./data:/app/data
+      - ./carbon_logs/node2:/app/carbon_logs
+      - ./privacy_budgets/node2:/app/privacy_budgets
+    networks:
+      - fed-net
+    depends_on:
+      - climate-fed-server
+
+networks:
+  fed-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24

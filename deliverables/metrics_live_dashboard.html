@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Control | Live Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .radar-grid {
+            background-image:
+                linear-gradient(rgba(0, 212, 170, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 170, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+
+<body class="bg-black text-[#00D4AA] font-mono overflow-hidden h-screen">
+
+    <!-- Header / Ticker -->
+    <div
+        class="h-10 bg-[#00D4AA] text-black flex items-center px-4 overflow-hidden whitespace-nowrap font-bold text-xs uppercase tracking-[0.2em]">
+        <div class="animate-pulse mr-8">● LIVE FEED</div>
+        OSLO: 78g CO2/kWh • MELBOURNE: 502g CO2/kWh • LONDON: 191g CO2/kWh • SAN JOSE: 37g CO2/kWh • SYSTEM STATUS:
+        OPTIMAL • PRIVACY ε: 1.25 • ROUND: 10/10 • ACCURACY: 96.1%
+    </div>
+
+    <div class="flex h-[calc(100vh-40px)]">
+
+        <!-- Left: Node Status -->
+        <div class="w-80 border-r border-[#00D4AA]/20 p-6 flex flex-col gap-6">
+            <h3 class="text-white font-space text-lg flex justify-between items-center">
+                NODES <span>(4)</span>
+            </h3>
+            <div class="space-y-4">
+                <div class="p-4 border border-[#00D4AA]/30 bg-[#00D4AA]/5 rounded">
+                    <div class="flex justify-between text-[10px] mb-1">
+                        <span>NODE_00: OSLO</span>
+                        <span class="text-green-500">ACTIVE</span>
+                    </div>
+                    <div class="text-lg font-space text-white">82% <span
+                            class="text-[10px] text-gray-500 italic">renewable</span></div>
+                </div>
+                <div class="p-4 border border-[#00D4AA]/10 bg-black/50 rounded opacity-50">
+                    <div class="flex justify-between text-[10px] mb-1">
+                        <span>NODE_01: MELBOURNE</span>
+                        <span class="text-yellow-500">DEFERRED</span>
+                    </div>
+                    <div class="text-lg font-space text-white">12% <span
+                            class="text-[10px] text-gray-500 italic">coal-heavy</span></div>
+                </div>
+                <div class="p-4 border border-[#00D4AA]/30 bg-[#00D4AA]/5 rounded">
+                    <div class="flex justify-between text-[10px] mb-1">
+                        <span>NODE_02: SAN JOSE</span>
+                        <span class="text-green-500">ACTIVE</span>
+                    </div>
+                    <div class="text-lg font-space text-white">96% <span
+                            class="text-[10px] text-gray-500 italic">geo+hydro</span></div>
+                </div>
+            </div>
+
+            <div class="mt-auto pt-6 border-t border-[#00D4AA]/10">
+                <div class="text-[10px] text-gray-500 mb-2 uppercase">System Uptime</div>
+                <div class="text-2xl font-space text-white">09:12:19.452</div>
+            </div>
+        </div>
+
+        <!-- Center: Visual Monitor -->
+        <div class="flex-1 radar-grid relative">
+            <div class="absolute inset-0 flex items-center justify-center">
+                <div class="w-96 h-96 border-2 border-[#00D4AA]/20 rounded-full animate-ping"></div>
+                <div class="absolute w-[500px] h-[500px] border border-[#00D4AA]/10 rounded-full"></div>
+                <div
+                    class="absolute w-[100px] h-[100px] border-4 border-[#00D4AA] rounded-full flex items-center justify-center">
+                    <div class="text-xl font-bold text-white">96.1%</div>
+                </div>
+            </div>
+
+            <div class="absolute bottom-10 left-10 p-6 glass border-[#00D4AA]/30 max-w-sm">
+                <h4 class="text-white font-space mb-2">GRADIENT_FLOW</h4>
+                <div class="text-[10px] text-gray-400 mb-4 uppercase">Bitwise Differential Privacy Noise Addition</div>
+                <div class="flex gap-1">
+                    <div class="w-1 h-12 bg-[#00D4AA]"></div>
+                    <div class="w-1 h-8 bg-[#00D4AA]"></div>
+                    <div class="w-1 h-16 bg-[#00D4AA]"></div>
+                    <div class="w-1 h-4 bg-[#00D4AA]"></div>
+                    <div class="w-1 h-14 bg-[#00D4AA]"></div>
+                    <div class="w-1 h-10 bg-[#00D4AA]"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Terminal Output -->
+        <div class="w-96 border-l border-[#00D4AA]/20 p-4 bg-black/80">
+            <div class="text-[10px] text-gray-500 mb-4 flex justify-between uppercase">
+                <span>Terminal Session v4.2</span>
+                <span>SECURE</span>
+            </div>
+            <div class="text-[12px] space-y-1 overflow-y-auto h-[90vh]">
+                <div class="text-green-500">[08:42:01] Aggregating weight deltas...</div>
+                <div class="text-white">[08:42:01] Round 9: Acc=0.945 | Loss=0.122</div>
+                <div class="text-[#00D4AA]">[08:42:05] Querying CarbonAPI for zone: AU-VIC</div>
+                <div class="text-yellow-500">[08:42:06] Carbon intensity 502g/kWh detected.</div>
+                <div class="text-yellow-400">[08:42:06] Gating Node 01. Postponing session.</div>
+                <div class="text-white">[08:42:10] Initiating Round 10...</div>
+                <div class="text-green-400">[08:42:15] Global divergence check PASSED.</div>
+                <div class="text-white animate-pulse">_</div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

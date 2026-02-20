@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate-Fed Orchestrator</title>
+    <style>
+        :root {
+            --forest: #0D3B1A;
+            --solar: #FFD700;
+            --electric: #00D4AA;
+            --amber: #FF6B35;
+            --ice: #F0F4F8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, var(--forest) 0%, #1a5c2e 100%);
+            color: var(--ice);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, var(--solar), var(--electric));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .metric-value {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--solar);
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
+
+        .cta {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--electric);
+            color: var(--forest);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--solar);
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .metrics {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🌍 Climate-Fed Orchestrator</h1>
+            <p class="subtitle">Privacy-Preserving Federated Learning with Planetary Intelligence</p>
+        </header>
+
+        <div class="metrics">
+            <div class="metric-card">
+                <div class="metric-value">{{ (data.convergence.final_accuracy * 100) | round(1) }}%</div>
+                <div class="metric-label">Final Accuracy</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">{{ data.carbon.reduction_percentage | round(1) }}%</div>
+                <div class="metric-label">Carbon Reduction</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">ε={{ data.privacy.epsilon_consumed | round(2) }}</div>
+                <div class="metric-label">Privacy Budget Used</div>
+            </div>
+        </div>
+
+        <div class="cta">
+            <a href="/dashboard" class="btn">View Interactive Dashboard</a>
+            <a href="/api/metrics" class="btn"
+                style="margin-left: 1rem; background: transparent; border: 2px solid var(--electric); color: var(--electric);">API
+                Data</a>
+        </div>
+
+        <footer>
+            <p>Deployed on Render Free Tier |
+                <a href="https://github.com/Start-Selling-Online-Amazon/climate_fed_orchestrator"
+                    style="color: var(--electric);">GitHub</a>
+            </p>
+        </footer>
+    </div>
+</body>
+
+</html>

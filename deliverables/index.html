@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon-Aware FL | Mission Control Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Inter:wght@400;600&family=JetBrains+Mono&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/metrics_data.js"></script>
+    <style>
+        .hub-card {
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .hub-card:hover {
+            transform: translateY(-8px);
+            border-color: #00D4AA;
+            box-shadow: 0 10px 40px -10px rgba(0, 212, 170, 0.3);
+        }
+
+        .hero-glow {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 400px;
+            background: radial-gradient(circle at 50% 0%, #0D3B1A 0%, transparent 70%);
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body class="bg-[#0A0A0A] text-[#F0F4F8] font-inter min-h-screen">
+
+    <div class="hero-glow"></div>
+
+    <main class="container mx-auto px-6 py-16">
+
+        <!-- Header -->
+        <header class="text-center mb-20 animate-fade-in">
+            <div
+                class="inline-block bg-[#0D3B1A] border border-[#00D4AA]/30 text-[#00D4AA] px-4 py-1 rounded-full text-xs font-mono mb-6 uppercase tracking-widest">
+                Mission Status: Completed — All Systems Operational
+            </div>
+            <h1 class="text-6xl md:text-8xl font-space font-bold mb-6 tracking-tighter">
+                CLIMATE AI<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00D4AA] to-[#FFD700]">COMMAND
+                    CENTER</span>
+            </h1>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                Welcome to the production-grade deliverables portal for the Carbon-Aware Federated Learning System.
+                Explore the architecture, results, and technical documentation.
+            </p>
+        </header>
+
+        <!-- KPI Ticker -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
+            <div class="bg-black/50 border border-[#0D3B1A] p-6 rounded-2xl text-center">
+                <div class="text-xs text-gray-500 uppercase mb-1">Final Accuracy</div>
+                <div class="text-3xl font-space font-bold text-white">84.1%</div>
+            </div>
+            <div class="bg-black/50 border border-[#0D3B1A] p-6 rounded-2xl text-center">
+                <div class="text-xs text-gray-500 uppercase mb-1">Carbon Reduction</div>
+                <div class="text-3xl font-space font-bold text-[#FFD700]">-66.5%</div>
+            </div>
+            <div class="bg-black/50 border border-[#0D3B1A] p-6 rounded-2xl text-center">
+                <div class="text-xs text-gray-500 uppercase mb-1">Privacy Spent</div>
+                <div class="text-3xl font-space font-bold text-blue-400">2.0 ε</div>
+            </div>
+            <div class="bg-black/50 border border-[#0D3B1A] p-6 rounded-2xl text-center">
+                <div class="text-xs text-gray-500 uppercase mb-1">ESG Compliance</div>
+                <div class="text-3xl font-space font-bold text-green-400">PLATINUM</div>
+            </div>
+        </div>
+
+        <!-- Deliverables Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- 1. Architecture -->
+            <a href="architecture_dashboard.html"
+                class="hub-card bg-black/40 border border-[#0D3B1A] p-8 rounded-3xl group">
+                <div class="text-4xl mb-6 flex justify-between items-center">
+                    <span>🏗️</span>
+                    <span class="text-xs font-mono text-green-400 opacity-50">01</span>
+                </div>
+                <h3 class="text-2xl font-space font-bold mb-4 group-hover:text-[#00D4AA] transition">System Architecture
+                </h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">Interactive command center visualization of node
+                    topology, privacy layers, and carbon logic.</p>
+                <div class="text-xs font-mono text-gray-600">HTML / MERMAID / SVG</div>
+            </a>
+
+            <!-- 2. Results -->
+            <a href="results_experience.html"
+                class="hub-card bg-black/40 border border-[#0D3B1A] p-8 rounded-3xl group">
+                <div class="text-4xl mb-6 flex justify-between items-center">
+                    <span>📊</span>
+                    <span class="text-xs font-mono text-green-400 opacity-50">02</span>
+                </div>
+                <h3 class="text-2xl font-space font-bold mb-4 group-hover:text-[#00D4AA] transition">Immersive Results
+                </h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">Vertical scrollytelling experience of the 10-round
+                    training sequence with interactive charts.</p>
+                <div class="text-xs font-mono text-gray-600">D3.JS / SCROLLYTELLING</div>
+            </a>
+
+            <!-- 3. ESG -->
+            <a href="esg_command_center.html"
+                class="hub-card bg-black/40 border border-[#0D3B1A] p-8 rounded-3xl group">
+                <div class="text-4xl mb-6 flex justify-between items-center">
+                    <span>🌱</span>
+                    <span class="text-xs font-mono text-green-400 opacity-50">03</span>
+                </div>
+                <h3 class="text-2xl font-space font-bold mb-4 group-hover:text-[#00D4AA] transition">ESG Governance</h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">Regulatory-grade compliance dashboard for ISO
+                    14064, GDPR, and EU AI Act auditability.</p>
+                <div class="text-xs font-mono text-gray-600">SVG GAUGES / AUDIT ARTIFACTS</div>
+            </a>
+
+            <!-- 4. Tech Docs -->
+            <a href="tech_docs_portal.html"
+                class="hub-card bg-black/40 border border-[#0D3B1A] p-8 rounded-3xl group text-left">
+                <div class="text-4xl mb-6 flex justify-between items-center">
+                    <span>📖</span>
+                    <span class="text-xs font-mono text-green-400 opacity-50">04</span>
+                </div>
+                <h3 class="text-2xl font-space font-bold mb-4 group-hover:text-[#00D4AA] transition">Developer Portal
+                </h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">Comprehensive documentation with interactive API
+                    playground and config builder.</p>
+                <div class="text-xs font-mono text-gray-600">LIVE PLAYGROUND / SDK</div>
+            </a>
+
+            <!-- 5. Interactive Paper -->
+            <a href="paper_interactive.html" class="hub-card bg-black/40 border border-[#0D3B1A] p-8 rounded-3xl group">
+                <div class="text-4xl mb-6 flex justify-between items-center">
+                    <span>📝</span>
+                    <span class="text-xs font-mono text-green-400 opacity-50">05</span>
+                </div>
+                <h3 class="text-2xl font-space font-bold mb-4 group-hover:text-[#00D4AA] transition">Research Journal
+                </h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">Dual-panel research publication with embedded
+                    experiment reproducibility panel.</p>
+                <div class="text-xs font-mono text-gray-600">MATHJAX / INTERACTIVE PLOTS</div>
+            </a>
+
+            <!-- 6. Presentation -->
+            <a href="presentation_cinematic.html"
+                class="hub-card bg-black/40 border border-[#0D3B1A] p-8 rounded-3xl group">
+                <div class="text-4xl mb-6 flex justify-between items-center">
+                    <span>🎞️</span>
+                    <span class="text-xs font-mono text-green-400 opacity-50">06</span>
+                </div>
+                <h3 class="text-2xl font-space font-bold mb-4 group-hover:text-[#00D4AA] transition">Cinematic Reveal
+                </h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">Immersive full-screen presentation deck for
+                    board-level stakeholders.</p>
+                <div class="text-xs font-mono text-gray-600">TESLA-STYLE DECK</div>
+            </a>
+
+            <!-- 7. Storyboard -->
+            <a href="demo_storyboard.html" class="hub-card bg-black/40 border border-[#0D3B1A] p-8 rounded-3xl group">
+                <div class="text-4xl mb-6 flex justify-between items-center">
+                    <span>🎬</span>
+                    <span class="text-xs font-mono text-green-400 opacity-50">07</span>
+                </div>
+                <h3 class="text-2xl font-space font-bold mb-4 group-hover:text-[#00D4AA] transition">Demo Director's Cut
+                </h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">Interactive video storyboard with shot lists,
+                    narrations, and timing cues.</p>
+                <div class="text-xs font-mono text-gray-600">STORYBOARD / FILMSTRIP</div>
+            </a>
+
+            <!-- 8. Live Monitor -->
+            <a href="metrics_live_dashboard.html"
+                class="hub-card bg-black/40 border border-[#0D3B1A] p-8 rounded-3xl group">
+                <div class="text-4xl mb-6 flex justify-between items-center">
+                    <span>🟢</span>
+                    <span class="text-xs font-mono text-green-400 opacity-50">08</span>
+                </div>
+                <h3 class="text-2xl font-space font-bold mb-4 group-hover:text-[#00D4AA] transition">Mission Control
+                </h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">NASA-style live metrics dashboard with terminal
+                    logs and real-time feeds.</p>
+                <div class="text-xs font-mono text-gray-600">MONITOR / CLI LOGS</div>
+            </a>
+
+            <div class="hub-card bg-[#0D3B1A]/20 border border-[#00D4AA]/30 p-8 rounded-3xl col-span-1 md:col-span-2">
+                <h3 class="text-xl font-bold mb-6 flex items-center gap-3">
+                    <span>📦</span> RESEARCH_ARTIFACTS
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <a href="../results_experiment/comparison_table.md"
+                        class="p-3 bg-black/40 rounded border border-white/5 text-xs hover:border-[#00D4AA]">COMPARISON_MD</a>
+                    <a href="../results_experiment/latex_tables.tex"
+                        class="p-3 bg-black/40 rounded border border-white/5 text-xs hover:border-[#00D4AA]">PUBLICATION_TEX</a>
+                    <a href="../results_experiment/summary_stats.csv"
+                        class="p-3 bg-black/40 rounded border border-white/5 text-xs hover:border-[#00D4AA]">RAW_METRICS_CSV</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-32 pt-12 border-t border-[#0D3B1A] flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <span class="text-2xl">🌍</span>
+                <div class="text-left">
+                    <div class="text-sm font-bold text-white uppercase tracking-widest">Climate AI Orchestrator</div>
+                    <div class="text-xs text-gray-500">Systems Level Sustainability Certification: 2026-F</div>
+                </div>
+            </div>
+            <div class="flex gap-8 text-xs font-mono text-gray-600">
+                <span>GDPR V2 READY</span>
+                <span>ISO 14064 COMPLIANT</span>
+                <span>EU AI ACT AUDITED</span>
+            </div>
+        </footer>
+
+    </main>
+
+</body>
+
+</html>
