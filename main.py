@@ -33,6 +33,7 @@ from typing import Dict, List, Optional, Tuple
 
 import numpy as np
 import torch
+from torch.utils.data import DataLoader
 import yaml
 from torchvision import datasets, transforms
 
@@ -118,7 +119,7 @@ def _build_datasets(
     batch_size: int,
     num_workers: int,
     seed: int,
-) -> Tuple[Dict[int, "DataLoader"], "DataLoader"]:
+) -> Tuple[Dict[int, DataLoader], DataLoader]:
     """Download MNIST, apply non-IID partitioning, return per-node loaders + test loader."""
     tf = transforms.Compose(
         [
@@ -159,8 +160,8 @@ def run_arm(
     num_rounds: int,
     node_configs: list,
     node_geographies: List[NodeGeography],
-    node_loaders: Dict[int, "DataLoader"],
-    test_loader: "DataLoader",
+    node_loaders: Dict[int, DataLoader],
+    test_loader: DataLoader,
     oracle: RenewableOracle,
     cfg: dict,
     device: torch.device,
