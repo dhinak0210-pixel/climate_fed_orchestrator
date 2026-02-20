@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 WORKDIR /app
 
 # Copy requirements first for better caching
-COPY requirements.txt .
+COPY climate_fed_orchestrator/requirements.txt .
 
 # Install PyTorch CPU-only first (200MB vs 915MB full bundle)
 RUN pip install --no-cache-dir --default-timeout=1000 --retries 5 \
@@ -25,19 +25,19 @@ RUN pip install --no-cache-dir --default-timeout=1000 --retries 5 \
 
 # Install remaining dependencies
 RUN pip install --no-cache-dir --default-timeout=1000 --retries 5 \
-    numpy>=1.24.0 matplotlib>=3.7.0 seaborn>=0.12.0 PyYAML>=6.0 tqdm>=4.64.0 aiohttp python-dotenv psutil Flask gunicorn opacus plotly
+    numpy>=1.24.0 matplotlib>=3.7.0 seaborn>=0.12.0 PyYAML>=6.0 tqdm>=4.64.0 aiohttp python-dotenv
 
 # Copy source code
-COPY . .
+COPY climate_fed_orchestrator/ ./climate_fed_orchestrator/
 
 # ── Environment Configuration ────────────────────────────────────
-ENV PYTHONPATH="/app"
+ENV PYTHONPATH="/app:${PYTHONPATH}"
 ENV PYTHONUNBUFFERED=1
 
 # Create results directory
 RUN mkdir -p /app/results
 
 # ── Default Execution ────────────────────────────────────────────
-# Default command runs the Flask app
-ENTRYPOINT ["gunicorn", "wsgi:app", "--bind", "0.0.0.0:10000"]
+# Default command runs a full comparison experiment
+ENTRYPOINT ["python3", "-m", "climate_fed_orchestrator.main"]
 CMD ["--mode", "full", "--rounds", "10", "--viz", "--out", "/app/results"]

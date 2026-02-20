@@ -1,0 +1,544 @@
+[08:56:31] [INFO    ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[08:56:31] [INFO    ]   🌍🔒  DP-CLIMATE-FED ORCHESTRATOR v1.0  — Privacy × Planet
+[08:56:31] [INFO    ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[08:56:31] [INFO    ]   Mode: DP_ORACLE | Rounds: 10 | ε=2.0 | δ=1e-05
+[08:56:31] [INFO    ]   Live Carbon APIs: OFF (simulation)
+[08:56:31] [INFO    ] [Oslo] 3000 samples | Classes: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] | Distribution: [434, 689, 5, 406, 9, 74, 241, 168, 573, 401]
+[08:56:31] [INFO    ] [Melbourne] 2000 samples | Classes: [0, 1, 2, 3, 4] | Distribution: [43, 1044, 188, 686, 39, 0, 0, 0, 0, 0]
+[08:56:31] [INFO    ] [San José] 1000 samples | Classes: [5, 6, 7, 8, 9] | Distribution: [0, 0, 0, 0, 0, 51, 107, 9, 300, 533]
+[08:56:31] [INFO    ] [London] 1500 samples | Classes: [0, 2, 4, 6, 8] | Distribution: [403, 0, 371, 0, 460, 0, 228, 0, 38, 0]
+[08:56:31] [INFO    ] [Node-0] Auto-calibrated noise multiplier: σ=0.3110 for ε=2.0, δ=1e-05
+[08:56:31] [INFO    ] [Node-1] Auto-calibrated noise multiplier: σ=0.3830 for ε=2.0, δ=1e-05
+[08:56:31] [INFO    ] [Node-2] Auto-calibrated noise multiplier: σ=0.5328 for ε=2.0, δ=1e-05
+[08:56:31] [INFO    ] [Node-3] Auto-calibrated noise multiplier: σ=0.4399 for ε=2.0, δ=1e-05
+[08:56:31] [INFO    ] 
+════════════════════════════════════════════════════════════════════
+[08:56:31] [INFO    ]   🟢 Arm: DP + Oracle Carbon-Aware
+[08:56:31] [INFO    ] ════════════════════════════════════════════════════════════════════
+[08:56:31] [INFO    ] 
+Round 01/10 │ DP + Oracle Carbon-Aware
+[08:56:31] [INFO    ]   Node 0 Oslo       ⛔ SKIP  — Carbon gate: score 0.45 < threshold 0.45
+[08:56:35] [INFO    ] [Node-1:Melbourne] R01 | Acc=0.0287 | Loss=2.8989 | ε=1.9998 | σ=0.3830 | CO₂=467g/kWh | Score=0.56
+[08:56:35] [INFO    ]   Node 1 Melbourne  ✅ PRIVATE | Acc=0.0287 | ε=1.9998 | σ=0.3830 | CO₂=467g/kWh
+[08:56:35] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.06 < threshold 0.45
+[08:56:35] [INFO    ]   Node 3 London     ⛔ SKIP  — Carbon gate: score 0.16 < threshold 0.45
+[08:56:36] [INFO    ]   ► Global Acc=0.0749 | Energy=1.20kWh | CO₂=490.6g | ε=1.9998
+[08:56:37] [INFO    ] 
+Round 02/10 │ DP + Oracle Carbon-Aware
+[08:56:37] [INFO    ]   Node 0 Oslo       ⛔ SKIP  — Carbon gate: score 0.42 < threshold 0.45
+[08:56:37] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Carbon gate: score 0.44 < threshold 0.45
+[08:56:37] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.04 < threshold 0.45
+[08:56:37] [INFO    ]   Node 3 London     ⛔ SKIP  — Carbon gate: score 0.17 < threshold 0.45
+[08:56:38] [INFO    ]   ► Global Acc=0.0749 | Energy=0.20kWh | CO₂=0.0g | ε=1.9998
+[08:56:38] [INFO    ] 
+Round 03/10 │ DP + Oracle Carbon-Aware
+[08:56:38] [INFO    ]   Node 0 Oslo       ⛔ SKIP  — Carbon gate: score 0.39 < threshold 0.45
+[08:56:38] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Carbon gate: score 0.14 < threshold 0.45
+[08:56:38] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.08 < threshold 0.45
+[08:56:38] [INFO    ]   Node 3 London     ⛔ SKIP  — Carbon gate: score 0.24 < threshold 0.45
+[08:56:40] [INFO    ]   ► Global Acc=0.0749 | Energy=0.20kWh | CO₂=0.0g | ε=1.9998
+[08:56:40] [INFO    ] 
+Round 04/10 │ DP + Oracle Carbon-Aware
+[08:56:40] [INFO    ]   Node 0 Oslo       ⛔ SKIP  — Carbon gate: score 0.44 < threshold 0.45
+[08:56:40] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Carbon gate: score 0.13 < threshold 0.45
+[08:56:40] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.06 < threshold 0.45
+[08:56:40] [INFO    ]   Node 3 London     ⛔ SKIP  — Carbon gate: score 0.28 < threshold 0.45
+[08:56:41] [INFO    ]   ► Global Acc=0.0749 | Energy=0.20kWh | CO₂=0.0g | ε=1.9998
+[08:56:41] [INFO    ] 
+Round 05/10 │ DP + Oracle Carbon-Aware
+[08:56:45] [INFO    ] [Node-0:Oslo] R05 | Acc=0.0397 | Loss=2.8414 | ε=1.9999 | σ=0.3110 | CO₂=70g/kWh | Score=0.52
+[08:56:45] [INFO    ]   Node 0 Oslo       ✅ PRIVATE | Acc=0.0397 | ε=1.9999 | σ=0.3110 | CO₂=70g/kWh
+[08:56:45] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Carbon gate: score 0.08 < threshold 0.45
+[08:56:45] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.14 < threshold 0.45
+[08:56:45] [INFO    ]   Node 3 London     ⛔ SKIP  — Carbon gate: score 0.34 < threshold 0.45
+[08:56:47] [INFO    ]   ► Global Acc=0.0740 | Energy=1.20kWh | CO₂=73.4g | ε=3.9997
+[08:56:47] [INFO    ] 
+Round 06/10 │ DP + Oracle Carbon-Aware
+[08:56:47] [INFO    ]   Node 0 Oslo       ⛔ SKIP  — Carbon gate: score 0.43 < threshold 0.45
+[08:56:47] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Carbon gate: score 0.16 < threshold 0.45
+[08:56:47] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.26 < threshold 0.45
+[08:56:47] [INFO    ]   Node 3 London     ⛔ SKIP  — Carbon gate: score 0.32 < threshold 0.45
+[08:56:48] [INFO    ]   ► Global Acc=0.0740 | Energy=0.20kWh | CO₂=0.0g | ε=3.9997
+[08:56:48] [INFO    ] 
+Round 07/10 │ DP + Oracle Carbon-Aware
+[08:56:48] [INFO    ]   Node 0 Oslo       ⛔ SKIP  — Carbon gate: score 0.30 < threshold 0.45
+[08:56:48] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Carbon gate: score 0.10 < threshold 0.45
+[08:56:48] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.35 < threshold 0.45
+[08:56:48] [INFO    ]   Node 3 London     ⛔ SKIP  — Carbon gate: score 0.30 < threshold 0.45
+[08:56:50] [INFO    ]   ► Global Acc=0.0740 | Energy=0.20kWh | CO₂=0.0g | ε=3.9997
+[08:56:50] [INFO    ] 
+Round 08/10 │ DP + Oracle Carbon-Aware
+[08:56:50] [INFO    ]   Node 0 Oslo       ⛔ SKIP  — Carbon gate: score 0.24 < threshold 0.45
+[08:56:50] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Carbon gate: score 0.17 < threshold 0.45
+[08:56:50] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.38 < threshold 0.45
+[08:56:50] [INFO    ]   Node 3 London     ⛔ SKIP  — Carbon gate: score 0.20 < threshold 0.45
+[08:56:52] [INFO    ]   ► Global Acc=0.0740 | Energy=0.20kWh | CO₂=0.0g | ε=3.9997
+[08:56:52] [INFO    ] 
+Round 09/10 │ DP + Oracle Carbon-Aware
+[08:56:52] [INFO    ]   Node 0 Oslo       ⛔ SKIP  — Carbon gate: score 0.15 < threshold 0.45
+[08:56:52] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Carbon gate: score 0.40 < threshold 0.45
+[08:56:52] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.19 < threshold 0.45
+[08:56:52] [INFO    ]   Node 3 London     ⛔ SKIP  — Carbon gate: score 0.22 < threshold 0.45
+[08:56:53] [INFO    ]   ► Global Acc=0.0740 | Energy=0.20kWh | CO₂=0.0g | ε=3.9997
+[08:56:53] [INFO    ] 
+Round 10/10 │ DP + Oracle Carbon-Aware
+[08:56:53] [INFO    ]   Node 0 Oslo       ⛔ SKIP  — Carbon gate: score 0.21 < threshold 0.45
+[08:56:53] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Privacy budget exhausted (ε=4.000 ≥ 2.0)
+[08:56:53] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.08 < threshold 0.45
+[08:56:53] [INFO    ]   Node 3 London     ⛔ SKIP  — Carbon gate: score 0.12 < threshold 0.45
+[08:56:55] [INFO    ]   ► Global Acc=0.0740 | Energy=0.20kWh | CO₂=0.0g | ε=3.9997
+[08:56:55] [INFO    ] [Compliance] Markdown report → results_experiment/C_42/compliance/compliance_report.md
+[08:56:55] [INFO    ] [Compliance] JSON report → results_experiment/C_42/compliance/compliance_report.json
+[08:56:55] [INFO    ] 
+  🔒 Compliance report → results_experiment/C_42/compliance/compliance_report.md
+[08:56:55] [INFO    ]   📋 Compliance JSON  → results_experiment/C_42/compliance/compliance_report.json
+[08:56:55] [INFO    ]   📝 Technical report → results_experiment/C_42/reports/technical_report.md
+[08:56:55] [INFO    ]   📊 Metrics JSON     → results_experiment/C_42/metrics/dp_experiment_results.json
+[08:56:55] [INFO    ] 
+  ⏱  Total execution: 23.7s
+[08:56:55] [INFO    ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[08:56:55] [INFO    ]   🌱🔒 Training complete. Privacy preserved. Planet thanked.
+[08:56:55] [INFO    ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[09:06:23] [INFO    ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[09:06:23] [INFO    ]   🌍🔒  DP-CLIMATE-FED ORCHESTRATOR v1.0  — Privacy × Planet
+[09:06:23] [INFO    ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[09:06:23] [INFO    ]   Mode: DP_ORACLE | Rounds: 10 | ε=2.0 | δ=1e-05
+[09:06:23] [INFO    ]   Live Carbon APIs: OFF (simulation)
+[09:06:23] [INFO    ] [Oslo] 3000 samples | Classes: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] | Distribution: [434, 689, 5, 406, 9, 74, 241, 168, 573, 401]
+[09:06:23] [INFO    ] [Melbourne] 2000 samples | Classes: [0, 1, 2, 3, 4] | Distribution: [43, 1044, 188, 686, 39, 0, 0, 0, 0, 0]
+[09:06:23] [INFO    ] [San José] 1000 samples | Classes: [5, 6, 7, 8, 9] | Distribution: [0, 0, 0, 0, 0, 51, 107, 9, 300, 533]
+[09:06:23] [INFO    ] [London] 1500 samples | Classes: [0, 2, 4, 6, 8] | Distribution: [403, 0, 371, 0, 460, 0, 228, 0, 38, 0]
+[09:06:23] [INFO    ] [Node-0] Auto-calibrated noise multiplier: σ=0.3110 for ε=2.0, δ=1e-05
+[09:06:23] [INFO    ] [Node-1] Auto-calibrated noise multiplier: σ=0.3830 for ε=2.0, δ=1e-05
+[09:06:23] [INFO    ] [Node-2] Auto-calibrated noise multiplier: σ=0.5328 for ε=2.0, δ=1e-05
+[09:06:23] [INFO    ] [Node-3] Auto-calibrated noise multiplier: σ=0.4399 for ε=2.0, δ=1e-05
+[09:06:23] [INFO    ] 
+════════════════════════════════════════════════════════════════════
+[09:06:23] [INFO    ]   🟢 Arm: DP + Oracle Carbon-Aware
+[09:06:23] [INFO    ] ════════════════════════════════════════════════════════════════════
+[09:06:23] [INFO    ] 
+Round 01/10 │ DP + Oracle Carbon-Aware
+[09:06:28] [INFO    ] [Node-0:Oslo] R01 | Acc=0.0442 | Loss=2.8383 | ε=1.9999 | σ=0.3110 | CO₂=77g/kWh | Score=0.45
+[09:06:28] [INFO    ]   Node 0 Oslo       ✅ PRIVATE | Acc=0.0442 | ε=1.9999 | σ=0.3110 | CO₂=77g/kWh
+[09:06:30] [INFO    ] [Node-1:Melbourne] R01 | Acc=0.0287 | Loss=2.9022 | ε=1.9998 | σ=0.3830 | CO₂=467g/kWh | Score=0.56
+[09:06:30] [INFO    ]   Node 1 Melbourne  ✅ PRIVATE | Acc=0.0287 | ε=1.9998 | σ=0.3830 | CO₂=467g/kWh
+[09:06:30] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.06 < threshold 0.25
+[09:06:30] [INFO    ]   Node 3 London     ⛔ SKIP  — Carbon gate: score 0.16 < threshold 0.25
+[09:06:32] [INFO    ]   ► Global Acc=0.0743 | Energy=2.20kWh | CO₂=571.3g | ε=3.9997
+[09:06:32] [INFO    ] 
+Round 02/10 │ DP + Oracle Carbon-Aware
+[09:06:32] [INFO    ]   Node 0 Oslo       ⛔ SKIP  — Privacy budget exhausted (ε=4.000 ≥ 2.0)
+[09:06:32] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Privacy budget exhausted (ε=4.000 ≥ 2.0)
+[09:06:32] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.04 < threshold 0.25
+[09:06:32] [INFO    ]   Node 3 London     ⛔ SKIP  — Carbon gate: score 0.17 < threshold 0.25
+[09:06:33] [INFO    ]   ► Global Acc=0.0743 | Energy=0.20kWh | CO₂=0.0g | ε=3.9997
+[09:06:33] [INFO    ] 
+Round 03/10 │ DP + Oracle Carbon-Aware
+[09:06:33] [INFO    ]   Node 0 Oslo       ⛔ SKIP  — Privacy budget exhausted (ε=4.000 ≥ 2.0)
+[09:06:33] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Carbon gate: score 0.14 < threshold 0.25
+[09:06:33] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.08 < threshold 0.25
+[09:06:33] [INFO    ]   Node 3 London     ⛔ SKIP  — Carbon gate: score 0.24 < threshold 0.25
+[09:06:35] [INFO    ]   ► Global Acc=0.0743 | Energy=0.20kWh | CO₂=0.0g | ε=3.9997
+[09:06:35] [INFO    ] 
+Round 04/10 │ DP + Oracle Carbon-Aware
+[09:06:35] [INFO    ]   Node 0 Oslo       ⛔ SKIP  — Privacy budget exhausted (ε=4.000 ≥ 2.0)
+[09:06:35] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Carbon gate: score 0.13 < threshold 0.25
+[09:06:35] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.06 < threshold 0.25
+[09:06:35] [INFO    ]   Node 3 London     ⛔ SKIP  — Privacy budget exhausted (ε=4.000 ≥ 2.0)
+[09:06:37] [INFO    ]   ► Global Acc=0.0743 | Energy=0.20kWh | CO₂=0.0g | ε=3.9997
+[09:06:37] [INFO    ] 
+Round 05/10 │ DP + Oracle Carbon-Aware
+[09:06:37] [INFO    ]   Node 0 Oslo       ⛔ SKIP  — Privacy budget exhausted (ε=4.000 ≥ 2.0)
+[09:06:37] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Carbon gate: score 0.08 < threshold 0.25
+[09:06:37] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.14 < threshold 0.25
+[09:06:37] [INFO    ]   Node 3 London     ⛔ SKIP  — Privacy budget exhausted (ε=4.000 ≥ 2.0)
+[09:06:38] [INFO    ]   ► Global Acc=0.0743 | Energy=0.20kWh | CO₂=0.0g | ε=3.9997
+[09:06:38] [INFO    ] 
+Round 06/10 │ DP + Oracle Carbon-Aware
+[09:06:38] [INFO    ]   Node 0 Oslo       ⛔ SKIP  — Privacy budget exhausted (ε=4.000 ≥ 2.0)
+[09:06:38] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Carbon gate: score 0.16 < threshold 0.25
+[09:06:38] [INFO    ]   Node 2 San José   ⛔ SKIP  — Privacy budget exhausted (ε=4.000 ≥ 2.0)
+[09:06:38] [INFO    ]   Node 3 London     ⛔ SKIP  — Privacy budget exhausted (ε=4.000 ≥ 2.0)
+[09:06:40] [INFO    ]   ► Global Acc=0.0743 | Energy=0.20kWh | CO₂=0.0g | ε=3.9997
+[09:06:40] [INFO    ] 
+Round 07/10 │ DP + Oracle Carbon-Aware
+[09:06:40] [INFO    ]   Node 0 Oslo       ⛔ SKIP  — Privacy budget exhausted (ε=4.000 ≥ 2.0)
+[09:06:40] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Carbon gate: score 0.10 < threshold 0.25
+[09:06:40] [INFO    ]   Node 2 San José   ⛔ SKIP  — Privacy budget exhausted (ε=4.000 ≥ 2.0)
+[09:06:40] [INFO    ]   Node 3 London     ⛔ SKIP  — Privacy budget exhausted (ε=4.000 ≥ 2.0)
+[09:06:42] [INFO    ]   ► Global Acc=0.0743 | Energy=0.20kWh | CO₂=0.0g | ε=3.9997
+[09:06:42] [INFO    ] 
+Round 08/10 │ DP + Oracle Carbon-Aware
+[09:06:42] [INFO    ]   Node 0 Oslo       ⛔ SKIP  — Carbon gate: score 0.24 < threshold 0.25
+[09:06:42] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Carbon gate: score 0.17 < threshold 0.25
+[09:06:42] [INFO    ]   Node 2 San José   ⛔ SKIP  — Privacy budget exhausted (ε=4.000 ≥ 2.0)
+[09:06:42] [INFO    ]   Node 3 London     ⛔ SKIP  — Carbon gate: score 0.20 < threshold 0.25
+[09:06:43] [INFO    ]   ► Global Acc=0.0743 | Energy=0.20kWh | CO₂=0.0g | ε=3.9997
+[09:06:43] [INFO    ] 
+Round 09/10 │ DP + Oracle Carbon-Aware
+[09:06:43] [INFO    ]   Node 0 Oslo       ⛔ SKIP  — Carbon gate: score 0.15 < threshold 0.25
+[09:06:43] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Privacy budget exhausted (ε=4.000 ≥ 2.0)
+[09:06:43] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.19 < threshold 0.25
+[09:06:43] [INFO    ]   Node 3 London     ⛔ SKIP  — Carbon gate: score 0.22 < threshold 0.25
+[09:06:45] [INFO    ]   ► Global Acc=0.0743 | Energy=0.20kWh | CO₂=0.0g | ε=3.9997
+[09:06:45] [INFO    ] 
+Round 10/10 │ DP + Oracle Carbon-Aware
+[09:06:45] [INFO    ]   Node 0 Oslo       ⛔ SKIP  — Carbon gate: score 0.21 < threshold 0.25
+[09:06:45] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Privacy budget exhausted (ε=4.000 ≥ 2.0)
+[09:06:45] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.08 < threshold 0.25
+[09:06:45] [INFO    ]   Node 3 London     ⛔ SKIP  — Carbon gate: score 0.12 < threshold 0.25
+[09:06:46] [INFO    ]   ► Global Acc=0.0743 | Energy=0.20kWh | CO₂=0.0g | ε=3.9997
+[09:06:46] [INFO    ] [Compliance] Markdown report → results_experiment/C_42/compliance/compliance_report.md
+[09:06:46] [INFO    ] [Compliance] JSON report → results_experiment/C_42/compliance/compliance_report.json
+[09:06:46] [INFO    ] 
+  🔒 Compliance report → results_experiment/C_42/compliance/compliance_report.md
+[09:06:46] [INFO    ]   📋 Compliance JSON  → results_experiment/C_42/compliance/compliance_report.json
+[09:06:46] [INFO    ]   📝 Technical report → results_experiment/C_42/reports/technical_report.md
+[09:06:46] [INFO    ]   📊 Metrics JSON     → results_experiment/C_42/metrics/dp_experiment_results.json
+[09:06:46] [INFO    ] 
+  ⏱  Total execution: 23.4s
+[09:06:46] [INFO    ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[09:06:46] [INFO    ]   🌱🔒 Training complete. Privacy preserved. Planet thanked.
+[09:06:46] [INFO    ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[09:17:11] [INFO    ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[09:17:11] [INFO    ]   🌍🔒  DP-CLIMATE-FED ORCHESTRATOR v1.0  — Privacy × Planet
+[09:17:11] [INFO    ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[09:17:11] [INFO    ]   Mode: DP_ORACLE | Rounds: 10 | ε=2.0 | δ=1e-05
+[09:17:11] [INFO    ]   Live Carbon APIs: OFF (simulation)
+[09:17:11] [INFO    ] [Oslo] 3000 samples | Classes: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] | Distribution: [434, 689, 5, 406, 9, 74, 241, 168, 573, 401]
+[09:17:11] [INFO    ] [Melbourne] 2000 samples | Classes: [0, 1, 2, 3, 4] | Distribution: [43, 1044, 188, 686, 39, 0, 0, 0, 0, 0]
+[09:17:11] [INFO    ] [San José] 1000 samples | Classes: [5, 6, 7, 8, 9] | Distribution: [0, 0, 0, 0, 0, 51, 107, 9, 300, 533]
+[09:17:11] [INFO    ] [London] 1500 samples | Classes: [0, 2, 4, 6, 8] | Distribution: [403, 0, 371, 0, 460, 0, 228, 0, 38, 0]
+[09:17:11] [INFO    ] [Node-0] Auto-calibrated noise multiplier: σ=0.9836 for ε=2.0, δ=1e-05
+[09:17:11] [INFO    ] [Node-1] Auto-calibrated noise multiplier: σ=1.2112 for ε=2.0, δ=1e-05
+[09:17:11] [INFO    ] [Node-2] Auto-calibrated noise multiplier: σ=1.6851 for ε=2.0, δ=1e-05
+[09:17:11] [INFO    ] [Node-3] Auto-calibrated noise multiplier: σ=1.3911 for ε=2.0, δ=1e-05
+[09:17:11] [INFO    ] 
+════════════════════════════════════════════════════════════════════
+[09:17:11] [INFO    ]   🟢 Arm: DP + Oracle Carbon-Aware
+[09:17:11] [INFO    ] ════════════════════════════════════════════════════════════════════
+[09:17:11] [INFO    ] 
+Round 01/10 │ DP + Oracle Carbon-Aware
+[09:17:16] [INFO    ] [Node-0:Oslo] R01 | Acc=0.0442 | Loss=2.8383 | ε=0.5696 | σ=0.9836 | CO₂=77g/kWh | Score=0.45
+[09:17:16] [INFO    ]   Node 0 Oslo       ✅ PRIVATE | Acc=0.0442 | ε=0.5696 | σ=0.9836 | CO₂=77g/kWh
+[09:17:19] [INFO    ] [Node-1:Melbourne] R01 | Acc=0.0287 | Loss=2.9022 | ε=0.5696 | σ=1.2112 | CO₂=467g/kWh | Score=0.56
+[09:17:19] [INFO    ]   Node 1 Melbourne  ✅ PRIVATE | Acc=0.0287 | ε=0.5696 | σ=1.2112 | CO₂=467g/kWh
+[09:17:19] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.06 < threshold 0.25
+[09:17:19] [INFO    ]   Node 3 London     ⛔ SKIP  — Carbon gate: score 0.16 < threshold 0.25
+[09:17:20] [INFO    ]   ► Global Acc=0.0743 | Energy=2.20kWh | CO₂=571.3g | ε=1.1391
+[09:17:20] [INFO    ] 
+Round 02/10 │ DP + Oracle Carbon-Aware
+[09:17:24] [INFO    ] [Node-0:Oslo] R02 | Acc=0.0431 | Loss=2.8417 | ε=0.5696 | σ=0.9836 | CO₂=80g/kWh | Score=0.42
+[09:17:24] [INFO    ]   Node 0 Oslo       ✅ PRIVATE | Acc=0.0431 | ε=0.5696 | σ=0.9836 | CO₂=80g/kWh
+[09:17:27] [INFO    ] [Node-1:Melbourne] R02 | Acc=0.0343 | Loss=2.8992 | ε=0.5696 | σ=1.2112 | CO₂=548g/kWh | Score=0.44
+[09:17:27] [INFO    ]   Node 1 Melbourne  ✅ PRIVATE | Acc=0.0343 | ε=0.5696 | σ=1.2112 | CO₂=548g/kWh
+[09:17:27] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.04 < threshold 0.25
+[09:17:27] [INFO    ]   Node 3 London     ⛔ SKIP  — Carbon gate: score 0.17 < threshold 0.25
+[09:17:28] [INFO    ]   ► Global Acc=0.0758 | Energy=2.20kWh | CO₂=659.7g | ε=2.2782
+[09:17:28] [INFO    ] 
+Round 03/10 │ DP + Oracle Carbon-Aware
+[09:17:28] [INFO    ]   Node 0 Oslo       ⛔ SKIP  — Privacy budget exhausted (ε=2.278 ≥ 2.0)
+[09:17:28] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Carbon gate: score 0.14 < threshold 0.25
+[09:17:28] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.08 < threshold 0.25
+[09:17:28] [INFO    ]   Node 3 London     ⛔ SKIP  — Carbon gate: score 0.24 < threshold 0.25
+[09:17:30] [INFO    ]   ► Global Acc=0.0758 | Energy=0.20kWh | CO₂=0.0g | ε=2.2782
+[09:17:30] [INFO    ] 
+Round 04/10 │ DP + Oracle Carbon-Aware
+[09:17:30] [INFO    ]   Node 0 Oslo       ⛔ SKIP  — Privacy budget exhausted (ε=2.278 ≥ 2.0)
+[09:17:30] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Carbon gate: score 0.13 < threshold 0.25
+[09:17:30] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.06 < threshold 0.25
+[09:17:30] [INFO    ]   Node 3 London     ⛔ SKIP  — Privacy budget exhausted (ε=2.278 ≥ 2.0)
+[09:17:32] [INFO    ]   ► Global Acc=0.0758 | Energy=0.20kWh | CO₂=0.0g | ε=2.2782
+[09:17:32] [INFO    ] 
+Round 05/10 │ DP + Oracle Carbon-Aware
+[09:17:32] [INFO    ]   Node 0 Oslo       ⛔ SKIP  — Privacy budget exhausted (ε=2.278 ≥ 2.0)
+[09:17:32] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Carbon gate: score 0.08 < threshold 0.25
+[09:17:32] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.14 < threshold 0.25
+[09:17:32] [INFO    ]   Node 3 London     ⛔ SKIP  — Privacy budget exhausted (ε=2.278 ≥ 2.0)
+[09:17:33] [INFO    ]   ► Global Acc=0.0758 | Energy=0.20kWh | CO₂=0.0g | ε=2.2782
+[09:17:33] [INFO    ] 
+Round 06/10 │ DP + Oracle Carbon-Aware
+[09:17:33] [INFO    ]   Node 0 Oslo       ⛔ SKIP  — Privacy budget exhausted (ε=2.278 ≥ 2.0)
+[09:17:33] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Carbon gate: score 0.16 < threshold 0.25
+[09:17:33] [INFO    ]   Node 2 San José   ⛔ SKIP  — Privacy budget exhausted (ε=2.278 ≥ 2.0)
+[09:17:33] [INFO    ]   Node 3 London     ⛔ SKIP  — Privacy budget exhausted (ε=2.278 ≥ 2.0)
+[09:17:35] [INFO    ]   ► Global Acc=0.0758 | Energy=0.20kWh | CO₂=0.0g | ε=2.2782
+[09:17:35] [INFO    ] 
+Round 07/10 │ DP + Oracle Carbon-Aware
+[09:17:35] [INFO    ]   Node 0 Oslo       ⛔ SKIP  — Privacy budget exhausted (ε=2.278 ≥ 2.0)
+[09:17:35] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Carbon gate: score 0.10 < threshold 0.25
+[09:17:35] [INFO    ]   Node 2 San José   ⛔ SKIP  — Privacy budget exhausted (ε=2.278 ≥ 2.0)
+[09:17:35] [INFO    ]   Node 3 London     ⛔ SKIP  — Privacy budget exhausted (ε=2.278 ≥ 2.0)
+[09:17:37] [INFO    ]   ► Global Acc=0.0758 | Energy=0.20kWh | CO₂=0.0g | ε=2.2782
+[09:17:37] [INFO    ] 
+Round 08/10 │ DP + Oracle Carbon-Aware
+[09:17:37] [INFO    ]   Node 0 Oslo       ⛔ SKIP  — Carbon gate: score 0.24 < threshold 0.25
+[09:17:37] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Carbon gate: score 0.17 < threshold 0.25
+[09:17:37] [INFO    ]   Node 2 San José   ⛔ SKIP  — Privacy budget exhausted (ε=2.278 ≥ 2.0)
+[09:17:37] [INFO    ]   Node 3 London     ⛔ SKIP  — Carbon gate: score 0.20 < threshold 0.25
+[09:17:39] [INFO    ]   ► Global Acc=0.0758 | Energy=0.20kWh | CO₂=0.0g | ε=2.2782
+[09:17:39] [INFO    ] 
+Round 09/10 │ DP + Oracle Carbon-Aware
+[09:17:39] [INFO    ]   Node 0 Oslo       ⛔ SKIP  — Carbon gate: score 0.15 < threshold 0.25
+[09:17:39] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Privacy budget exhausted (ε=2.278 ≥ 2.0)
+[09:17:39] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.19 < threshold 0.25
+[09:17:39] [INFO    ]   Node 3 London     ⛔ SKIP  — Carbon gate: score 0.22 < threshold 0.25
+[09:17:40] [INFO    ]   ► Global Acc=0.0758 | Energy=0.20kWh | CO₂=0.0g | ε=2.2782
+[09:17:40] [INFO    ] 
+Round 10/10 │ DP + Oracle Carbon-Aware
+[09:17:40] [INFO    ]   Node 0 Oslo       ⛔ SKIP  — Carbon gate: score 0.21 < threshold 0.25
+[09:17:40] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Privacy budget exhausted (ε=2.278 ≥ 2.0)
+[09:17:40] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.08 < threshold 0.25
+[09:17:40] [INFO    ]   Node 3 London     ⛔ SKIP  — Carbon gate: score 0.12 < threshold 0.25
+[09:17:42] [INFO    ]   ► Global Acc=0.0758 | Energy=0.20kWh | CO₂=0.0g | ε=2.2782
+[09:17:42] [INFO    ] [Compliance] Markdown report → results_experiment/C_42/compliance/compliance_report.md
+[09:17:42] [INFO    ] [Compliance] JSON report → results_experiment/C_42/compliance/compliance_report.json
+[09:17:42] [INFO    ] 
+  🔒 Compliance report → results_experiment/C_42/compliance/compliance_report.md
+[09:17:42] [INFO    ]   📋 Compliance JSON  → results_experiment/C_42/compliance/compliance_report.json
+[09:17:42] [INFO    ]   📝 Technical report → results_experiment/C_42/reports/technical_report.md
+[09:17:42] [INFO    ]   📊 Metrics JSON     → results_experiment/C_42/metrics/dp_experiment_results.json
+[09:17:42] [INFO    ] 
+  ⏱  Total execution: 31.1s
+[09:17:42] [INFO    ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[09:17:42] [INFO    ]   🌱🔒 Training complete. Privacy preserved. Planet thanked.
+[09:17:42] [INFO    ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[09:31:44] [INFO    ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[09:31:44] [INFO    ]   🌍🔒  DP-CLIMATE-FED ORCHESTRATOR v1.0  — Privacy × Planet
+[09:31:44] [INFO    ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[09:31:44] [INFO    ]   Mode: DP_ORACLE | Rounds: 10 | ε=2.0 | δ=1e-05
+[09:31:44] [INFO    ]   Live Carbon APIs: OFF (simulation)
+[09:31:45] [INFO    ] [Oslo] 3000 samples | Classes: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] | Distribution: [434, 689, 5, 406, 9, 74, 241, 168, 573, 401]
+[09:31:45] [INFO    ] [Melbourne] 2000 samples | Classes: [0, 1, 2, 3, 4] | Distribution: [43, 1044, 188, 686, 39, 0, 0, 0, 0, 0]
+[09:31:45] [INFO    ] [San José] 1000 samples | Classes: [5, 6, 7, 8, 9] | Distribution: [0, 0, 0, 0, 0, 51, 107, 9, 300, 533]
+[09:31:45] [INFO    ] [London] 1500 samples | Classes: [0, 2, 4, 6, 8] | Distribution: [403, 0, 371, 0, 460, 0, 228, 0, 38, 0]
+[09:31:45] [INFO    ] [Node-0] Auto-calibrated noise multiplier: σ=0.9836 for ε=2.0, δ=1e-05
+[09:31:45] [INFO    ] [Node-1] Auto-calibrated noise multiplier: σ=1.2112 for ε=2.0, δ=1e-05
+[09:31:45] [INFO    ] [Node-2] Auto-calibrated noise multiplier: σ=1.6851 for ε=2.0, δ=1e-05
+[09:31:45] [INFO    ] [Node-3] Auto-calibrated noise multiplier: σ=1.3911 for ε=2.0, δ=1e-05
+[09:31:45] [INFO    ] 
+════════════════════════════════════════════════════════════════════
+[09:31:45] [INFO    ]   🟢 Arm: DP + Oracle Carbon-Aware
+[09:31:45] [INFO    ] ════════════════════════════════════════════════════════════════════
+[09:31:45] [INFO    ] 
+Round 01/10 │ DP + Oracle Carbon-Aware
+[09:31:49] [INFO    ] [Node-0:Oslo] R01 | Acc=0.0442 | Loss=2.8383 | ε=0.5696 | σ=0.9836 | CO₂=77g/kWh | Score=0.45
+[09:31:49] [INFO    ]   Node 0 Oslo       ✅ PRIVATE | Acc=0.0442 | ε=0.5696 | σ=0.9836 | CO₂=77g/kWh
+[09:31:52] [INFO    ] [Node-1:Melbourne] R01 | Acc=0.0287 | Loss=2.9022 | ε=0.5696 | σ=1.2112 | CO₂=467g/kWh | Score=0.56
+[09:31:52] [INFO    ]   Node 1 Melbourne  ✅ PRIVATE | Acc=0.0287 | ε=0.5696 | σ=1.2112 | CO₂=467g/kWh
+[09:31:52] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.06 < threshold 0.25
+[09:31:52] [INFO    ]   Node 3 London     ⛔ SKIP  — Carbon gate: score 0.16 < threshold 0.25
+[09:31:53] [INFO    ]   ► Global Acc=0.0743 | Energy=2.20kWh | CO₂=571.3g | ε=0.5696
+[09:31:53] [INFO    ] 
+Round 02/10 │ DP + Oracle Carbon-Aware
+[09:31:57] [INFO    ] [Node-0:Oslo] R02 | Acc=0.0431 | Loss=2.8417 | ε=0.5696 | σ=0.9836 | CO₂=80g/kWh | Score=0.42
+[09:31:57] [INFO    ]   Node 0 Oslo       ✅ PRIVATE | Acc=0.0431 | ε=0.5696 | σ=0.9836 | CO₂=80g/kWh
+[09:32:00] [INFO    ] [Node-1:Melbourne] R02 | Acc=0.0343 | Loss=2.8992 | ε=0.5696 | σ=1.2112 | CO₂=548g/kWh | Score=0.44
+[09:32:00] [INFO    ]   Node 1 Melbourne  ✅ PRIVATE | Acc=0.0343 | ε=0.5696 | σ=1.2112 | CO₂=548g/kWh
+[09:32:00] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.04 < threshold 0.25
+[09:32:00] [INFO    ]   Node 3 London     ⛔ SKIP  — Carbon gate: score 0.17 < threshold 0.25
+[09:32:02] [INFO    ]   ► Global Acc=0.0758 | Energy=2.20kWh | CO₂=659.7g | ε=0.5696
+[09:32:02] [INFO    ] 
+Round 03/10 │ DP + Oracle Carbon-Aware
+[09:32:05] [INFO    ] [Node-0:Oslo] R03 | Acc=0.0408 | Loss=2.8439 | ε=0.5696 | σ=0.9836 | CO₂=83g/kWh | Score=0.39
+[09:32:05] [INFO    ]   Node 0 Oslo       ✅ PRIVATE | Acc=0.0408 | ε=0.5696 | σ=0.9836 | CO₂=83g/kWh
+[09:32:05] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Carbon gate: score 0.14 < threshold 0.25
+[09:32:05] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.08 < threshold 0.25
+[09:32:05] [INFO    ]   Node 3 London     ⛔ SKIP  — Carbon gate: score 0.24 < threshold 0.25
+[09:32:07] [INFO    ]   ► Global Acc=0.0766 | Energy=1.20kWh | CO₂=86.8g | ε=0.5696
+[09:32:07] [INFO    ] 
+Round 04/10 │ DP + Oracle Carbon-Aware
+[09:32:11] [INFO    ] [Node-0:Oslo] R04 | Acc=0.0414 | Loss=2.8406 | ε=0.5696 | σ=0.9836 | CO₂=78g/kWh | Score=0.44
+[09:32:11] [INFO    ]   Node 0 Oslo       ✅ PRIVATE | Acc=0.0414 | ε=0.5696 | σ=0.9836 | CO₂=78g/kWh
+[09:32:11] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Carbon gate: score 0.13 < threshold 0.25
+[09:32:11] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.06 < threshold 0.25
+[09:32:13] [INFO    ] [Node-3:London] R04 | Acc=0.0360 | Loss=2.8847 | ε=0.5695 | σ=1.3911 | CO₂=170g/kWh | Score=0.28
+[09:32:13] [INFO    ]   Node 3 London     ✅ PRIVATE | Acc=0.0360 | ε=0.5695 | σ=1.3911 | CO₂=170g/kWh
+[09:32:14] [INFO    ]   ► Global Acc=0.0754 | Energy=2.20kWh | CO₂=260.3g | ε=0.5696
+[09:32:14] [INFO    ] 
+Round 05/10 │ DP + Oracle Carbon-Aware
+[09:32:18] [INFO    ] [Node-0:Oslo] R05 | Acc=0.0465 | Loss=2.8375 | ε=0.5696 | σ=0.9836 | CO₂=70g/kWh | Score=0.52
+[09:32:18] [INFO    ]   Node 0 Oslo       ✅ PRIVATE | Acc=0.0465 | ε=0.5696 | σ=0.9836 | CO₂=70g/kWh
+[09:32:18] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Carbon gate: score 0.08 < threshold 0.25
+[09:32:18] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.14 < threshold 0.25
+[09:32:20] [INFO    ] [Node-3:London] R05 | Acc=0.0448 | Loss=2.8861 | ε=0.5695 | σ=1.3911 | CO₂=161g/kWh | Score=0.34
+[09:32:20] [INFO    ]   Node 3 London     ✅ PRIVATE | Acc=0.0448 | ε=0.5695 | σ=1.3911 | CO₂=161g/kWh
+[09:32:22] [INFO    ]   ► Global Acc=0.0751 | Energy=2.20kWh | CO₂=242.0g | ε=0.5696
+[09:32:22] [INFO    ] 
+Round 06/10 │ DP + Oracle Carbon-Aware
+[09:32:25] [INFO    ] [Node-0:Oslo] R06 | Acc=0.0408 | Loss=2.8503 | ε=0.5696 | σ=0.9836 | CO₂=79g/kWh | Score=0.43
+[09:32:25] [INFO    ]   Node 0 Oslo       ✅ PRIVATE | Acc=0.0408 | ε=0.5696 | σ=0.9836 | CO₂=79g/kWh
+[09:32:25] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Carbon gate: score 0.16 < threshold 0.25
+[09:32:27] [INFO    ] [Node-2:San José] R06 | Acc=0.0406 | Loss=2.6805 | ε=0.5696 | σ=1.6851 | CO₂=32g/kWh | Score=0.26
+[09:32:27] [INFO    ]   Node 2 San José   ✅ PRIVATE | Acc=0.0406 | ε=0.5696 | σ=1.6851 | CO₂=32g/kWh
+[09:32:29] [INFO    ] [Node-3:London] R06 | Acc=0.0374 | Loss=2.8706 | ε=0.5695 | σ=1.3911 | CO₂=164g/kWh | Score=0.32
+[09:32:29] [INFO    ]   Node 3 London     ✅ PRIVATE | Acc=0.0374 | ε=0.5695 | σ=1.3911 | CO₂=164g/kWh
+[09:32:30] [INFO    ]   ► Global Acc=0.0752 | Energy=3.20kWh | CO₂=288.5g | ε=0.5696
+[09:32:30] [INFO    ] 
+Round 07/10 │ DP + Oracle Carbon-Aware
+[09:32:34] [INFO    ] [Node-0:Oslo] R07 | Acc=0.0425 | Loss=2.8511 | ε=0.5696 | σ=0.9836 | CO₂=91g/kWh | Score=0.30
+[09:32:34] [INFO    ]   Node 0 Oslo       ✅ PRIVATE | Acc=0.0425 | ε=0.5696 | σ=0.9836 | CO₂=91g/kWh
+[09:32:34] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Carbon gate: score 0.10 < threshold 0.25
+[09:32:35] [INFO    ] [Node-2:San José] R07 | Acc=0.0479 | Loss=2.6480 | ε=0.5696 | σ=1.6851 | CO₂=29g/kWh | Score=0.35
+[09:32:35] [INFO    ]   Node 2 San José   ✅ PRIVATE | Acc=0.0479 | ε=0.5696 | σ=1.6851 | CO₂=29g/kWh
+[09:32:37] [INFO    ] [Node-3:London] R07 | Acc=0.0326 | Loss=2.8909 | ε=0.5695 | σ=1.3911 | CO₂=168g/kWh | Score=0.30
+[09:32:37] [INFO    ]   Node 3 London     ✅ PRIVATE | Acc=0.0326 | ε=0.5695 | σ=1.3911 | CO₂=168g/kWh
+[09:32:39] [INFO    ]   ► Global Acc=0.0750 | Energy=3.20kWh | CO₂=302.3g | ε=0.5696
+[09:32:39] [INFO    ] 
+Round 08/10 │ DP + Oracle Carbon-Aware
+[09:32:39] [INFO    ]   Node 0 Oslo       ⛔ SKIP  — Carbon gate: score 0.24 < threshold 0.25
+[09:32:39] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Carbon gate: score 0.17 < threshold 0.25
+[09:32:40] [INFO    ] [Node-2:San José] R08 | Acc=0.0458 | Loss=2.6606 | ε=0.5696 | σ=1.6851 | CO₂=28g/kWh | Score=0.38
+[09:32:40] [INFO    ]   Node 2 San José   ✅ PRIVATE | Acc=0.0458 | ε=0.5696 | σ=1.6851 | CO₂=28g/kWh
+[09:32:40] [INFO    ]   Node 3 London     ⛔ SKIP  — Carbon gate: score 0.20 < threshold 0.25
+[09:32:42] [INFO    ]   ► Global Acc=0.0767 | Energy=1.20kWh | CO₂=29.1g | ε=0.5696
+[09:32:42] [INFO    ] 
+Round 09/10 │ DP + Oracle Carbon-Aware
+[09:32:42] [INFO    ]   Node 0 Oslo       ⛔ SKIP  — Carbon gate: score 0.15 < threshold 0.25
+[09:32:44] [INFO    ] [Node-1:Melbourne] R09 | Acc=0.0237 | Loss=2.9185 | ε=0.5696 | σ=1.2112 | CO₂=578g/kWh | Score=0.40
+[09:32:44] [INFO    ]   Node 1 Melbourne  ✅ PRIVATE | Acc=0.0237 | ε=0.5696 | σ=1.2112 | CO₂=578g/kWh
+[09:32:44] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.19 < threshold 0.25
+[09:32:44] [INFO    ]   Node 3 London     ⛔ SKIP  — Carbon gate: score 0.22 < threshold 0.25
+[09:32:46] [INFO    ]   ► Global Acc=0.0763 | Energy=1.20kWh | CO₂=606.7g | ε=0.5696
+[09:32:46] [INFO    ] 
+Round 10/10 │ DP + Oracle Carbon-Aware
+[09:32:46] [INFO    ]   Node 0 Oslo       ⛔ SKIP  — Carbon gate: score 0.21 < threshold 0.25
+[09:32:49] [INFO    ] [Node-1:Melbourne] R10 | Acc=0.0267 | Loss=2.9162 | ε=0.5696 | σ=1.2112 | CO₂=472g/kWh | Score=0.56
+[09:32:49] [INFO    ]   Node 1 Melbourne  ✅ PRIVATE | Acc=0.0267 | ε=0.5696 | σ=1.2112 | CO₂=472g/kWh
+[09:32:49] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.08 < threshold 0.25
+[09:32:49] [INFO    ]   Node 3 London     ⛔ SKIP  — Carbon gate: score 0.12 < threshold 0.25
+[09:32:50] [INFO    ]   ► Global Acc=0.0754 | Energy=1.20kWh | CO₂=495.8g | ε=0.5696
+[09:32:50] [INFO    ] [Compliance] Markdown report → results_experiment/C_42/compliance/compliance_report.md
+[09:32:50] [INFO    ] [Compliance] JSON report → results_experiment/C_42/compliance/compliance_report.json
+[09:32:50] [INFO    ] 
+  🔒 Compliance report → results_experiment/C_42/compliance/compliance_report.md
+[09:32:50] [INFO    ]   📋 Compliance JSON  → results_experiment/C_42/compliance/compliance_report.json
+[09:32:50] [INFO    ]   📝 Technical report → results_experiment/C_42/reports/technical_report.md
+[09:32:50] [INFO    ]   📊 Metrics JSON     → results_experiment/C_42/metrics/dp_experiment_results.json
+[09:32:50] [INFO    ] 
+  ⏱  Total execution: 65.8s
+[09:32:50] [INFO    ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[09:32:50] [INFO    ]   🌱🔒 Training complete. Privacy preserved. Planet thanked.
+[09:32:50] [INFO    ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[09:37:59] [INFO    ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[09:37:59] [INFO    ]   🌍🔒  DP-CLIMATE-FED ORCHESTRATOR v1.0  — Privacy × Planet
+[09:37:59] [INFO    ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[09:37:59] [INFO    ]   Mode: DP_ORACLE | Rounds: 10 | ε=2.0 | δ=1e-05
+[09:37:59] [INFO    ]   Live Carbon APIs: OFF (simulation)
+[09:38:00] [INFO    ] [Oslo] 3000 samples | Classes: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] | Distribution: [434, 689, 5, 406, 9, 74, 241, 168, 573, 401]
+[09:38:00] [INFO    ] [Melbourne] 2000 samples | Classes: [0, 1, 2, 3, 4] | Distribution: [43, 1044, 188, 686, 39, 0, 0, 0, 0, 0]
+[09:38:00] [INFO    ] [San José] 1000 samples | Classes: [5, 6, 7, 8, 9] | Distribution: [0, 0, 0, 0, 0, 51, 107, 9, 300, 533]
+[09:38:00] [INFO    ] [London] 1500 samples | Classes: [0, 2, 4, 6, 8] | Distribution: [403, 0, 371, 0, 460, 0, 228, 0, 38, 0]
+[09:38:00] [INFO    ] [Node-0] Auto-calibrated noise multiplier: σ=0.9836 for ε=2.0, δ=1e-05
+[09:38:00] [INFO    ] [Node-1] Auto-calibrated noise multiplier: σ=1.2112 for ε=2.0, δ=1e-05
+[09:38:00] [INFO    ] [Node-2] Auto-calibrated noise multiplier: σ=1.6851 for ε=2.0, δ=1e-05
+[09:38:00] [INFO    ] [Node-3] Auto-calibrated noise multiplier: σ=1.3911 for ε=2.0, δ=1e-05
+[09:38:00] [INFO    ] 
+════════════════════════════════════════════════════════════════════
+[09:38:00] [INFO    ]   🟢 Arm: DP + Oracle Carbon-Aware
+[09:38:00] [INFO    ] ════════════════════════════════════════════════════════════════════
+[09:38:00] [INFO    ] 
+Round 01/10 │ DP + Oracle Carbon-Aware
+[09:38:04] [INFO    ] [Node-0:Oslo] R01 | Acc=0.0442 | Loss=2.8383 | ε=0.5696 | σ=0.9836 | CO₂=77g/kWh | Score=0.45
+[09:38:04] [INFO    ]   Node 0 Oslo       ✅ PRIVATE | Acc=0.0442 | ε=0.5696 | σ=0.9836 | CO₂=77g/kWh
+[09:38:07] [INFO    ] [Node-1:Melbourne] R01 | Acc=0.0287 | Loss=2.9022 | ε=0.5696 | σ=1.2112 | CO₂=467g/kWh | Score=0.56
+[09:38:07] [INFO    ]   Node 1 Melbourne  ✅ PRIVATE | Acc=0.0287 | ε=0.5696 | σ=1.2112 | CO₂=467g/kWh
+[09:38:07] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.06 < threshold 0.25
+[09:38:07] [INFO    ]   Node 3 London     ⛔ SKIP  — Carbon gate: score 0.16 < threshold 0.25
+[09:38:09] [INFO    ]   ► Global Acc=0.0743 | Energy=2.20kWh | CO₂=571.3g | ε=0.5696
+[09:38:09] [INFO    ] 
+Round 02/10 │ DP + Oracle Carbon-Aware
+[09:38:13] [INFO    ] [Node-0:Oslo] R02 | Acc=0.0431 | Loss=2.8417 | ε=0.8290 | σ=0.9836 | CO₂=80g/kWh | Score=0.42
+[09:38:13] [INFO    ]   Node 0 Oslo       ✅ PRIVATE | Acc=0.0431 | ε=0.8290 | σ=0.9836 | CO₂=80g/kWh
+[09:38:15] [INFO    ] [Node-1:Melbourne] R02 | Acc=0.0343 | Loss=2.8992 | ε=0.8290 | σ=1.2112 | CO₂=548g/kWh | Score=0.44
+[09:38:15] [INFO    ]   Node 1 Melbourne  ✅ PRIVATE | Acc=0.0343 | ε=0.8290 | σ=1.2112 | CO₂=548g/kWh
+[09:38:15] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.04 < threshold 0.25
+[09:38:15] [INFO    ]   Node 3 London     ⛔ SKIP  — Carbon gate: score 0.17 < threshold 0.25
+[09:38:17] [INFO    ]   ► Global Acc=0.0758 | Energy=2.20kWh | CO₂=659.7g | ε=0.8290
+[09:38:17] [INFO    ] 
+Round 03/10 │ DP + Oracle Carbon-Aware
+[09:38:21] [INFO    ] [Node-0:Oslo] R03 | Acc=0.0408 | Loss=2.8439 | ε=1.0336 | σ=0.9836 | CO₂=83g/kWh | Score=0.39
+[09:38:21] [INFO    ]   Node 0 Oslo       ✅ PRIVATE | Acc=0.0408 | ε=1.0336 | σ=0.9836 | CO₂=83g/kWh
+[09:38:21] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Carbon gate: score 0.14 < threshold 0.25
+[09:38:21] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.08 < threshold 0.25
+[09:38:21] [INFO    ]   Node 3 London     ⛔ SKIP  — Carbon gate: score 0.24 < threshold 0.25
+[09:38:22] [INFO    ]   ► Global Acc=0.0766 | Energy=1.20kWh | CO₂=86.8g | ε=1.0336
+[09:38:22] [INFO    ] 
+Round 04/10 │ DP + Oracle Carbon-Aware
+[09:38:26] [INFO    ] [Node-0:Oslo] R04 | Acc=0.0414 | Loss=2.8406 | ε=1.2091 | σ=0.9836 | CO₂=78g/kWh | Score=0.44
+[09:38:26] [INFO    ]   Node 0 Oslo       ✅ PRIVATE | Acc=0.0414 | ε=1.2091 | σ=0.9836 | CO₂=78g/kWh
+[09:38:26] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Carbon gate: score 0.13 < threshold 0.25
+[09:38:26] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.06 < threshold 0.25
+[09:38:28] [INFO    ] [Node-3:London] R04 | Acc=0.0360 | Loss=2.8847 | ε=0.5695 | σ=1.3911 | CO₂=170g/kWh | Score=0.28
+[09:38:28] [INFO    ]   Node 3 London     ✅ PRIVATE | Acc=0.0360 | ε=0.5695 | σ=1.3911 | CO₂=170g/kWh
+[09:38:30] [INFO    ]   ► Global Acc=0.0754 | Energy=2.20kWh | CO₂=260.3g | ε=1.2091
+[09:38:30] [INFO    ] 
+Round 05/10 │ DP + Oracle Carbon-Aware
+[09:38:33] [INFO    ] [Node-0:Oslo] R05 | Acc=0.0465 | Loss=2.8375 | ε=1.3659 | σ=0.9836 | CO₂=70g/kWh | Score=0.52
+[09:38:33] [INFO    ]   Node 0 Oslo       ✅ PRIVATE | Acc=0.0465 | ε=1.3659 | σ=0.9836 | CO₂=70g/kWh
+[09:38:33] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Carbon gate: score 0.08 < threshold 0.25
+[09:38:33] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.14 < threshold 0.25
+[09:38:35] [INFO    ] [Node-3:London] R05 | Acc=0.0448 | Loss=2.8861 | ε=0.8290 | σ=1.3911 | CO₂=161g/kWh | Score=0.34
+[09:38:35] [INFO    ]   Node 3 London     ✅ PRIVATE | Acc=0.0448 | ε=0.8290 | σ=1.3911 | CO₂=161g/kWh
+[09:38:37] [INFO    ]   ► Global Acc=0.0751 | Energy=2.20kWh | CO₂=242.0g | ε=1.3659
+[09:38:37] [INFO    ] 
+Round 06/10 │ DP + Oracle Carbon-Aware
+[09:38:41] [INFO    ] [Node-0:Oslo] R06 | Acc=0.0408 | Loss=2.8503 | ε=1.5095 | σ=0.9836 | CO₂=79g/kWh | Score=0.43
+[09:38:41] [INFO    ]   Node 0 Oslo       ✅ PRIVATE | Acc=0.0408 | ε=1.5095 | σ=0.9836 | CO₂=79g/kWh
+[09:38:41] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Carbon gate: score 0.16 < threshold 0.25
+[09:38:42] [INFO    ] [Node-2:San José] R06 | Acc=0.0406 | Loss=2.6805 | ε=0.5696 | σ=1.6851 | CO₂=32g/kWh | Score=0.26
+[09:38:42] [INFO    ]   Node 2 San José   ✅ PRIVATE | Acc=0.0406 | ε=0.5696 | σ=1.6851 | CO₂=32g/kWh
+[09:38:44] [INFO    ] [Node-3:London] R06 | Acc=0.0374 | Loss=2.8706 | ε=1.0336 | σ=1.3911 | CO₂=164g/kWh | Score=0.32
+[09:38:44] [INFO    ]   Node 3 London     ✅ PRIVATE | Acc=0.0374 | ε=1.0336 | σ=1.3911 | CO₂=164g/kWh
+[09:38:46] [INFO    ]   ► Global Acc=0.0752 | Energy=3.20kWh | CO₂=288.5g | ε=1.5095
+[09:38:46] [INFO    ] 
+Round 07/10 │ DP + Oracle Carbon-Aware
+[09:38:50] [INFO    ] [Node-0:Oslo] R07 | Acc=0.0425 | Loss=2.8511 | ε=1.6426 | σ=0.9836 | CO₂=91g/kWh | Score=0.30
+[09:38:50] [INFO    ]   Node 0 Oslo       ✅ PRIVATE | Acc=0.0425 | ε=1.6426 | σ=0.9836 | CO₂=91g/kWh
+[09:38:50] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Carbon gate: score 0.10 < threshold 0.25
+[09:38:51] [INFO    ] [Node-2:San José] R07 | Acc=0.0479 | Loss=2.6480 | ε=0.8290 | σ=1.6851 | CO₂=29g/kWh | Score=0.35
+[09:38:51] [INFO    ]   Node 2 San José   ✅ PRIVATE | Acc=0.0479 | ε=0.8290 | σ=1.6851 | CO₂=29g/kWh
+[09:38:53] [INFO    ] [Node-3:London] R07 | Acc=0.0326 | Loss=2.8909 | ε=1.2091 | σ=1.3911 | CO₂=168g/kWh | Score=0.30
+[09:38:53] [INFO    ]   Node 3 London     ✅ PRIVATE | Acc=0.0326 | ε=1.2091 | σ=1.3911 | CO₂=168g/kWh
+[09:38:55] [INFO    ]   ► Global Acc=0.0750 | Energy=3.20kWh | CO₂=302.3g | ε=1.6426
+[09:38:55] [INFO    ] 
+Round 08/10 │ DP + Oracle Carbon-Aware
+[09:38:55] [INFO    ]   Node 0 Oslo       ⛔ SKIP  — Carbon gate: score 0.24 < threshold 0.25
+[09:38:55] [INFO    ]   Node 1 Melbourne  ⛔ SKIP  — Carbon gate: score 0.17 < threshold 0.25
+[09:38:56] [INFO    ] [Node-2:San José] R08 | Acc=0.0458 | Loss=2.6606 | ε=1.0336 | σ=1.6851 | CO₂=28g/kWh | Score=0.38
+[09:38:56] [INFO    ]   Node 2 San José   ✅ PRIVATE | Acc=0.0458 | ε=1.0336 | σ=1.6851 | CO₂=28g/kWh
+[09:38:56] [INFO    ]   Node 3 London     ⛔ SKIP  — Carbon gate: score 0.20 < threshold 0.25
+[09:38:58] [INFO    ]   ► Global Acc=0.0767 | Energy=1.20kWh | CO₂=29.1g | ε=1.6426
+[09:38:58] [INFO    ] 
+Round 09/10 │ DP + Oracle Carbon-Aware
+[09:38:58] [INFO    ]   Node 0 Oslo       ⛔ SKIP  — Carbon gate: score 0.15 < threshold 0.25
+[09:39:00] [INFO    ] [Node-1:Melbourne] R09 | Acc=0.0237 | Loss=2.9185 | ε=1.0336 | σ=1.2112 | CO₂=578g/kWh | Score=0.40
+[09:39:00] [INFO    ]   Node 1 Melbourne  ✅ PRIVATE | Acc=0.0237 | ε=1.0336 | σ=1.2112 | CO₂=578g/kWh
+[09:39:00] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.19 < threshold 0.25
+[09:39:00] [INFO    ]   Node 3 London     ⛔ SKIP  — Carbon gate: score 0.22 < threshold 0.25
+[09:39:02] [INFO    ]   ► Global Acc=0.0763 | Energy=1.20kWh | CO₂=606.7g | ε=1.6426
+[09:39:02] [INFO    ] 
+Round 10/10 │ DP + Oracle Carbon-Aware
+[09:39:02] [INFO    ]   Node 0 Oslo       ⛔ SKIP  — Carbon gate: score 0.21 < threshold 0.25
+[09:39:04] [INFO    ] [Node-1:Melbourne] R10 | Acc=0.0267 | Loss=2.9162 | ε=1.2091 | σ=1.2112 | CO₂=472g/kWh | Score=0.56
+[09:39:04] [INFO    ]   Node 1 Melbourne  ✅ PRIVATE | Acc=0.0267 | ε=1.2091 | σ=1.2112 | CO₂=472g/kWh
+[09:39:04] [INFO    ]   Node 2 San José   ⛔ SKIP  — Carbon gate: score 0.08 < threshold 0.25
+[09:39:04] [INFO    ]   Node 3 London     ⛔ SKIP  — Carbon gate: score 0.12 < threshold 0.25
+[09:39:06] [INFO    ]   ► Global Acc=0.0754 | Energy=1.20kWh | CO₂=495.8g | ε=1.6426
+[09:39:06] [INFO    ] [Compliance] Markdown report → results_experiment/C_42/compliance/compliance_report.md
+[09:39:06] [INFO    ] [Compliance] JSON report → results_experiment/C_42/compliance/compliance_report.json
+[09:39:06] [INFO    ] 
+  🔒 Compliance report → results_experiment/C_42/compliance/compliance_report.md
+[09:39:06] [INFO    ]   📋 Compliance JSON  → results_experiment/C_42/compliance/compliance_report.json
+[09:39:06] [INFO    ]   📝 Technical report → results_experiment/C_42/reports/technical_report.md
+[09:39:06] [INFO    ]   📊 Metrics JSON     → results_experiment/C_42/metrics/dp_experiment_results.json
+[09:39:06] [INFO    ] 
+  ⏱  Total execution: 66.6s
+[09:39:06] [INFO    ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[09:39:06] [INFO    ]   🌱🔒 Training complete. Privacy preserved. Planet thanked.
+[09:39:06] [INFO    ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+

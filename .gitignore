@@ -1,24 +1,31 @@
+# Streamlit
+.streamlit/secrets.toml
+
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
-audit_venv/
-data/
-.mypy_cache/
-.pytest_cache/
+*.so
+.Python
+env/
+venv/
 .env
-.env.*
-! .env.example
-results_experiment/
-results_verify/
-results_dp/
-results_dp_live/
-results_dp_london/
-results_dp_long/
-results_local_sim/
-*.log
-*.txt
-!requirements.txt
-!README.md
+
+# Data
+data/
+*.pkl
+*.h5
+
+# Results (large files)
+results/*.png
+results/*.mp4
+
+# IDE
 .vscode/
 .idea/
+*.swp
+*.swo
+
+# OS
 .DS_Store
+Thumbs.db

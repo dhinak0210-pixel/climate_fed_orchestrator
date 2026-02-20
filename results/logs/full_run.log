@@ -1,0 +1,351 @@
+[09:12:28] [INFO    ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[09:12:28] [INFO    ]   🌍  CLIMATE-FED ORCHESTRATOR v2.0  ─  Carbon-Aware FL Platform
+[09:12:28] [INFO    ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[09:12:28] [INFO    ]   Mode: FULL | Rounds: 10 | Seed: 42
+[09:12:28] [INFO    ]   Device: cpu
+[09:12:28] [INFO    ] 
+  Initializing Renewable Grid...
+[09:12:28] [INFO    ]     ✓ Node-0: Oslo, Norway (Solar: 12%, Wind: 68%, Grid: 120g CO₂/kWh)
+[09:12:28] [INFO    ]     ✓ Node-1: Melbourne, Australia (Solar: 45%, Wind: 23%, Grid: 850g CO₂/kWh)
+[09:12:28] [INFO    ]     ✓ Node-2: San José, Costa Rica (Solar: 34%, Wind: 12%, Grid: 40g CO₂/kWh)
+[09:12:28] [INFO    ] 
+  GreenNet-Mini: 105,914 parameters | ~2.1 MFLOPs per forward pass
+[09:12:28] [INFO    ] 
+  Partitioning MNIST (Dirichlet α=0.5, Non-IID)...
+[09:12:28] [INFO    ] [Oslo] 3000 samples | Classes: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] | Distribution: [434, 689, 5, 406, 9, 74, 241, 168, 573, 401]
+[09:12:28] [INFO    ] [Melbourne] 2000 samples | Classes: [0, 1, 2, 3, 4] | Distribution: [43, 1044, 188, 686, 39, 0, 0, 0, 0, 0]
+[09:12:28] [INFO    ] [San José] 1000 samples | Classes: [5, 6, 7, 8, 9] | Distribution: [0, 0, 0, 0, 0, 51, 107, 9, 300, 533]
+[09:12:28] [INFO    ] 
+══════════════════════════════════════════════════════════════════════
+[09:12:28] [INFO    ]   🟡 Arm: Standard FL
+[09:12:28] [INFO    ] ══════════════════════════════════════════════════════════════════════
+[09:12:28] [INFO    ] 
+Round 01/10 │ Standard FL
+[09:12:29] [INFO    ]   Node 0 Oslo       🌱 TRAIN  (Renewable: 0.45 | Carbon: 77g CO₂/kWh | Mix: ☀0% 🌬44% 🪨55%)
+[09:12:29] [INFO    ]     └─ Acc=0.5877 | Loss=1.2938 | Compress=1.00
+[09:12:29] [INFO    ]   Node 1 Melbourne  🌱 TRAIN  (Renewable: 0.51 | Carbon: 502g CO₂/kWh | Mix: ☀45% 🌬6% 🪨49%)
+[09:12:29] [INFO    ]     └─ Acc=0.6755 | Loss=1.0268 | Compress=0.10
+[09:12:29] [INFO    ] [San José] Early stop at epoch 1: renewable 0.08 < 0.20
+[09:12:29] [INFO    ]   Node 2 San José   🌱 TRAIN  (Renewable: 0.08 | Carbon: 37g CO₂/kWh | Mix: ☀0% 🌬7% 🪨92%)
+[09:12:29] [INFO    ]     └─ Acc=0.4620 | Loss=1.5902 | Compress=1.00
+[09:12:31] [INFO    ] [Round 1] Aggregated 3 node(s) via fedavg → Acc=0.5277 Loss=1.6098
+[09:12:31] [INFO    ]   ► Global Acc=0.5277 | Participants=3/3 | Energy=4.4100 kWh | CO₂=906.09g
+[09:12:31] [INFO    ] 
+Round 02/10 │ Standard FL
+[09:12:32] [INFO    ]   Node 0 Oslo       🌱 TRAIN  (Renewable: 0.39 | Carbon: 82g CO₂/kWh | Mix: ☀0% 🌬39% 🪨61%)
+[09:12:32] [INFO    ]     └─ Acc=0.8230 | Loss=0.6248 | Compress=1.00
+[09:12:32] [INFO    ]   Node 1 Melbourne  🌱 TRAIN  (Renewable: 0.32 | Carbon: 634g CO₂/kWh | Mix: ☀24% 🌬8% 🪨68%)
+[09:12:32] [INFO    ]     └─ Acc=0.9010 | Loss=0.3509 | Compress=0.10
+[09:12:33] [INFO    ] [San José] Early stop at epoch 1: renewable 0.05 < 0.20
+[09:12:33] [INFO    ]   Node 2 San José   🌱 TRAIN  (Renewable: 0.05 | Carbon: 38g CO₂/kWh | Mix: ☀0% 🌬4% 🪨96%)
+[09:12:33] [INFO    ]     └─ Acc=0.7860 | Loss=0.7248 | Compress=1.00
+[09:12:35] [INFO    ] [Round 2] Aggregated 3 node(s) via fedavg → Acc=0.0980 Loss=nan
+[09:12:35] [INFO    ]   ► Global Acc=0.0980 | Participants=3/3 | Energy=4.4100 kWh | CO₂=1109.28g
+[09:12:35] [INFO    ] 
+Round 03/10 │ Standard FL
+[09:12:35] [INFO    ]   Node 0 Oslo       🌱 TRAIN  (Renewable: 0.39 | Carbon: 82g CO₂/kWh | Mix: ☀6% 🌬33% 🪨61%)
+[09:12:35] [INFO    ]     └─ Acc=0.8630 | Loss=0.4805 | Compress=1.00
+[09:12:36] [INFO    ] [Melbourne] Early stop at epoch 1: renewable 0.12 < 0.20
+[09:12:36] [INFO    ]   Node 1 Melbourne  🌱 TRAIN  (Renewable: 0.12 | Carbon: 766g CO₂/kWh | Mix: ☀2% 🌬10% 🪨88%)
+[09:12:36] [INFO    ]     └─ Acc=0.8980 | Loss=0.3573 | Compress=0.10
+[09:12:36] [INFO    ] [San José] Early stop at epoch 1: renewable 0.05 < 0.20
+[09:12:36] [INFO    ]   Node 2 San José   🌱 TRAIN  (Renewable: 0.05 | Carbon: 38g CO₂/kWh | Mix: ☀0% 🌬5% 🪨95%)
+[09:12:36] [INFO    ]     └─ Acc=0.7990 | Loss=0.6827 | Compress=1.00
+[09:12:38] [INFO    ] [Round 3] Aggregated 3 node(s) via fedavg → Acc=0.0980 Loss=nan
+[09:12:38] [INFO    ]   ► Global Acc=0.0980 | Participants=3/3 | Energy=4.4100 kWh | CO₂=1302.80g
+[09:12:38] [INFO    ] 
+Round 04/10 │ Standard FL
+[09:12:39] [INFO    ]   Node 0 Oslo       🌱 TRAIN  (Renewable: 0.42 | Carbon: 80g CO₂/kWh | Mix: ☀11% 🌬30% 🪨59%)
+[09:12:39] [INFO    ]     └─ Acc=0.8633 | Loss=0.4733 | Compress=1.00
+[09:12:39] [INFO    ] [Melbourne] Early stop at epoch 1: renewable 0.18 < 0.20
+[09:12:39] [INFO    ]   Node 1 Melbourne  🌱 TRAIN  (Renewable: 0.18 | Carbon: 731g CO₂/kWh | Mix: ☀8% 🌬9% 🪨83%)
+[09:12:39] [INFO    ]     └─ Acc=0.9060 | Loss=0.3683 | Compress=0.10
+[09:12:40] [INFO    ] [San José] Early stop at epoch 1: renewable 0.07 < 0.20
+[09:12:40] [INFO    ]   Node 2 San José   🌱 TRAIN  (Renewable: 0.07 | Carbon: 38g CO₂/kWh | Mix: ☀0% 🌬6% 🪨94%)
+[09:12:40] [INFO    ]     └─ Acc=0.7910 | Loss=0.8018 | Compress=1.00
+[09:12:41] [INFO    ] [Round 4] Aggregated 3 node(s) via fedavg → Acc=0.0980 Loss=nan
+[09:12:41] [INFO    ]   ► Global Acc=0.0980 | Participants=3/3 | Energy=4.4100 kWh | CO₂=1247.00g
+[09:12:41] [INFO    ] 
+Round 05/10 │ Standard FL
+[09:12:42] [INFO    ]   Node 0 Oslo       🌱 TRAIN  (Renewable: 0.33 | Carbon: 88g CO₂/kWh | Mix: ☀11% 🌬21% 🪨67%)
+[09:12:42] [INFO    ]     └─ Acc=0.8607 | Loss=0.5132 | Compress=1.00
+[09:12:43] [INFO    ] [Melbourne] Early stop at epoch 1: renewable 0.15 < 0.20
+[09:12:43] [INFO    ]   Node 1 Melbourne  🌱 TRAIN  (Renewable: 0.15 | Carbon: 750g CO₂/kWh | Mix: ☀2% 🌬12% 🪨86%)
+[09:12:43] [INFO    ]     └─ Acc=0.8950 | Loss=0.4466 | Compress=0.10
+[09:12:43] [INFO    ] [San José] Early stop at epoch 1: renewable 0.12 < 0.20
+[09:12:43] [INFO    ]   Node 2 San José   🌱 TRAIN  (Renewable: 0.12 | Carbon: 36g CO₂/kWh | Mix: ☀4% 🌬6% 🪨89%)
+[09:12:43] [INFO    ]     └─ Acc=0.8020 | Loss=0.8563 | Compress=1.00
+[09:12:45] [INFO    ] [Round 5] Aggregated 3 node(s) via fedavg → Acc=0.0980 Loss=nan
+[09:12:45] [INFO    ]   ► Global Acc=0.0980 | Participants=3/3 | Energy=4.4100 kWh | CO₂=1285.38g
+[09:12:45] [INFO    ] 
+Round 06/10 │ Standard FL
+[09:12:46] [INFO    ]   Node 0 Oslo       🌱 TRAIN  (Renewable: 0.30 | Carbon: 92g CO₂/kWh | Mix: ☀7% 🌬22% 🪨71%)
+[09:12:46] [INFO    ]     └─ Acc=0.8587 | Loss=0.5079 | Compress=1.00
+[09:12:46] [INFO    ] [Melbourne] Early stop at epoch 1: renewable 0.13 < 0.20
+[09:12:46] [INFO    ]   Node 1 Melbourne  🌱 TRAIN  (Renewable: 0.13 | Carbon: 765g CO₂/kWh | Mix: ☀2% 🌬9% 🪨88%)
+[09:12:46] [INFO    ]     └─ Acc=0.9020 | Loss=0.4387 | Compress=0.10
+[09:12:46] [INFO    ]   Node 2 San José   🌱 TRAIN  (Renewable: 0.31 | Carbon: 30g CO₂/kWh | Mix: ☀22% 🌬8% 🪨70%)
+[09:12:46] [INFO    ]     └─ Acc=0.7900 | Loss=0.9323 | Compress=1.00
+[09:12:48] [INFO    ] [Round 6] Aggregated 3 node(s) via fedavg → Acc=0.0980 Loss=nan
+[09:12:48] [INFO    ]   ► Global Acc=0.0980 | Participants=3/3 | Energy=4.4100 kWh | CO₂=1303.13g
+[09:12:48] [INFO    ] 
+Round 07/10 │ Standard FL
+[09:12:49] [INFO    ]   Node 0 Oslo       🌱 TRAIN  (Renewable: 0.21 | Carbon: 99g CO₂/kWh | Mix: ☀1% 🌬20% 🪨79%)
+[09:12:49] [INFO    ]     └─ Acc=0.8660 | Loss=0.5054 | Compress=1.00
+[09:12:49] [INFO    ] [Melbourne] Early stop at epoch 1: renewable 0.19 < 0.20
+[09:12:49] [INFO    ]   Node 1 Melbourne  🌱 TRAIN  (Renewable: 0.19 | Carbon: 724g CO₂/kWh | Mix: ☀5% 🌬12% 🪨82%)
+[09:12:49] [INFO    ]     └─ Acc=0.8915 | Loss=0.4726 | Compress=0.10
+[09:12:50] [INFO    ]   Node 2 San José   🌱 TRAIN  (Renewable: 0.38 | Carbon: 28g CO₂/kWh | Mix: ☀28% 🌬10% 🪨62%)
+[09:12:50] [INFO    ]     └─ Acc=0.8080 | Loss=0.8396 | Compress=1.00
+[09:12:52] [INFO    ] [Round 7] Aggregated 3 node(s) via fedavg → Acc=0.0980 Loss=nan
+[09:12:52] [INFO    ]   ► Global Acc=0.0980 | Participants=3/3 | Energy=4.4100 kWh | CO₂=1250.99g
+[09:12:52] [INFO    ] 
+Round 08/10 │ Standard FL
+[09:12:52] [INFO    ]   Node 0 Oslo       🌱 TRAIN  (Renewable: 0.31 | Carbon: 90g CO₂/kWh | Mix: ☀1% 🌬30% 🪨70%)
+[09:12:52] [INFO    ]     └─ Acc=0.8747 | Loss=0.4589 | Compress=1.00
+[09:12:53] [INFO    ]   Node 1 Melbourne  🌱 TRAIN  (Renewable: 0.21 | Carbon: 707g CO₂/kWh | Mix: ☀6% 🌬14% 🪨80%)
+[09:12:53] [INFO    ]     └─ Acc=0.9035 | Loss=0.3863 | Compress=0.10
+[09:12:53] [INFO    ]   Node 2 San José   🌱 TRAIN  (Renewable: 0.41 | Carbon: 27g CO₂/kWh | Mix: ☀32% 🌬8% 🪨60%)
+[09:12:53] [INFO    ]     └─ Acc=0.8280 | Loss=0.8110 | Compress=1.00
+[09:12:55] [INFO    ] [Round 8] Aggregated 3 node(s) via fedavg → Acc=0.0980 Loss=nan
+[09:12:55] [INFO    ]   ► Global Acc=0.0980 | Participants=3/3 | Energy=4.4100 kWh | CO₂=1211.62g
+[09:12:55] [INFO    ] 
+Round 09/10 │ Standard FL
+[09:12:56] [INFO    ]   Node 0 Oslo       🌱 TRAIN  (Renewable: 0.33 | Carbon: 89g CO₂/kWh | Mix: ☀0% 🌬32% 🪨68%)
+[09:12:56] [INFO    ]     └─ Acc=0.8830 | Loss=0.4062 | Compress=1.00
+[09:12:56] [INFO    ]   Node 1 Melbourne  🌱 TRAIN  (Renewable: 0.46 | Carbon: 537g CO₂/kWh | Mix: ☀30% 🌬15% 🪨55%)
+[09:12:56] [INFO    ]     └─ Acc=0.9175 | Loss=0.3285 | Compress=0.10
+[09:12:56] [INFO    ]   Node 2 San José   🌱 TRAIN  (Renewable: 0.30 | Carbon: 30g CO₂/kWh | Mix: ☀22% 🌬7% 🪨70%)
+[09:12:56] [INFO    ]     └─ Acc=0.8350 | Loss=0.6771 | Compress=1.00
+[09:12:58] [INFO    ] [Round 9] Aggregated 3 node(s) via fedavg → Acc=0.0980 Loss=nan
+[09:12:58] [INFO    ]   ► Global Acc=0.0980 | Participants=3/3 | Energy=4.4100 kWh | CO₂=964.91g
+[09:12:58] [INFO    ] 
+Round 10/10 │ Standard FL
+[09:12:59] [INFO    ]   Node 0 Oslo       🌱 TRAIN  (Renewable: 0.24 | Carbon: 97g CO₂/kWh | Mix: ☀0% 🌬23% 🪨77%)
+[09:12:59] [INFO    ]     └─ Acc=0.9000 | Loss=0.3587 | Compress=1.00
+[09:13:00] [INFO    ]   Node 1 Melbourne  🌱 TRAIN  (Renewable: 0.52 | Carbon: 498g CO₂/kWh | Mix: ☀39% 🌬12% 🪨49%)
+[09:13:00] [INFO    ]     └─ Acc=0.9200 | Loss=0.2812 | Compress=0.10
+[09:13:00] [INFO    ] [San José] Early stop at epoch 1: renewable 0.14 < 0.20
+[09:13:00] [INFO    ]   Node 2 San José   🌱 TRAIN  (Renewable: 0.14 | Carbon: 36g CO₂/kWh | Mix: ☀6% 🌬6% 🪨87%)
+[09:13:00] [INFO    ]     └─ Acc=0.8580 | Loss=0.5109 | Compress=1.00
+[09:13:02] [INFO    ] [Round 10] Aggregated 3 node(s) via fedavg → Acc=0.0980 Loss=nan
+[09:13:02] [INFO    ]   ► Global Acc=0.0980 | Participants=3/3 | Energy=4.4100 kWh | CO₂=926.98g
+[09:13:02] [INFO    ] 
+══════════════════════════════════════════════════════════════════════
+[09:13:02] [INFO    ]   🔵 Arm: Naive Carbon-Aware
+[09:13:02] [INFO    ] ══════════════════════════════════════════════════════════════════════
+[09:13:02] [INFO    ] 
+Round 01/10 │ Naive Carbon-Aware
+[09:13:02] [INFO    ]   Node 0 Oslo       ⛔ IDLE (Naive: score 0.45 < threshold 0.45)
+[09:13:02] [INFO    ]   Node 1 Melbourne  🌱 TRAIN  (Renewable: 0.51 | Carbon: 502g CO₂/kWh | Mix: ☀45% 🌬6% 🪨49%)
+[09:13:02] [INFO    ]     └─ Acc=0.6605 | Loss=1.0784 | Compress=0.10
+[09:13:02] [INFO    ]   Node 2 San José   ⛔ IDLE (Naive: score 0.08 < threshold 0.45)
+[09:13:04] [INFO    ] [Round 1] Aggregated 1 node(s) via renewable_weighted → Acc=0.2603 Loss=2.9404
+[09:13:04] [INFO    ]   ► Global Acc=0.2603 | Participants=1/3 | Energy=1.6100 kWh | CO₂=745.96g
+[09:13:04] [INFO    ] 
+Round 02/10 │ Naive Carbon-Aware
+[09:13:04] [INFO    ]   Node 0 Oslo       ⛔ IDLE (Naive: score 0.39 < threshold 0.45)
+[09:13:04] [INFO    ]   Node 1 Melbourne  ⛔ IDLE (Naive: score 0.32 < threshold 0.45)
+[09:13:04] [INFO    ]   Node 2 San José   ⛔ IDLE (Naive: score 0.05 < threshold 0.45)
+[09:13:04] [WARNING ] [Round 2] No active nodes — global model unchanged.
+[09:13:06] [INFO    ]   ► Global Acc=0.2603 | Participants=0/3 | Energy=0.2100 kWh | CO₂=52.82g
+[09:13:06] [INFO    ] 
+Round 03/10 │ Naive Carbon-Aware
+[09:13:06] [INFO    ]   Node 0 Oslo       ⛔ IDLE (Naive: score 0.39 < threshold 0.45)
+[09:13:06] [INFO    ]   Node 1 Melbourne  ⛔ IDLE (Naive: score 0.12 < threshold 0.45)
+[09:13:06] [INFO    ]   Node 2 San José   ⛔ IDLE (Naive: score 0.05 < threshold 0.45)
+[09:13:06] [WARNING ] [Round 3] No active nodes — global model unchanged.
+[09:13:08] [INFO    ]   ► Global Acc=0.2603 | Participants=0/3 | Energy=0.2100 kWh | CO₂=62.04g
+[09:13:08] [INFO    ] 
+Round 04/10 │ Naive Carbon-Aware
+[09:13:08] [INFO    ]   Node 0 Oslo       ⛔ IDLE (Naive: score 0.42 < threshold 0.45)
+[09:13:08] [INFO    ]   Node 1 Melbourne  ⛔ IDLE (Naive: score 0.18 < threshold 0.45)
+[09:13:08] [INFO    ]   Node 2 San José   ⛔ IDLE (Naive: score 0.07 < threshold 0.45)
+[09:13:08] [WARNING ] [Round 4] No active nodes — global model unchanged.
+[09:13:10] [INFO    ]   ► Global Acc=0.2603 | Participants=0/3 | Energy=0.2100 kWh | CO₂=59.38g
+[09:13:10] [INFO    ] 
+Round 05/10 │ Naive Carbon-Aware
+[09:13:10] [INFO    ]   Node 0 Oslo       ⛔ IDLE (Naive: score 0.33 < threshold 0.45)
+[09:13:10] [INFO    ]   Node 1 Melbourne  ⛔ IDLE (Naive: score 0.15 < threshold 0.45)
+[09:13:10] [INFO    ]   Node 2 San José   ⛔ IDLE (Naive: score 0.12 < threshold 0.45)
+[09:13:10] [WARNING ] [Round 5] No active nodes — global model unchanged.
+[09:13:12] [INFO    ]   ► Global Acc=0.2603 | Participants=0/3 | Energy=0.2100 kWh | CO₂=61.21g
+[09:13:12] [INFO    ] 
+Round 06/10 │ Naive Carbon-Aware
+[09:13:12] [INFO    ]   Node 0 Oslo       ⛔ IDLE (Naive: score 0.30 < threshold 0.45)
+[09:13:12] [INFO    ]   Node 1 Melbourne  ⛔ IDLE (Naive: score 0.13 < threshold 0.45)
+[09:13:12] [INFO    ]   Node 2 San José   ⛔ IDLE (Naive: score 0.31 < threshold 0.45)
+[09:13:12] [WARNING ] [Round 6] No active nodes — global model unchanged.
+[09:13:13] [INFO    ]   ► Global Acc=0.2603 | Participants=0/3 | Energy=0.2100 kWh | CO₂=62.05g
+[09:13:13] [INFO    ] 
+Round 07/10 │ Naive Carbon-Aware
+[09:13:13] [INFO    ]   Node 0 Oslo       ⛔ IDLE (Naive: score 0.21 < threshold 0.45)
+[09:13:13] [INFO    ]   Node 1 Melbourne  ⛔ IDLE (Naive: score 0.19 < threshold 0.45)
+[09:13:13] [INFO    ]   Node 2 San José   ⛔ IDLE (Naive: score 0.38 < threshold 0.45)
+[09:13:13] [WARNING ] [Round 7] No active nodes — global model unchanged.
+[09:13:15] [INFO    ]   ► Global Acc=0.2603 | Participants=0/3 | Energy=0.2100 kWh | CO₂=59.57g
+[09:13:15] [INFO    ] 
+Round 08/10 │ Naive Carbon-Aware
+[09:13:15] [INFO    ]   Node 0 Oslo       ⛔ IDLE (Naive: score 0.31 < threshold 0.45)
+[09:13:15] [INFO    ]   Node 1 Melbourne  ⛔ IDLE (Naive: score 0.21 < threshold 0.45)
+[09:13:15] [INFO    ]   Node 2 San José   ⛔ IDLE (Naive: score 0.41 < threshold 0.45)
+[09:13:15] [WARNING ] [Round 8] No active nodes — global model unchanged.
+[09:13:17] [INFO    ]   ► Global Acc=0.2603 | Participants=0/3 | Energy=0.2100 kWh | CO₂=57.70g
+[09:13:17] [INFO    ] 
+Round 09/10 │ Naive Carbon-Aware
+[09:13:17] [INFO    ]   Node 0 Oslo       ⛔ IDLE (Naive: score 0.33 < threshold 0.45)
+[09:13:18] [INFO    ]   Node 1 Melbourne  🌱 TRAIN  (Renewable: 0.46 | Carbon: 537g CO₂/kWh | Mix: ☀30% 🌬15% 🪨55%)
+[09:13:18] [INFO    ]     └─ Acc=0.9175 | Loss=0.2690 | Compress=0.10
+[09:13:18] [INFO    ]   Node 2 San José   ⛔ IDLE (Naive: score 0.30 < threshold 0.45)
+[09:13:20] [INFO    ] [Round 9] Aggregated 1 node(s) via renewable_weighted → Acc=0.0980 Loss=nan
+[09:13:20] [INFO    ]   ► Global Acc=0.0980 | Participants=1/3 | Energy=1.6100 kWh | CO₂=798.32g
+[09:13:20] [INFO    ] 
+Round 10/10 │ Naive Carbon-Aware
+[09:13:20] [INFO    ]   Node 0 Oslo       ⛔ IDLE (Naive: score 0.24 < threshold 0.45)
+[09:13:20] [INFO    ]   Node 1 Melbourne  🌱 TRAIN  (Renewable: 0.52 | Carbon: 498g CO₂/kWh | Mix: ☀39% 🌬12% 🪨49%)
+[09:13:20] [INFO    ]     └─ Acc=0.9305 | Loss=0.2349 | Compress=0.10
+[09:13:20] [INFO    ]   Node 2 San José   ⛔ IDLE (Naive: score 0.14 < threshold 0.45)
+[09:13:22] [INFO    ] [Round 10] Aggregated 1 node(s) via renewable_weighted → Acc=0.0980 Loss=nan
+[09:13:22] [INFO    ]   ► Global Acc=0.0980 | Participants=1/3 | Energy=1.6100 kWh | CO₂=741.34g
+[09:13:22] [INFO    ] 
+══════════════════════════════════════════════════════════════════════
+[09:13:22] [INFO    ]   🟢 Arm: Oracle Carbon-Aware
+[09:13:22] [INFO    ] ══════════════════════════════════════════════════════════════════════
+[09:13:22] [INFO    ] 
+Round 01/10 │ Oracle Carbon-Aware
+[09:13:23] [INFO    ]   Node 0 Oslo       🌱 TRAIN  (Renewable: 0.45 | Carbon: 77g CO₂/kWh | Mix: ☀0% 🌬44% 🪨55%)
+[09:13:23] [INFO    ]     └─ Acc=0.5343 | Loss=1.4408 | Compress=1.00
+[09:13:23] [INFO    ]   Node 1 Melbourne  🌱 TRAIN  (Renewable: 0.56 | Carbon: 467g CO₂/kWh | Mix: ☀42% 🌬14% 🪨44%)
+[09:13:23] [INFO    ]     └─ Acc=0.6445 | Loss=1.1281 | Compress=0.10
+[09:13:24] [INFO    ] [San José] Early stop at epoch 1: renewable 0.06 < 0.20
+[09:13:24] [INFO    ]   Node 2 San José   🌱 TRAIN  (Renewable: 0.06 | Carbon: 38g CO₂/kWh | Mix: ☀0% 🌬6% 🪨94%)
+[09:13:24] [INFO    ]     └─ Acc=0.3770 | Loss=1.8136 | Compress=1.00
+[09:13:25] [INFO    ] [Round 1] Aggregated 3 node(s) via renewable_weighted → Acc=0.3090 Loss=1.9250
+[09:13:25] [INFO    ]   ► Global Acc=0.3090 | Participants=3/3 | Energy=4.4100 kWh | CO₂=855.75g
+[09:13:25] [INFO    ] 
+Round 02/10 │ Oracle Carbon-Aware
+[09:13:26] [INFO    ]   Node 0 Oslo       🌱 TRAIN  (Renewable: 0.38 | Carbon: 83g CO₂/kWh | Mix: ☀1% 🌬36% 🪨62%)
+[09:13:26] [INFO    ]     └─ Acc=0.7590 | Loss=0.8110 | Compress=1.00
+[09:13:27] [INFO    ]   Node 1 Melbourne  🌱 TRAIN  (Renewable: 0.36 | Carbon: 606g CO₂/kWh | Mix: ☀22% 🌬13% 🪨64%)
+[09:13:27] [INFO    ]     └─ Acc=0.8975 | Loss=0.3508 | Compress=0.10
+[09:13:27] [INFO    ] [San José] Early stop at epoch 1: renewable 0.12 < 0.20
+[09:13:27] [INFO    ]   Node 2 San José   🌱 TRAIN  (Renewable: 0.12 | Carbon: 36g CO₂/kWh | Mix: ☀6% 🌬6% 🪨89%)
+[09:13:27] [INFO    ]     └─ Acc=0.5430 | Loss=1.3309 | Compress=1.00
+[09:13:29] [INFO    ] [Round 2] Aggregated 3 node(s) via renewable_weighted → Acc=0.0980 Loss=nan
+[09:13:29] [INFO    ]   ► Global Acc=0.0980 | Participants=3/3 | Energy=4.4100 kWh | CO₂=1067.12g
+[09:13:29] [INFO    ] 
+Round 03/10 │ Oracle Carbon-Aware
+[09:13:29] [INFO    ]   Node 0 Oslo       ⛔ IDLE (Oracle: soft-zone defer (future=0.43 >> now=0.31))
+[09:13:29] [INFO    ] [Melbourne] Early stop at epoch 1: renewable 0.17 < 0.20
+[09:13:29] [INFO    ]   Node 1 Melbourne  🌱 TRAIN  (Renewable: 0.17 | Carbon: 738g CO₂/kWh | Mix: ☀2% 🌬14% 🪨84%)
+[09:13:29] [INFO    ]     └─ Acc=0.8955 | Loss=0.3540 | Compress=0.10
+[09:13:30] [INFO    ] [San José] Early stop at epoch 1: renewable 0.07 < 0.20
+[09:13:30] [INFO    ]   Node 2 San José   🌱 TRAIN  (Renewable: 0.07 | Carbon: 38g CO₂/kWh | Mix: ☀2% 🌬4% 🪨94%)
+[09:13:30] [INFO    ]     └─ Acc=0.4760 | Loss=1.7845 | Compress=1.00
+[09:13:32] [INFO    ] [Round 3] Aggregated 2 node(s) via renewable_weighted → Acc=0.0980 Loss=nan
+[09:13:32] [INFO    ]   ► Global Acc=0.0980 | Participants=2/3 | Energy=3.0100 kWh | CO₂=1146.45g
+[09:13:32] [INFO    ] 
+Round 04/10 │ Oracle Carbon-Aware
+[09:13:32] [INFO    ]   Node 0 Oslo       ⛔ IDLE (Oracle: soft-zone defer (future=0.43 >> now=0.33))
+[09:13:32] [INFO    ] [Melbourne] Early stop at epoch 1: renewable 0.18 < 0.20
+[09:13:32] [INFO    ]   Node 1 Melbourne  🌱 TRAIN  (Renewable: 0.18 | Carbon: 725g CO₂/kWh | Mix: ☀0% 🌬18% 🪨82%)
+[09:13:32] [INFO    ]     └─ Acc=0.8945 | Loss=0.3850 | Compress=0.10
+[09:13:32] [INFO    ]   Node 2 San José   ⛔ IDLE (Oracle: waiting for better window (0.35))
+[09:13:34] [INFO    ] [Round 4] Aggregated 1 node(s) via renewable_weighted → Acc=0.0980 Loss=nan
+[09:13:34] [INFO    ]   ► Global Acc=0.0980 | Participants=1/3 | Energy=1.6100 kWh | CO₂=1075.19g
+[09:13:34] [INFO    ] 
+Round 05/10 │ Oracle Carbon-Aware
+[09:13:35] [INFO    ]   Node 0 Oslo       🌱 TRAIN  (Renewable: 0.38 | Carbon: 84g CO₂/kWh | Mix: ☀11% 🌬27% 🪨63%)
+[09:13:35] [INFO    ]     └─ Acc=0.7607 | Loss=1.0202 | Compress=1.00
+[09:13:35] [INFO    ] [Melbourne] Early stop at epoch 1: renewable 0.18 < 0.20
+[09:13:35] [INFO    ]   Node 1 Melbourne  🌱 TRAIN  (Renewable: 0.18 | Carbon: 726g CO₂/kWh | Mix: ☀2% 🌬15% 🪨82%)
+[09:13:35] [INFO    ]     └─ Acc=0.9080 | Loss=0.3421 | Compress=0.10
+[09:13:35] [INFO    ]   Node 2 San José   ⛔ IDLE (Oracle: waiting for better window (0.40))
+[09:13:37] [INFO    ] [Round 5] Aggregated 2 node(s) via renewable_weighted → Acc=0.0980 Loss=nan
+[09:13:37] [INFO    ]   ► Global Acc=0.0980 | Participants=2/3 | Energy=3.0100 kWh | CO₂=1193.18g
+[09:13:37] [INFO    ] 
+Round 06/10 │ Oracle Carbon-Aware
+[09:13:38] [INFO    ]   Node 0 Oslo       🌱 TRAIN  (Renewable: 0.29 | Carbon: 92g CO₂/kWh | Mix: ☀7% 🌬22% 🪨71%)
+[09:13:38] [INFO    ]     └─ Acc=0.7633 | Loss=1.0756 | Compress=1.00
+[09:13:38] [INFO    ]   Node 1 Melbourne  ⛔ IDLE (Oracle: waiting for better window (0.43))
+[09:13:38] [INFO    ]   Node 2 San José   ⛔ IDLE (Oracle: waiting for better window (0.38))
+[09:13:40] [INFO    ] [Round 6] Aggregated 1 node(s) via renewable_weighted → Acc=0.0980 Loss=nan
+[09:13:40] [INFO    ]   ► Global Acc=0.0980 | Participants=1/3 | Energy=1.6100 kWh | CO₂=188.33g
+[09:13:40] [INFO    ] 
+Round 07/10 │ Oracle Carbon-Aware
+[09:13:40] [INFO    ]   Node 0 Oslo       ⛔ IDLE (Oracle: waiting for better window (0.31))
+[09:13:40] [INFO    ]   Node 1 Melbourne  ⛔ IDLE (Oracle: waiting for better window (0.54))
+[09:13:40] [INFO    ]   Node 2 San José   🌱 TRAIN  (Renewable: 0.34 | Carbon: 29g CO₂/kWh | Mix: ☀30% 🌬4% 🪨66%)
+[09:13:40] [INFO    ]     └─ Acc=0.5120 | Loss=2.7730 | Compress=1.00
+[09:13:42] [INFO    ] [Round 7] Aggregated 1 node(s) via renewable_weighted → Acc=0.0980 Loss=nan
+[09:13:42] [INFO    ]   ► Global Acc=0.0980 | Participants=1/3 | Energy=1.6100 kWh | CO₂=100.47g
+[09:13:42] [INFO    ] 
+Round 08/10 │ Oracle Carbon-Aware
+[09:13:43] [INFO    ]   Node 0 Oslo       🌱 TRAIN  (Renewable: 0.30 | Carbon: 91g CO₂/kWh | Mix: ☀1% 🌬28% 🪨70%)
+[09:13:43] [INFO    ]     └─ Acc=0.8113 | Loss=0.7470 | Compress=1.00
+[09:13:43] [INFO    ]   Node 1 Melbourne  ⛔ IDLE (Oracle: waiting for better window (0.56))
+[09:13:43] [INFO    ]   Node 2 San José   🌱 TRAIN  (Renewable: 0.39 | Carbon: 27g CO₂/kWh | Mix: ☀34% 🌬4% 🪨62%)
+[09:13:43] [INFO    ]     └─ Acc=0.6490 | Loss=1.7973 | Compress=1.00
+[09:13:45] [INFO    ] [Round 8] Aggregated 2 node(s) via renewable_weighted → Acc=0.0980 Loss=nan
+[09:13:45] [INFO    ]   ► Global Acc=0.0980 | Participants=2/3 | Energy=3.0100 kWh | CO₂=223.89g
+[09:13:45] [INFO    ] 
+Round 09/10 │ Oracle Carbon-Aware
+[09:13:45] [INFO    ]   Node 0 Oslo       ⛔ IDLE (Oracle: waiting for better window (0.32))
+[09:13:45] [INFO    ]   Node 1 Melbourne  ⛔ IDLE (Oracle: soft-zone defer (future=0.53 >> now=0.37))
+[09:13:45] [INFO    ]   Node 2 San José   🌱 TRAIN  (Renewable: 0.25 | Carbon: 32g CO₂/kWh | Mix: ☀21% 🌬3% 🪨76%)
+[09:13:45] [INFO    ]     └─ Acc=0.7300 | Loss=1.2832 | Compress=1.00
+[09:13:47] [INFO    ] [Round 9] Aggregated 1 node(s) via renewable_weighted → Acc=0.0980 Loss=nan
+[09:13:47] [INFO    ]   ► Global Acc=0.0980 | Participants=1/3 | Energy=1.6100 kWh | CO₂=95.83g
+[09:13:47] [INFO    ] 
+Round 10/10 │ Oracle Carbon-Aware
+[09:13:48] [INFO    ]   Node 0 Oslo       🌱 TRAIN  (Renewable: 0.39 | Carbon: 83g CO₂/kWh | Mix: ☀2% 🌬36% 🪨62%)
+[09:13:48] [INFO    ]     └─ Acc=0.8603 | Loss=0.4983 | Compress=1.00
+[09:13:49] [INFO    ]   Node 1 Melbourne  🌱 TRAIN  (Renewable: 0.51 | Carbon: 503g CO₂/kWh | Mix: ☀43% 🌬7% 🪨50%)
+[09:13:49] [INFO    ]     └─ Acc=0.9085 | Loss=0.3378 | Compress=0.10
+[09:13:49] [INFO    ] [San José] Early stop at epoch 1: renewable 0.10 < 0.20
+[09:13:49] [INFO    ]   Node 2 San José   🌱 TRAIN  (Renewable: 0.10 | Carbon: 37g CO₂/kWh | Mix: ☀3% 🌬6% 🪨91%)
+[09:13:49] [INFO    ]     └─ Acc=0.8070 | Loss=0.8070 | Compress=1.00
+[09:13:51] [INFO    ] [Round 10] Aggregated 3 node(s) via renewable_weighted → Acc=0.0980 Loss=nan
+[09:13:51] [INFO    ]   ► Global Acc=0.0980 | Participants=3/3 | Energy=4.4100 kWh | CO₂=915.91g
+
+[33m[1m════════════════════════════════════════════════════════════════════════[0m
+[33m[1m  🌍  CLIMATE-FED ORCHESTRATOR — RESULTS SUMMARY[0m
+[33m[1m════════════════════════════════════════════════════════════════════════[0m
+
+  [33m●[0m [1mStandard FL[0m
+     Accuracy       : [36m9.80%[0m
+     Energy         : 44.100 kWh-eq
+     CO₂            : 11508.18 g CO₂e
+     Participation  : 100.0%
+
+  [34m●[0m [1mNaive Carbon-Aware[0m
+     Accuracy       : [36m9.80%[0m
+     Energy         : 6.300 kWh-eq  [32m(−85.7% vs baseline)[0m
+     CO₂            : 2700.40 g CO₂e
+     Participation  : 10.0%
+
+  [32m●[0m [1mOracle Carbon-Aware[0m
+     Accuracy       : [36m9.80%[0m
+     Energy         : 28.700 kWh-eq  [32m(−34.9% vs baseline)[0m
+     CO₂            : 6862.11 g CO₂e
+     Participation  : 63.3%
+
+  [32m────────────────────────────────────────────────────────────────────[0m
+  [32m  ⚡ Carbon-Aware FL saves 85.7% energy vs standard training.[0m
+  [32m  🌱 Every training run is a vote for the planet.[0m
+  [32m────────────────────────────────────────────────────────────────────[0m
+
+[09:13:51] [INFO    ] 
+  📝 Technical report → climate_fed_orchestrator/results/reports/technical_report.md
+[09:13:51] [INFO    ]   🎨 Rendering Carbon Observatory dashboard...
+/home/dhina/plant-leaf-disease-detector/climate_fed_orchestrator/visualization/carbon_dashboard.py:166: UserWarning: Glyph 127757 (\N{EARTH GLOBE EUROPE-AFRICA}) missing from current font.
+  plt.savefig(path, dpi=dpi, bbox_inches="tight", facecolor=CARBON_BLACK)
+[09:13:52] [INFO    ] [Dashboard] Saved → climate_fed_orchestrator/results/plots/carbon_observatory.png
+[09:13:52] [INFO    ]   🖼  Dashboard → climate_fed_orchestrator/results/plots/carbon_observatory.png
+[09:13:52] [INFO    ]   📋 Metrics JSON → climate_fed_orchestrator/results/metrics/experiment_results.json
+[09:13:52] [INFO    ] 
+  ⏱  Total execution: 84.4s
+[09:13:52] [INFO    ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[09:13:52] [INFO    ]   🌱 Training complete. The planet thanks you.
+[09:13:52] [INFO    ] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+

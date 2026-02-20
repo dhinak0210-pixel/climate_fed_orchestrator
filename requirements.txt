@@ -1,29 +1,22 @@
-# Core framework
-Flask==3.0.0
-Werkzeug==3.0.1
-gunicorn==21.2.0
+# Core
+streamlit==1.28.0
+plotly==5.18.0
+pandas==2.0.3
+numpy==1.24.3
 
-# ML/Data
+# ML
 torch==2.1.0
 torchvision==0.16.0
-numpy==1.24.3
-pandas==2.0.3
-
-# Privacy
 opacus==1.4.0
 
-# Visualization
-matplotlib==3.8.0
-plotly==5.18.0
-
-# HTTP/API
+# HTTP
 requests==2.31.0
 aiohttp==3.9.1
-psutil==5.9.5
 
 # Config
 PyYAML==6.0.1
 python-dotenv==1.0.0
 
-# Production
-gunicorn[standard]==21.2.0
+# Utils
+Pillow==10.1.0
+psutil==5.9.5

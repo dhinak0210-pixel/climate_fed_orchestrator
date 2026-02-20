@@ -1,0 +1,6 @@
+,Final Accuracy,Final Accuracy,Total CO2 (kg),Total CO2 (kg)
+,mean,std,mean,std
+Condition,,,,
+Carbon-Aware,0.8408,0.0828,4.776,0.0
+Full System (C+P),0.0703,0.0127,3.5426,0.0
+Standard FL,0.8939,0.0523,14.2461,0.0
