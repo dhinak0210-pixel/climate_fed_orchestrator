@@ -174,7 +174,16 @@ def dashboard():
 
 @app.route('/api/metrics')
 def api_metrics():
-    return jsonify(EXPERIMENT_DATA)
+    try:
+        # Using the global data to ensure internal consistency, 
+        # but formatting as requested for the API response.
+        return app.response_class(
+            response=json.dumps(EXPERIMENT_DATA, indent=2, ensure_ascii=False),
+            status=200,
+            mimetype='application/json; charset=utf-8'
+        )
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 @app.route('/api/compare')
 def api_compare():
