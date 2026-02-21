@@ -1,42 +1,65 @@
 {
+  "experiment_id": "sim_1771639074",
+  "timestamp": "2026-02-21T07:27:54.159152",
+  "status": "live",
   "system_version": "2.0",
-  "final_accuracy": 94.2,
-  "privacy_epsilon": 0.87,
-  "carbon_reduction_percent": 43.7,
-  "total_carbon_kg": 0.05,
-  "baseline_carbon_kg": 0.089,
-  "renewable_energy_percent": 78.3,
-  "active_nodes_avg": 2.1,
-  "training_rounds": 10,
-  "real_world_equivalents": {
-    "trees": 2.3,
-    "car_km": 417,
-    "smartphone_charges": 4167
-  },
+  "final_accuracy": 59.48,
+  "total_carbon_kg": 1.8628,
+  "total_kwh": 8.96,
+  "rounds": 2,
   "convergence_history": {
     "accuracy": [
-      12.4,
-      34.8,
-      56.2,
-      71.5,
-      82.1,
-      88.4,
-      91.2,
-      93.1,
-      94.0,
-      94.2
+      30.9,
+      59.48
     ],
     "co2_cumulative_g": [
-      5.0,
-      10.0,
-      15.0,
-      20.0,
-      25.0,
-      30.0,
-      35.0,
-      40.0,
-      45.0,
-      50.0
+      869.16,
+      1862.8
+    ],
+    "energy_cumulative_kwh": [
+      4.48,
+      8.96
+    ]
+  },
+  "carbon_results": {
+    "final_accuracy": 0.5948,
+    "total_co2_kg": 1.8628,
+    "per_round": [
+      {
+        "round": 1,
+        "global_accuracy": 0.309,
+        "cumulative_co2_kg": 0.8692,
+        "active_nodes": [
+          "Oslo",
+          "Melbourne",
+          "San Jos\u00e9"
+        ]
+      },
+      {
+        "round": 2,
+        "global_accuracy": 0.5948,
+        "cumulative_co2_kg": 1.8628,
+        "active_nodes": [
+          "Oslo",
+          "Melbourne",
+          "San Jos\u00e9"
+        ]
+      }
+    ]
+  },
+  "carbon_reduction_percent": 29.6,
+  "baseline_accuracy": 67.86,
+  "baseline_results": {
+    "final_accuracy": 0.6786,
+    "per_round": [
+      {
+        "round": 1,
+        "global_accuracy": 0.527
+      },
+      {
+        "round": 2,
+        "global_accuracy": 0.6786
+      }
     ]
   }
 }
