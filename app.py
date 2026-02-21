@@ -8,7 +8,7 @@ import json
 import logging
 from pathlib import Path
 from datetime import datetime
-from flask import Flask, render_template, jsonify, request, send_file
+from flask import Flask, render_template, jsonify, request, send_file, redirect
 from werkzeug.middleware.proxy_fix import ProxyFix
 
 # Configure logging for production
@@ -158,7 +158,8 @@ load_experiment_data()
 
 @app.route('/')
 def index():
-    return render_template('index.html', data=EXPERIMENT_DATA)
+    """Redirect to dashboard."""
+    return redirect('/dashboard')
 
 @app.route('/health')
 def health():
@@ -170,7 +171,8 @@ def health():
 
 @app.route('/dashboard')
 def dashboard():
-    return render_template('dashboard.html', data=EXPERIMENT_DATA)
+    """Serve the interactive dashboard."""
+    return render_template('dashboard.html')
 
 @app.route('/api/metrics')
 def api_metrics():
