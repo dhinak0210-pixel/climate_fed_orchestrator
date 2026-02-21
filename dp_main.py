@@ -32,7 +32,9 @@ import torch.nn as nn
 import yaml
 from torchvision import datasets, transforms
 
+_HERE = Path(__file__).parent
 # ── Package imports ────────────────────────────────────────────────────────────
+
 
 from core.carbon_engine import NodeGeography, RenewableOracle
 from core.dp_sgd import (

@@ -38,6 +38,8 @@ import yaml
 from torchvision import datasets, transforms
 
 # ── Package imports ────────────────────────────────────────────────────────────
+_HERE = Path(__file__).parent
+
 
 from core.carbon_engine import NodeGeography, RenewableOracle
 from core.energy_accountant import CarbonLedger, ImpactReport
