@@ -118,15 +118,26 @@ def load_experiment_data():
             final_data["convergence"]["final_accuracy"] = round(acc, 4)
             final_data["final_accuracy"] = round(acc * 100, 2)
         
+        if "total_carbon_kg" in raw_data:
+            val = safe_float(raw_data["total_carbon_kg"])
+            final_data["carbon"]["total_carbon_kg"] = round(val, 4)
+            final_data["comparison"]["carbon_total_energy"] = round(val, 4)
+            
+            # Calculate baseline if reduction percent is available
+            if "carbon_reduction_percent" in raw_data:
+                red = safe_float(raw_data["carbon_reduction_percent"])
+                if red < 100: # avoid div by zero
+                    baseline = val / (1 - (red / 100))
+                    final_data["carbon"]["baseline_carbon_kg"] = round(baseline, 4)
+                    final_data["comparison"]["baseline_total_energy"] = round(baseline, 4)
+
         if "carbon_reduction_percent" in raw_data:
             val = safe_float(raw_data["carbon_reduction_percent"])
             final_data["carbon"]["reduction_percentage"] = round(val, 2)
             final_data["comparison"]["energy_savings_percent"] = round(val, 2)
 
-        if "total_carbon_kg" in raw_data:
-            val = safe_float(raw_data["total_carbon_kg"])
-            final_data["carbon"]["total_carbon_kg"] = round(val, 4)
-            final_data["comparison"]["carbon_total_energy"] = round(val, 4)
+        if "renewable_percentage" in raw_data:
+            final_data["carbon"]["renewable_percentage"] = safe_float(raw_data["renewable_percentage"])
 
         if "privacy_epsilon" in raw_data:
             final_data["privacy"]["epsilon_consumed"] = safe_float(raw_data["privacy_epsilon"])
@@ -178,18 +189,16 @@ def dashboard():
 def api_metrics():
     """Return formatted experiment metrics."""
     try:
-        with open('results/metrics.json', 'r', encoding='utf-8') as f:
-            data = json.load(f)
+        # Re-sync data to ensure it's fresh
+        load_experiment_data()
         
-        # Pretty-print with proper Unicode
+        # Pretty-print with proper Unicode and sorted keys
         response = app.make_response(
-            json.dumps(data, indent=2, ensure_ascii=False, sort_keys=True)
+            json.dumps(EXPERIMENT_DATA, indent=2, ensure_ascii=False, sort_keys=True)
         )
         response.headers['Content-Type'] = 'application/json; charset=utf-8'
         return response
         
-    except FileNotFoundError:
-        return jsonify({"error": "metrics.json not found"}), 404
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
