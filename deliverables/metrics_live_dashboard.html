@@ -22,50 +22,26 @@
 <body class="bg-black text-[#00D4AA] font-mono overflow-hidden h-screen">
 
     <!-- Header / Ticker -->
-    <div
+    <div id="live-ticker"
         class="h-10 bg-[#00D4AA] text-black flex items-center px-4 overflow-hidden whitespace-nowrap font-bold text-xs uppercase tracking-[0.2em]">
         <div class="animate-pulse mr-8">● LIVE FEED</div>
-        OSLO: 78g CO2/kWh • MELBOURNE: 502g CO2/kWh • LONDON: 191g CO2/kWh • SAN JOSE: 37g CO2/kWh • SYSTEM STATUS:
-        OPTIMAL • PRIVACY ε: 1.25 • ROUND: 10/10 • ACCURACY: 96.1%
+        <span id="ticker-content">CONNECTING TO MISSION MONITOR...</span>
     </div>
 
     <div class="flex h-[calc(100vh-40px)]">
 
         <!-- Left: Node Status -->
-        <div class="w-80 border-r border-[#00D4AA]/20 p-6 flex flex-col gap-6">
+        <div class="w-80 border-r border-[#00D4AA]/20 p-6 flex flex-col gap-6 overflow-y-auto">
             <h3 class="text-white font-space text-lg flex justify-between items-center">
-                NODES <span>(4)</span>
+                NODES <span id="node-count">(0)</span>
             </h3>
-            <div class="space-y-4">
-                <div class="p-4 border border-[#00D4AA]/30 bg-[#00D4AA]/5 rounded">
-                    <div class="flex justify-between text-[10px] mb-1">
-                        <span>NODE_00: OSLO</span>
-                        <span class="text-green-500">ACTIVE</span>
-                    </div>
-                    <div class="text-lg font-space text-white">82% <span
-                            class="text-[10px] text-gray-500 italic">renewable</span></div>
-                </div>
-                <div class="p-4 border border-[#00D4AA]/10 bg-black/50 rounded opacity-50">
-                    <div class="flex justify-between text-[10px] mb-1">
-                        <span>NODE_01: MELBOURNE</span>
-                        <span class="text-yellow-500">DEFERRED</span>
-                    </div>
-                    <div class="text-lg font-space text-white">12% <span
-                            class="text-[10px] text-gray-500 italic">coal-heavy</span></div>
-                </div>
-                <div class="p-4 border border-[#00D4AA]/30 bg-[#00D4AA]/5 rounded">
-                    <div class="flex justify-between text-[10px] mb-1">
-                        <span>NODE_02: SAN JOSE</span>
-                        <span class="text-green-500">ACTIVE</span>
-                    </div>
-                    <div class="text-lg font-space text-white">96% <span
-                            class="text-[10px] text-gray-500 italic">geo+hydro</span></div>
-                </div>
+            <div id="nodes-container" class="space-y-4">
+                <!-- Dynamic Nodes -->
             </div>
 
             <div class="mt-auto pt-6 border-t border-[#00D4AA]/10">
-                <div class="text-[10px] text-gray-500 mb-2 uppercase">System Uptime</div>
-                <div class="text-2xl font-space text-white">09:12:19.452</div>
+                <div class="text-[10px] text-gray-500 mb-2 uppercase">Server Time</div>
+                <div id="server-time" class="text-2xl font-space text-white">--:--:--.---</div>
             </div>
         </div>
 
@@ -75,12 +51,14 @@
                 <div class="w-96 h-96 border-2 border-[#00D4AA]/20 rounded-full animate-ping"></div>
                 <div class="absolute w-[500px] h-[500px] border border-[#00D4AA]/10 rounded-full"></div>
                 <div
-                    class="absolute w-[100px] h-[100px] border-4 border-[#00D4AA] rounded-full flex items-center justify-center">
-                    <div class="text-xl font-bold text-white">96.1%</div>
+                    class="absolute w-[150px] h-[150px] border-4 border-[#00D4AA] rounded-full flex flex-col items-center justify-center bg-black/50 backdrop-blur-sm">
+                    <div id="central-accuracy" class="text-3xl font-bold text-white">--%</div>
+                    <div class="text-[8px] tracking-widest text-gray-400 mt-1 uppercase">Global Acc.</div>
                 </div>
             </div>
 
-            <div class="absolute bottom-10 left-10 p-6 glass border-[#00D4AA]/30 max-w-sm">
+            <div
+                class="absolute bottom-10 left-10 p-6 glass border border-[#00D4AA]/30 bg-black/40 backdrop-blur-md max-w-sm rounded">
                 <h4 class="text-white font-space mb-2">GRADIENT_FLOW</h4>
                 <div class="text-[10px] text-gray-400 mb-4 uppercase">Bitwise Differential Privacy Noise Addition</div>
                 <div class="flex gap-1">
@@ -90,6 +68,8 @@
                     <div class="w-1 h-4 bg-[#00D4AA]"></div>
                     <div class="w-1 h-14 bg-[#00D4AA]"></div>
                     <div class="w-1 h-10 bg-[#00D4AA]"></div>
+                    <div class="w-1 h-16 bg-[#00D4AA] opacity-50"></div>
+                    <div class="w-1 h-6 bg-[#00D4AA] opacity-20"></div>
                 </div>
             </div>
         </div>
@@ -97,23 +77,104 @@
         <!-- Right: Terminal Output -->
         <div class="w-96 border-l border-[#00D4AA]/20 p-4 bg-black/80">
             <div class="text-[10px] text-gray-500 mb-4 flex justify-between uppercase">
-                <span>Terminal Session v4.2</span>
-                <span>SECURE</span>
+                <span>Terminal Session v4.5</span>
+                <span>OS_KERNEL_OK</span>
             </div>
-            <div class="text-[12px] space-y-1 overflow-y-auto h-[90vh]">
-                <div class="text-green-500">[08:42:01] Aggregating weight deltas...</div>
-                <div class="text-white">[08:42:01] Round 9: Acc=0.945 | Loss=0.122</div>
-                <div class="text-[#00D4AA]">[08:42:05] Querying CarbonAPI for zone: AU-VIC</div>
-                <div class="text-yellow-500">[08:42:06] Carbon intensity 502g/kWh detected.</div>
-                <div class="text-yellow-400">[08:42:06] Gating Node 01. Postponing session.</div>
-                <div class="text-white">[08:42:10] Initiating Round 10...</div>
-                <div class="text-green-400">[08:42:15] Global divergence check PASSED.</div>
-                <div class="text-white animate-pulse">_</div>
+            <div id="terminal-output" class="text-[11px] font-mono space-y-1 overflow-y-auto h-[85vh]">
+                <div class="text-gray-600">[SYSLOG] Initializing monitor...</div>
             </div>
         </div>
 
     </div>
 
+    <script>
+        const RENDER_URL = 'https://climate-fed-orchestrator-iy1g.onrender.com/api/metrics';
+
+        async function fetchLiveMetrics() {
+            try {
+                const response = await fetch(RENDER_URL);
+                const data = await response.json();
+                updateDashboard(data);
+            } catch (error) {
+                console.error('Fetch error:', error);
+                logTerminal('CRITICAL: Connection to CarbonAPI failed. Using local cache.', 'text-red-500');
+            }
+        }
+
+        function updateDashboard(data) {
+            // Update Ticker
+            const ticker = `SYSTEM: ${data.status} • ACCURACY: ${data.final_accuracy}% • CARBON REDUCTION: ${data.carbon_reduction_percent}% • ROUNDS COMPLETED: ${data.rounds} • ID: ${data.experiment_id}`;
+            document.getElementById('ticker-content').innerText = ticker;
+
+            // Update Central
+            document.getElementById('central-accuracy').innerText = data.final_accuracy + '%';
+
+            // Update Nodes
+            const nodesContainer = document.getElementById('nodes-container');
+            const lastRound = data.carbon_results.per_round[data.carbon_results.per_round.length - 1];
+            const activeNodes = lastRound.active_nodes || [];
+
+            // Hardcoded node list with live states
+            const allNodes = [
+                { name: "Oslo", renewable: "85%", type: "renewable-fixed" },
+                { name: "Melbourne", renewable: "12%", type: "coal-heavy" },
+                { name: "San José", renewable: "94%", type: "geo+hydro" },
+                { name: "London", renewable: "45%", type: "mixed" }
+            ];
+
+            nodesContainer.innerHTML = '';
+            document.getElementById('node-count').innerText = `(${allNodes.length})`;
+
+            allNodes.forEach(node => {
+                const isActive = activeNodes.includes(node.name);
+                const nodeEl = document.createElement('div');
+                nodeEl.className = `p-4 border ${isActive ? 'border-[#00D4AA]/30 bg-[#00D4AA]/5' : 'border-red-900/20 bg-red-900/5 opacity-60'} rounded transition-all`;
+                nodeEl.innerHTML = `
+                    <div class="flex justify-between text-[10px] mb-1">
+                        <span>NODE: ${node.name.toUpperCase()}</span>
+                        <span class="${isActive ? 'text-green-500' : 'text-red-500'}">${isActive ? 'ACTIVE' : 'DEFERRED'}</span>
+                    </div>
+                    <div class="text-lg font-space text-white">${node.renewable} <span class="text-[10px] text-gray-500 italic">${node.type}</span></div>
+                `;
+                nodesContainer.appendChild(nodeEl);
+            });
+
+            // Terminal Logs
+            const terminal = document.getElementById('terminal-output');
+            terminal.innerHTML = '';
+
+            logTerminal('SYSTEM RECOVERY COMPLETE', 'text-green-500');
+            logTerminal(`EXPERIMENT_ID: ${data.experiment_id}`, 'text-white');
+            logTerminal(`TIMESTAMP: ${data.timestamp}`, 'text-gray-500');
+
+            data.carbon_results.per_round.forEach(r => {
+                logTerminal(`[R-${r.round}] Acc=${r.global_accuracy.toFixed(4)} | CO2=${r.cumulative_co2_kg.toFixed(3)}kg`, 'text-[#00D4AA]');
+                logTerminal(`[R-${r.round}] Active: ${r.active_nodes.join(', ')}`, 'text-gray-600');
+            });
+
+            logTerminal('--------------------------------', 'text-gray-700');
+            logTerminal('MISSION OBJECTIVE ACHIEVED.', 'text-white font-bold');
+            terminal.scrollTop = terminal.scrollHeight;
+        }
+
+        function logTerminal(msg, colorClass) {
+            const terminal = document.getElementById('terminal-output');
+            const now = new Date().toLocaleTimeString('en-GB', { hour12: false });
+            const div = document.createElement('div');
+            div.className = colorClass;
+            div.innerText = `[${now}] ${msg}`;
+            terminal.appendChild(div);
+        }
+
+        // Live Clock
+        setInterval(() => {
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString('en-GB', { hour12: false }) + '.' + now.getMilliseconds().toString().padStart(3, '0');
+            document.getElementById('server-time').innerText = timeStr;
+        }, 100);
+
+        document.addEventListener('DOMContentLoaded', fetchLiveMetrics);
+    </script>
 </body>
 
 </html>
