@@ -516,18 +516,56 @@ def main_logic(args) -> dict:
         return {"error": "No records generated"}
         
     best_record = records[-1] # Usually oracle
+    
+    # Map record to summary format expected by app.py
     summary = {
         "experiment_id": f"sim_{int(time.time())}",
         "timestamp": datetime.now().isoformat(),
-        "final_accuracy": best_record.final_accuracy,
-        "carbon_reduction_percent": 43.7, # Simplified for demo
-        "total_carbon_kg": best_record.total_co2_kg,
-        "rounds": args.rounds
+        "status": "live",
+        "system_version": "2.0",
+        "final_accuracy": round(best_record.final_accuracy * 100, 2),
+        "total_carbon_kg": round(best_record.total_co2_kg, 4),
+        "total_kwh": round(best_record.total_kwh, 4),
+        "rounds": args.rounds,
+        "convergence_history": {
+            "accuracy": [round(a * 100, 2) for a in best_record.accuracies],
+            "co2_cumulative_g": [round(c * 1000, 2) for c in best_record.cumulative_co2],
+            "energy_cumulative_kwh": [round(e, 4) for e in best_record.cumulative_energy]
+        },
+        "carbon_results": {
+            "final_accuracy": round(best_record.final_accuracy, 4),
+            "total_co2_kg": round(best_record.total_co2_kg, 4),
+            "per_round": [
+                {
+                    "round": i + 1,
+                    "global_accuracy": round(acc, 4),
+                    "cumulative_co2_kg": round(co2, 4),
+                    "active_nodes": [best_record.node_names[idx] for idx, p in enumerate(part) if p == 1]
+                }
+                for i, (acc, co2, part) in enumerate(zip(best_record.accuracies, best_record.cumulative_co2, best_record.participation))
+            ]
+        }
     }
     
+    # Calculate carbon reduction vs first record (usually standard)
+    if len(records) > 1:
+        standard = records[0]
+        reduction = (1 - (best_record.total_co2_kg / max(standard.total_co2_kg, 0.001))) * 100
+        summary["carbon_reduction_percent"] = round(reduction, 1)
+        summary["baseline_accuracy"] = round(standard.final_accuracy * 100, 2)
+        summary["baseline_results"] = {
+            "final_accuracy": round(standard.final_accuracy, 4),
+            "per_round": [{"round": i+1, "global_accuracy": round(a, 4)} for i, a in enumerate(standard.accuracies)]
+        }
+    else:
+        summary["carbon_reduction_percent"] = 0.0
+        
     # Save to metrics for app.py to pick up
-    with open(out / "metrics.json", "w") as f:
+    metrics_file = out / "metrics.json"
+    with open(metrics_file, "w") as f:
         json.dump(summary, f, indent=2)
+    
+    logger.info(f"Summary saved to {metrics_file}")
         
     return summary
 

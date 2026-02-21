@@ -102,24 +102,44 @@ def load_experiment_data():
         # Start with fallback structure and overlay real metrics
         final_data = get_fallback_data()
         
-        # Map flat metrics.json to nested structure
+        # Mark as production/real data
+        final_data["metadata"]["status"] = "live"
+        final_data["status"] = "live"
+        
+        # Map metrics.json to nested structure with type safety
+        def safe_float(val, default=0.0):
+            try: return float(val)
+            except: return default
+
         if "final_accuracy" in raw_data:
-            acc = raw_data["final_accuracy"]
-            final_data["convergence"]["final_accuracy"] = acc / 100.0 if acc > 1 else acc
-            final_data["baseline_results"]["final_accuracy"] = raw_data.get("baseline_accuracy", 0.945)
+            acc = safe_float(raw_data["final_accuracy"])
+            # Normalize to 0-1 if it was 0-100
+            if acc > 1.0: acc /= 100.0
+            final_data["convergence"]["final_accuracy"] = round(acc, 4)
+            final_data["final_accuracy"] = round(acc * 100, 2)
         
         if "carbon_reduction_percent" in raw_data:
-            final_data["carbon"]["reduction_percentage"] = raw_data["carbon_reduction_percent"]
-            final_data["comparison"]["energy_savings_percent"] = raw_data["carbon_reduction_percent"]
+            val = safe_float(raw_data["carbon_reduction_percent"])
+            final_data["carbon"]["reduction_percentage"] = round(val, 2)
+            final_data["comparison"]["energy_savings_percent"] = round(val, 2)
 
         if "total_carbon_kg" in raw_data:
-            final_data["carbon"]["total_carbon_kg"] = raw_data["total_carbon_kg"]
-            final_data["comparison"]["carbon_total_energy"] = raw_data["total_carbon_kg"]
+            val = safe_float(raw_data["total_carbon_kg"])
+            final_data["carbon"]["total_carbon_kg"] = round(val, 4)
+            final_data["comparison"]["carbon_total_energy"] = round(val, 4)
 
         if "privacy_epsilon" in raw_data:
-            final_data["privacy"]["epsilon_consumed"] = raw_data["privacy_epsilon"]
+            final_data["privacy"]["epsilon_consumed"] = safe_float(raw_data["privacy_epsilon"])
 
-        # Merge other top level keys
+        if "experiment_id" in raw_data:
+            final_data["experiment_id"] = raw_data["experiment_id"]
+            final_data["metadata"]["experiment_id"] = raw_data["experiment_id"]
+
+        if "timestamp" in raw_data:
+            final_data["timestamp"] = raw_data["timestamp"]
+            final_data["metadata"]["timestamp"] = raw_data["timestamp"]
+
+        # Merge other top level keys (like convergence_history)
         for k, v in raw_data.items():
             if k not in ["convergence", "carbon", "privacy", "comparison"]:
                 final_data[k] = v
@@ -127,8 +147,9 @@ def load_experiment_data():
         EXPERIMENT_DATA = final_data
         
     except Exception as e:
-        logger.error(f"Data load failed: {e}")
-        EXPERIMENT_DATA = get_fallback_data()
+        logger.error(f"Data load failed: {e}", exc_info=True)
+        if EXPERIMENT_DATA is None:
+            EXPERIMENT_DATA = get_fallback_data()
 
 # Load at startup
 load_experiment_data()
@@ -182,11 +203,19 @@ def run_simulation():
 
 @app.errorhandler(404)
 def handle_404(e):
-    return jsonify({"error": "Endpoint not found", "path": request.path}), 404
+    return jsonify({
+        "error": "Endpoint not found",
+        "path": request.path,
+        "suggestion": "Check available routes at /health"
+    }), 404
 
 @app.errorhandler(500)
 def handle_500(e):
-    return jsonify({"error": "Internal server error"}), 500
+    logger.error(f"Server Error: {e}", exc_info=True)
+    return jsonify({
+        "error": "Internal server error",
+        "message": str(e) if app.debug else "Something went wrong on our end"
+    }), 500
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
