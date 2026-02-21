@@ -1,18 +1,18 @@
 """Climate-Fed Orchestrator — Core Module"""
 
-from core.carbon_engine import (
+from .carbon_engine import (
     RenewableOracle,
     NodeGeography,
     RenewableSnapshot,
     EnergyMix,
 )
-from core.energy_accountant import (
+from .energy_accountant import (
     CarbonLedger,
     ImpactReport,
     RoundEnergyRecord,
 )
-from core.federated_node import CarbonAwareNode, NodeResult
-from core.aggregation_server import (
+from .federated_node import CarbonAwareNode, NodeResult
+from .aggregation_server import (
     CarbonAwareAggregator,
     AggregationResult,
 )

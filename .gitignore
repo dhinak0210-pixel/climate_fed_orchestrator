@@ -12,7 +12,10 @@ venv/
 .env
 
 # Data
-data/
+data/*
+!data/*.py
+!data/mnist_partitioner.py
+!data/__init__.py
 *.pkl
 *.h5
 
