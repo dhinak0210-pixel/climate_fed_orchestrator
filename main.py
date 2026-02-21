@@ -39,7 +39,8 @@ from torchvision import datasets, transforms
 
 # ── Package imports ────────────────────────────────────────────────────────────
 _HERE = Path(__file__).parent
-sys.path.insert(0, str(_HERE.parent))
+if str(_HERE) not in sys.path:
+    sys.path.insert(0, str(_HERE))
 
 from core.carbon_engine import NodeGeography, RenewableOracle
 from core.energy_accountant import CarbonLedger, ImpactReport
