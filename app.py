@@ -174,14 +174,20 @@ def dashboard():
 
 @app.route('/api/metrics')
 def api_metrics():
+    """Return formatted experiment metrics."""
     try:
-        # Using the global data to ensure internal consistency, 
-        # but formatting as requested for the API response.
-        return app.response_class(
-            response=json.dumps(EXPERIMENT_DATA, indent=2, ensure_ascii=False),
-            status=200,
-            mimetype='application/json; charset=utf-8'
+        with open('results/metrics.json', 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        
+        # Pretty-print with proper Unicode
+        response = app.make_response(
+            json.dumps(data, indent=2, ensure_ascii=False, sort_keys=True)
         )
+        response.headers['Content-Type'] = 'application/json; charset=utf-8'
+        return response
+        
+    except FileNotFoundError:
+        return jsonify({"error": "metrics.json not found"}), 404
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
