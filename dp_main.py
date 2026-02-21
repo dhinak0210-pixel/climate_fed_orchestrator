@@ -32,8 +32,7 @@ import torch.nn as nn
 import yaml
 from torchvision import datasets, transforms
 
-_HERE = Path(__file__).parent
-sys.path.insert(0, str(_HERE.parent))
+# ── Package imports ────────────────────────────────────────────────────────────
 
 from core.carbon_engine import NodeGeography, RenewableOracle
 from core.dp_sgd import (
