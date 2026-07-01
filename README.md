@@ -1,3 +1,12 @@
+---
+title: Climate Fed Orchestrator
+emoji: 🌍🔒
+colorFrom: green
+colorTo: blue
+sdk: docker
+pinned: false
+---
+
 # 🌍🔒 Climate-Fed Orchestrator
 
 **Privacy-Preserving Federated Learning with Real-Time Carbon Intelligence.**
