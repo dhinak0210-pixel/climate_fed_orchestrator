@@ -33,6 +33,6 @@ ENV PYTHONUNBUFFERED=1
 RUN mkdir -p /app/results
 
 # ── Default Execution ────────────────────────────────────────────
-# Default command runs a full comparison experiment
-ENTRYPOINT ["python3", "main.py"]
-CMD ["--mode", "full", "--rounds", "10", "--viz", "--out", "/app/results"]
+# Hugging Face Spaces expects the container to run on port 7860
+EXPOSE 7860
+CMD ["streamlit", "run", "streamlit_app.py", "--server.port", "7860", "--server.address", "0.0.0.0"]
