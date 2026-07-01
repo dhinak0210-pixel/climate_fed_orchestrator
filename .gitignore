@@ -9,7 +9,12 @@ __pycache__/
 .Python
 env/
 venv/
+audit_venv/
+.venv/
 .env
+.env.dp
+.env.local
+.env.*.local
 
 # Data
 data/*

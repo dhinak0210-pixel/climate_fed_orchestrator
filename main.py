@@ -354,10 +354,10 @@ def run_arm(
     # Carbon savings vs "all-active" reference for this arm's ledger
     # Reference = actual records with all nodes active every round
     all_active_co2 = (
-        sum(ledger.records[0].kg_co2e for r in ledger.records if r.is_active)
+        sum(r.kg_co2e for r in ledger.records if r.is_active)
         if ledger.records
         else 0
-    )  # placeholder; full baseline passed from caller
+    )  # sum each active record's individual CO₂; baseline passed from caller
 
     return ExperimentRecord(
         arm_name=arm_name,

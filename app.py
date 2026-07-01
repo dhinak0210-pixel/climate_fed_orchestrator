@@ -6,6 +6,8 @@ Production-ready WSGI entry point for Render deployment
 import os
 import json
 import logging
+import threading
+import time
 from pathlib import Path
 from datetime import datetime
 from flask import Flask, render_template, jsonify, request, send_file, redirect
@@ -31,6 +33,7 @@ app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1)
 
 # Global state
 EXPERIMENT_DATA = None
+_jobs: dict = {}  # async job store for non-blocking simulation runs
 
 def get_fallback_data():
     """Provides a complete data structure that satisfies both index.html and dashboard.html."""
@@ -204,28 +207,61 @@ def api_metrics():
 
 @app.route('/api/compare')
 def api_compare():
-    # Return what the UI expects for comparison chart
+    """Return arm comparison using live experiment data with hardcoded fallback."""
+    data = EXPERIMENT_DATA or get_fallback_data()
+    comparison = data.get("comparison", {})
+    baseline = data.get("baseline_results", {})
+    carbon = data.get("carbon_results", {})
     return jsonify({
-        "standard_fl": {"accuracy": 94.5, "carbon_kg": 0.089},
-        "carbon_aware": {"accuracy": 94.2, "carbon_kg": 0.050},
-        "carbon_privacy": {"accuracy": 93.8, "carbon_kg": 0.050}
+        "standard_fl": {
+            "accuracy": round(baseline.get("final_accuracy", 0.945) * 100, 2),
+            "carbon_kg": comparison.get("baseline_total_energy", 0.089)
+        },
+        "carbon_aware": {
+            "accuracy": round(carbon.get("final_accuracy", 0.942) * 100, 2),
+            "carbon_kg": comparison.get("carbon_total_energy", 0.050)
+        },
+        "carbon_reduction_percent": data.get("carbon_reduction_percent",
+                                             comparison.get("energy_savings_percent", 43.7))
     })
 
 @app.route('/api/run_simulation', methods=['POST'])
 def run_simulation():
+    """Start a non-blocking simulation job. Poll /api/job/<job_id> for results."""
     try:
-        from main import run_experiment
         config = request.get_json() or {}
-        rounds = min(config.get('rounds', 5), 10) # Safe limit
-        logger.info(f"Triggering simulation: {rounds} rounds")
-        
-        result = run_experiment(rounds=rounds)
-        load_experiment_data() # Refresh after run
-        
-        return jsonify({"status": "success", "data": result})
+        rounds = min(config.get('rounds', 5), 10)  # Safe limit
+        job_id = f"job_{int(time.time())}"
+        logger.info(f"Queueing simulation job {job_id}: {rounds} rounds")
+
+        def _run():
+            try:
+                from main import run_experiment
+                result = run_experiment(rounds=rounds)
+                load_experiment_data()  # Refresh global state
+                _jobs[job_id] = {"status": "done", "data": result}
+                logger.info(f"Simulation job {job_id} completed")
+            except Exception as e:
+                logger.error(f"Simulation job {job_id} failed: {e}")
+                _jobs[job_id] = {"status": "error", "error": str(e)}
+
+        _jobs[job_id] = {"status": "running", "rounds": rounds, "started_at": datetime.now().isoformat()}
+        threading.Thread(target=_run, daemon=True).start()
+
+        return jsonify({"status": "started", "job_id": job_id, "rounds": rounds}), 202
+
     except Exception as e:
         logger.error(f"Simulation API failed: {e}")
         return jsonify({"error": str(e)}), 500
+
+
+@app.route('/api/job/<job_id>')
+def get_job_status(job_id):
+    """Poll the status of an async simulation job."""
+    job = _jobs.get(job_id)
+    if job is None:
+        return jsonify({"status": "not_found", "job_id": job_id}), 404
+    return jsonify({"job_id": job_id, **job})
 
 @app.errorhandler(404)
 def handle_404(e):

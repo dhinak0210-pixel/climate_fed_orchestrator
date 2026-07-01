@@ -6,22 +6,28 @@ plotly>=5.18.0
 pandas>=2.0.0
 numpy>=1.24.0
 
-# ML (CPU-only versions for faster/reliable deploy)
-torch>=2.1.0; platform_system != "Windows"
-torchvision>=0.16.0; platform_system != "Windows"
+# ML — pinned CPU-only to stay within 1 GB RAM on free hosting tiers
+# Do NOT upgrade to CUDA builds unless on a GPU host
+torch==2.1.2+cpu ; platform_system != "Windows"
+torchvision==0.16.2+cpu ; platform_system != "Windows"
+torch==2.1.2 ; platform_system == "Windows"
+torchvision==0.16.2 ; platform_system == "Windows"
 opacus>=1.4.0
 
 # HTTP
 requests>=2.31.0
 aiohttp>=3.9.1
 
-# Config
+# Config & Validation
 PyYAML>=6.0.0
 python-dotenv>=1.0.0
+pydantic>=2.0.0
 
 # Utils
 Pillow>=10.1.0
 psutil>=5.0.0
+
+# Testing
 pytest>=7.4.0
 pytest-cov>=4.1.0
 pytest-asyncio>=0.23.0
@@ -32,3 +38,7 @@ flask>=3.0.0
 flask-cors>=4.0.0
 gunicorn>=21.2.0
 werkzeug>=3.0.0
+
+# Dev tooling (optional in production)
+# pre-commit>=3.6.0
+
