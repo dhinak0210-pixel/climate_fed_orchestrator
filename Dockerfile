@@ -18,14 +18,9 @@ WORKDIR /app
 # Copy requirements first for better caching
 COPY requirements.txt .
 
-# Install PyTorch CPU-only first (200MB vs 915MB full bundle)
+# Install dependencies from requirements.txt
 RUN pip install --no-cache-dir --default-timeout=1000 --retries 5 \
-    torch torchvision \
-    --index-url https://download.pytorch.org/whl/cpu
-
-# Install remaining dependencies
-RUN pip install --no-cache-dir --default-timeout=1000 --retries 5 \
-    numpy>=1.24.0 matplotlib>=3.7.0 seaborn>=0.12.0 PyYAML>=6.0 tqdm>=4.64.0 aiohttp python-dotenv
+    -r requirements.txt
 
 # Copy source code
 COPY . .
